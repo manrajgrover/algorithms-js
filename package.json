@@ -1,0 +1,26 @@
+{
+  "name": "algorithms-js",
+  "version": "0.0.1",
+  "description": "Algorithms Library in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManrajGrover/algorithms-js.git"
+  },
+  "author": "Manraj Singh <manrajsinghgrover@gmail.com> (http://manrajsingh.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManrajGrover/algorithms-js/issues"
+  },
+  "homepage": "https://github.com/ManrajGrover/algorithms-js#readme",
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  }
+}
