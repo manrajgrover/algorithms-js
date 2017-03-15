@@ -1,25 +1,4 @@
-class Node {
-  constructor(data) {
-    this._value = data;
-    this._next = null;
-  }
-
-  get value() {
-    return this._value;
-  }
-
-  get next() {
-    return this._next;
-  }
-
-  set value(data) {
-    this._value = data;
-  }
-
-  set next(node) {
-    this._next = node;
-  }
-}
+const Node = require('./Node');
 
 class LinkedList {
   constructor() {
@@ -28,7 +7,11 @@ class LinkedList {
   }
 
   get length() {
-    return this.length;
+    return this._length;
+  }
+
+  isEmpty() {
+    return this._length === 0;
   }
 
   push(data) {
@@ -45,16 +28,27 @@ class LinkedList {
     return this;
   }
 
-  printList() {
+  forEach(func) {
     let reference = this._head;
 
     while (reference !== null) {
-      process.stdout.write(`${reference.value} -> `);
+      reference.value = func(reference.value);
       reference = reference.next;
     }
-    process.stdout.write('null');
+  }
 
-    return this;
+  toString() {
+    let reference = this._head;
+    let str = '';
+
+    while (reference !== null) {
+      str += `${reference.value} -> `;
+      reference = reference.next;
+    }
+
+    str += 'null';
+
+    return str;
   }
 }
 
