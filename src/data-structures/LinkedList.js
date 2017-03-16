@@ -37,6 +37,15 @@ class LinkedList {
     }
   }
 
+  pop() {
+    if (this._head === null) {
+      throw new Error('There are no nodes to pop from the list');
+    }
+
+    this._head = this._head.next;
+    this._length -= 1;
+  }
+
   toString() {
     let reference = this._head;
     let str = '';
