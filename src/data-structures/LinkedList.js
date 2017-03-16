@@ -1,4 +1,5 @@
 const Node = require('./Node');
+const assert = require('assert');
 
 class LinkedList {
   constructor() {
@@ -49,6 +50,26 @@ class LinkedList {
     }
 
     return reference;
+  }
+
+  /**
+   * Returns first occurance of node with given value
+   * @param  {*}    value Value to be searched
+   * @return {Node}       First occurance of node with given value else -1
+   */
+  getNodeByValue(value) {
+    let reference = this._head;
+
+    while (reference !== null) {
+      try {
+        assert.deepStrictEqual(reference.value, value);
+        return reference;
+      } catch (e) {
+        reference = reference.next;
+      }
+    }
+
+    return -1;
   }
 
   forEach(func) {
