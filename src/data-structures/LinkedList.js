@@ -28,15 +28,6 @@ class LinkedList {
     return this;
   }
 
-  forEach(func) {
-    let reference = this._head;
-
-    while (reference !== null) {
-      reference.value = func(reference.value);
-      reference = reference.next;
-    }
-  }
-
   pop() {
     if (this._head === null) {
       throw new Error('There are no nodes to pop from the list');
@@ -44,6 +35,29 @@ class LinkedList {
 
     this._head = this._head.next;
     this._length -= 1;
+  }
+
+  getNodeByIndex(index) {
+    if (index < 0 || index >= this._length) {
+      throw new RangeError('Index out of range');
+    }
+
+    let reference = this._head;
+
+    for (let i = 1; i <= index; i += 1) {
+      reference = reference.next;
+    }
+
+    return reference;
+  }
+
+  forEach(func) {
+    let reference = this._head;
+
+    while (reference !== null) {
+      reference.value = func(reference.value);
+      reference = reference.next;
+    }
   }
 
   toString() {
@@ -60,6 +74,5 @@ class LinkedList {
     return str;
   }
 }
-
 
 module.exports = LinkedList;
