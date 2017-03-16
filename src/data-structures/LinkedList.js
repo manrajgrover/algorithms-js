@@ -1,5 +1,5 @@
 const Node = require('./Node');
-const assert = require('assert');
+const deepStrictEqual = require('assert').deepStrictEqual;
 
 class LinkedList {
   constructor() {
@@ -7,14 +7,27 @@ class LinkedList {
     this._length = 0;
   }
 
+  /**
+   * Get length of Linked List
+   * @return {int} Length of Linked List
+   */
   get length() {
     return this._length;
   }
 
+  /**
+   * Check if Linked List is empty or not
+   * @return {Boolean} `true` if empty else `false`
+   */
   isEmpty() {
     return this._length === 0;
   }
 
+  /**
+   * Pushes node to the end of Linked List
+   * @param  {*}          data       Data or value contained in Node
+   * @return {LinkedList}            `this`
+   */
   push(data) {
     const newNode = new Node(data);
 
@@ -29,6 +42,10 @@ class LinkedList {
     return this;
   }
 
+  /**
+   * Pops node from the end of Linked List
+   * @return {LinkedList} `this`
+   */
   pop() {
     if (this._head === null) {
       throw new Error('There are no nodes to pop from the list');
@@ -36,8 +53,15 @@ class LinkedList {
 
     this._head = this._head.next;
     this._length -= 1;
+
+    return this;
   }
 
+  /**
+   * Returns node at particular index else throws error if index out of range
+   * @param  {Number} index Index of node
+   * @return {Node}         Required node
+   */
   getNodeByIndex(index) {
     if (index < 0 || index >= this._length) {
       throw new RangeError('Index out of range');
@@ -62,7 +86,7 @@ class LinkedList {
 
     while (reference !== null) {
       try {
-        assert.deepStrictEqual(reference.value, value);
+        deepStrictEqual(reference.value, value);
         return reference;
       } catch (e) {
         reference = reference.next;
@@ -72,6 +96,11 @@ class LinkedList {
     return -1;
   }
 
+  /**
+   * Iterates over all nodes of linked list and runs function on the node value
+   * @param  {func} func Function containing logic to be applied to node value
+   * @return {None}
+   */
   forEach(func) {
     let reference = this._head;
 
@@ -79,8 +108,14 @@ class LinkedList {
       reference.value = func(reference.value);
       reference = reference.next;
     }
+
+    return this;
   }
 
+  /**
+   * Returns string representing the linked list
+   * @return {string} String representation of linked list
+   */
   toString() {
     let reference = this._head;
     let str = '';
