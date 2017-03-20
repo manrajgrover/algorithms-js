@@ -58,8 +58,32 @@ class LinkedList {
   }
 
   /**
+   * Pops node from particular place in Linked List
+   * @param  {Number}     index Index of node from end of the list
+   * @return {LinkedList}       `this`
+   */
+  popNodeByIndex(index) {
+    if (index < 0 || index >= this._length) {
+      throw new RangeError('Index out of range');
+    }
+
+    let reference = this._head;
+    let previousNode = null;
+
+    for (let i = 1; i <= index; i += 1) {
+      previousNode = reference;
+      reference = reference.next;
+    }
+
+    previousNode.next = reference.next;
+    this._length -= 1;
+
+    return this;
+  }
+
+  /**
    * Returns node at particular index else throws error if index out of range
-   * @param  {Number} index Index of node
+   * @param  {Number} index Index of node from end
    * @return {Node}         Required node
    */
   getNodeByIndex(index) {
