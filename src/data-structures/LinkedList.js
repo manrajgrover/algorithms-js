@@ -145,6 +145,23 @@ class LinkedList {
   }
 
   /**
+   * Returns Linked List as Array
+   * @return {Array} Array containing values of Linked List
+   */
+  getListAsArray() {
+    let reference = this._head;
+
+    const list = [];
+
+    while (reference !== null) {
+      list.push(reference.value);
+      reference = reference.next;
+    }
+
+    return list;
+  }
+
+  /**
    * Iterates over all nodes of linked list and runs function on the node value
    * @param  {func} func Function containing logic to be applied to node value
    * @return {None}
