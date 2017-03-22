@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
-    "report": "nyc mocha"
+    "report": "nyc mocha",
+    "lint": "eslint ./src ./test"
   },
   "repository": {
     "type": "git",
