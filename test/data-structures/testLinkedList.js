@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const LinkedList = require('../src').DataStructures.LinkedList;
+const LinkedList = require('../../src').DataStructures.LinkedList;
 const assert = require('assert');
 
 describe('LinkedList', () => {
