@@ -121,30 +121,6 @@ class LinkedList {
   }
 
   /**
-   * Returns last occurance of node with given value
-   * @param  {*} value Value to be searched
-   * @return {Node}    Last occurance of node with given value else -1
-   */
-  getLastNodeByValue(value) {
-    let reference = this._head;
-
-    let node = -1;
-
-    while (reference !== null) {
-      try {
-        deepStrictEqual(reference.value, value);
-        node = reference;
-      } catch (e) {
-        // continue regardless of error
-      } finally {
-        reference = reference.next;
-      }
-    }
-
-    return node;
-  }
-
-  /**
    * Returns Linked List as Array
    * @return {Array} Array containing values of Linked List
    */
