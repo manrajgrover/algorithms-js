@@ -33,4 +33,25 @@ describe('LinkedList', () => {
     assert(inst.isEmpty());
     assert.throws(() => inst.pop(), Error);
   });
+
+  it('should pop using index', () => {
+    const inst = new LinkedList();
+
+    inst.push(1);
+    inst.push(2);
+    inst.popNodeByIndex(1);
+    assert(!inst.isEmpty());
+    assert.equal(inst.length, 1);
+    const ref = inst.getNodeByIndex(0);
+    assert.equal(ref.value, 2);
+  });
+
+  it('should return list in string format', () => {
+    const inst = new LinkedList();
+
+    inst.push(1);
+    inst.push(2);
+    const listString = inst.toString();
+    assert.equal(listString, '2 -> 1 -> null');
+  });  
 });
