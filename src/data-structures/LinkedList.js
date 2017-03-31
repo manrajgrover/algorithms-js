@@ -138,6 +138,29 @@ class LinkedList {
   }
 
   /**
+   * Reverses Linked List
+   * @return None
+   */
+  reverseList() {
+    if (!this._head || !this._head.next) {
+      return;
+    }
+
+    let curr = this._head;
+    let next = null;
+    let prev = null;
+
+    while (curr) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    this._head = prev;
+  }
+
+  /**
    * Iterates over all nodes of linked list and runs function on the node value
    * @param  {func} func Function containing logic to be applied to node value
    * @return {None}
