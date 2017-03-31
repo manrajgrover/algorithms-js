@@ -121,4 +121,17 @@ describe('LinkedList', () => {
     inst.push({ x: 2 });
     assert.throws(() => inst.popNodeByIndex(5), Error);
   });
+
+  it('should reverse linked list', () => {
+    const inst = new LinkedList();
+
+    inst.push(1);
+    inst.push(2);
+    inst.push(3);
+
+    assert.equal(inst.toString(), '3 -> 2 -> 1 -> null');
+
+    inst.reverseList();
+    assert.equal(inst.toString(), '1 -> 2 -> 3 -> null');
+  });
 });
