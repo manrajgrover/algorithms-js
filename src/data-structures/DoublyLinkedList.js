@@ -70,13 +70,13 @@ class DoublyLinkedList {
    * @return {Node}         Required node
    */
   getNode(index) {
-    if (index < 0 || index >= this._length) {
+    if (index <= 0 || index > this._length) {
       throw new RangeError('Index out of range');
     }
 
     let reference = this._head;
 
-    for (let i = 1; i <= index; i += 1) {
+    for (let i = 1; i < index; i += 1) {
       reference = reference.next;
     }
 
