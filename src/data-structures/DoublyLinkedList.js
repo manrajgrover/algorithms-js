@@ -1,5 +1,4 @@
 const Node = require('./Node');
-const deepStrictEqual = require('assert').deepStrictEqual;
 
 class DoublyLinkedList {
   constructor() {
