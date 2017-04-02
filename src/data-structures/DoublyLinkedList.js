@@ -10,7 +10,7 @@ class DoublyLinkedList {
 
   /**
    * Get length of Doubly Linked List
-   * @return {int} Length of Linked List
+   * @return {Number} Length of Linked List
    */
   get length() {
     return this._length;
