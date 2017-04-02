@@ -21,4 +21,16 @@ describe('DoublyLinkedList', () => {
 
     assert.equal(inst.toString(), '2 -> 1 -> null');
   });
+
+  it('should get node at given index', () => {
+    const inst = new DoublyLinkedList();
+
+    inst.push(1);
+    inst.push(2);
+
+    const node = inst.getNode(2);
+    assert.equal(node.value, 1);
+
+    assert.equal(inst.toString(), '2 -> 1 -> null');
+  });
 });
