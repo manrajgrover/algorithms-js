@@ -5,6 +5,7 @@
     "no-underscore-dangle": "off",
     "comma-dangle": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off"
   }
 }
