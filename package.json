@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --recursive",
     "report": "nyc mocha --recursive",
-    "lint": "eslint ./src ./test"
+    "lint": "eslint ./src ./test",
+    "all": "npm run test && npm run lint"
   },
   "repository": {
     "type": "git",
