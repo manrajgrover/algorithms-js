@@ -9,7 +9,7 @@ class LinkedList {
 
   /**
    * Get length of Linked List
-   * @return {int} Length of Linked List
+   * @return {Number} Length of Linked List
    */
   get length() {
     return this._length;
@@ -25,8 +25,8 @@ class LinkedList {
 
   /**
    * Pushes node to the end of Linked List
-   * @param  {*}          data       Data or value contained in Node
-   * @return {LinkedList}            `this`
+   * @param  {*}          data Data or value contained in Node
+   * @return {LinkedList}      `this`
    */
   push(data) {
     const newNode = new Node(data);
