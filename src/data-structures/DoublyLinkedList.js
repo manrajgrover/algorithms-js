@@ -64,6 +64,25 @@ class DoublyLinkedList {
       newNode.next.prev = newNode;
     }
   }
+
+  /**
+   * Returns node at given index
+   * @param  {Number} index Index of required node
+   * @return {Node}         Required node
+   */
+  getNode(index) {
+    if (index < 0 || index >= this._length) {
+      throw new RangeError('Index out of range');
+    }
+
+    let reference = this._head;
+
+    for (let i = 1; i <= index; i += 1) {
+      reference = reference.next;
+    }
+
+    return reference;
+  }
 }
 
 module.exports = DoublyLinkedList;
