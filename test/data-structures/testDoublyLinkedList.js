@@ -33,4 +33,15 @@ describe('DoublyLinkedList', () => {
 
     assert.equal(inst.toString(), '2 -> 1 -> null');
   });
+
+  it('should insert node after a given node', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    inst.push(1);
+    inst.push(2);
+    inst.insertAfter(inst.getNode(1), 3);
+
+    assert.equal(inst.toString(), '2 -> 3 -> 1 -> null');
+  });
 });
