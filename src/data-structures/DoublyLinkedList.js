@@ -48,7 +48,7 @@ class DoublyLinkedList {
    * @param  {*}    data     Data or value contained in Node
    * @return {None}
    */
-  static insertAfter(prevNode, data) {
+  insertAfter(prevNode, data) {
     if (prevNode === null) {
       throw new Error('Previous node cannot be null');
     }
