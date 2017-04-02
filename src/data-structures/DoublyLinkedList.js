@@ -83,6 +83,24 @@ class DoublyLinkedList {
 
     return reference;
   }
+
+  /**
+   * Returns string representing the Doubly Linked List
+   * @return {string} String representation of Doubly Linked List
+   */
+  toString() {
+    let reference = this._head;
+    let str = '';
+
+    while (reference !== null) {
+      str += `${reference.value} -> `;
+      reference = reference.next;
+    }
+
+    str += 'null';
+
+    return str;
+  }
 }
 
 module.exports = DoublyLinkedList;
