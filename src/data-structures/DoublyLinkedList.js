@@ -42,6 +42,28 @@ class DoublyLinkedList {
     this._head = newNode;
     this._length += 1;
   }
+
+  /**
+   * Inserts node after a given node
+   * @param  {Node} prevNode Node after which insertion needs to take place
+   * @param  {*}    data     Data or value contained in Node
+   * @return {None}
+   */
+  static insertAfter(prevNode, data) {
+    if (prevNode === null) {
+      throw new Error('Previous node cannot be null');
+    }
+
+    const newNode = new Node(data);
+
+    newNode.next = prevNode.next;
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+
+    if (newNode.next !== null) {
+      newNode.next.prev = newNode;
+    }
+  }
 }
 
 module.exports = DoublyLinkedList;
