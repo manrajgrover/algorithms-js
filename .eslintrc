@@ -4,6 +4,7 @@
     "no-console": "off",
     "no-underscore-dangle": "off",
     "comma-dangle": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "no-param-reassign": "off"
   }
 }
