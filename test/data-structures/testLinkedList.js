@@ -134,4 +134,15 @@ describe('LinkedList', () => {
     inst.reverseList();
     assert.equal(inst.toString(), '1 -> 2 -> 3 -> null');
   });
+
+  it('should reverse 1 node linked list', () => {
+    const inst = new LinkedList();
+
+    inst.push(1);
+
+    assert.equal(inst.toString(), '1 -> null');
+
+    inst.reverseList();
+    assert.equal(inst.toString(), '1 -> null');
+  });
 });
