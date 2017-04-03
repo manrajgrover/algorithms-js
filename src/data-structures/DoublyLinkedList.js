@@ -65,6 +65,28 @@ class DoublyLinkedList {
   }
 
   /**
+   * Inserts node before a given node
+   * @param  {Node}  node Node before which insertion needs to take place
+   * @param  {*}     data Data or value contained in Node
+   * @return {Node}
+   */
+  insertBefore(node, data) {
+    if (node === null) {
+      throw new Error('Node cannot be null');
+    }
+
+    const newNode = new Node(data);
+
+    newNode.prev = node.prev;
+    node.prev = newNode;
+    newNode.next = node;
+
+    if (newNode.prev !== null) {
+      newNode.prev.next = newNode;
+    }
+  }
+
+  /**
    * Returns node at given index
    * @param  {Number} index Index of required node
    * @return {Node}         Required node
