@@ -77,4 +77,20 @@ describe('DoublyLinkedList', () => {
 
     assert.equal(inst.toString(), '3 -> 2 -> 1 -> null');
   });
+
+  it('should throw error on insert after in list with no node or null', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    assert.throws(() => inst.insertAfter(inst.getNode(1)), Error);
+    assert.throws(() => inst.insertAfter(null), Error);
+  });
+
+  it('should throw error on insert before in list with no node or null', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    assert.throws(() => inst.insertBefore(inst.getNode(1)), Error);
+    assert.throws(() => inst.insertBefore(null), Error);
+  });
 });
