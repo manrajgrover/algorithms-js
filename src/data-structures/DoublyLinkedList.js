@@ -83,6 +83,8 @@ class DoublyLinkedList {
 
     if (newNode.prev !== null) {
       newNode.prev.next = newNode;
+    } else {
+      this._head = newNode;
     }
   }
 
