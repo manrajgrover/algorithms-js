@@ -3,7 +3,6 @@ const Node = require('./Node');
 class DoublyLinkedList {
   constructor() {
     this._head = null;
-    this._tail = null;
     this._length = 0;
   }
 
@@ -62,6 +61,8 @@ class DoublyLinkedList {
     if (newNode.next !== null) {
       newNode.next.prev = newNode;
     }
+
+    this._length += 1;
   }
 
   /**
@@ -86,6 +87,8 @@ class DoublyLinkedList {
     } else {
       this._head = newNode;
     }
+
+    this._length += 1;
   }
 
   /**
