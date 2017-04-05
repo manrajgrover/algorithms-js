@@ -92,6 +92,19 @@ class DoublyLinkedList {
   }
 
   /**
+   * Pop node from the head
+   * @return {None}
+   */
+  pop() {
+    if (this._head === null) {
+      throw new Error('No nodes to pop');
+    }
+
+    this._head = this._head.next;
+    this._length -= 1;
+  }
+
+  /**
    * Returns node at given index
    * @param  {Number} index Index of required node
    * @return {Node}         Required node
