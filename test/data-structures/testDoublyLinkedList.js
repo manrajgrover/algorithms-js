@@ -93,4 +93,26 @@ describe('DoublyLinkedList', () => {
     assert.throws(() => inst.insertBefore(inst.getNode(1)), Error);
     assert.throws(() => inst.insertBefore(null), Error);
   });
+
+  it('should throw error on popping from empty list', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    assert.throws(() => inst.pop(), Error);
+  });
+
+
+  it('should pop node from head', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    inst.push(1);
+    inst.push(2);
+    inst.push(3);
+
+    assert.equal(inst.toString(), '3 -> 2 -> 1 -> null');
+    inst.pop();
+    assert.equal(inst.toString(), '2 -> 1 -> null');
+    assert.equal(inst.length, 2);
+  });
 });
