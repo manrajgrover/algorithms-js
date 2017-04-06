@@ -115,4 +115,38 @@ describe('DoublyLinkedList', () => {
     assert.equal(inst.toString(), '2 -> 1 -> null');
     assert.equal(inst.length, 2);
   });
+
+  it('should delete node', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    inst.push(1);
+    inst.push(2);
+    inst.push(3);
+    inst.push(4);
+    inst.push(5);
+    inst.push(6);
+    inst.push(7);
+    inst.push(8);
+
+    inst.deleteNode(inst.getNode(6));
+    assert.equal(
+      inst.toString(),
+      '8 -> 7 -> 6 -> 5 -> 4 -> 2 -> 1 -> null'
+    );
+
+    inst.deleteNode(inst.getNode(1));
+    assert.equal(
+      inst.toString(),
+      '7 -> 6 -> 5 -> 4 -> 2 -> 1 -> null'
+    );
+
+    inst.deleteNode(inst.getNode(3));
+    assert.equal(
+      inst.toString(),
+      '7 -> 6 -> 4 -> 2 -> 1 -> null'
+    );
+
+    assert.equal(inst.length, 5);
+  });
 });
