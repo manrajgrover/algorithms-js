@@ -20,6 +20,8 @@ describe('DoublyLinkedList', () => {
     assert.equal(inst.length, 2);
 
     assert.equal(inst.toString(), '2 -> 1 -> null');
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(2), inst.tail);
   });
 
   it('should get node at given index', () => {
@@ -43,6 +45,8 @@ describe('DoublyLinkedList', () => {
     inst.insertAfter(inst.getNode(1), 3);
 
     assert.equal(inst.toString(), '2 -> 3 -> 1 -> null');
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(3), inst.tail);
   });
 
   it('should insert node after last node', () => {
@@ -54,6 +58,8 @@ describe('DoublyLinkedList', () => {
     inst.insertAfter(inst.getNode(2), 3);
 
     assert.equal(inst.toString(), '2 -> 1 -> 3 -> null');
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(3), inst.tail);
   });
 
   it('should insert node before a given node', () => {
@@ -65,6 +71,8 @@ describe('DoublyLinkedList', () => {
     inst.insertBefore(inst.getNode(2), 3);
 
     assert.equal(inst.toString(), '2 -> 3 -> 1 -> null');
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(3), inst.tail);
   });
 
   it('should insert node before first node', () => {
@@ -76,6 +84,8 @@ describe('DoublyLinkedList', () => {
     inst.insertBefore(inst.getNode(1), 3);
 
     assert.equal(inst.toString(), '3 -> 2 -> 1 -> null');
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(3), inst.tail);
   });
 
   it('should throw error on insert after in list with no node or null', () => {
@@ -114,9 +124,11 @@ describe('DoublyLinkedList', () => {
     inst.pop();
     assert.equal(inst.toString(), '2 -> 1 -> null');
     assert.equal(inst.length, 2);
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(2), inst.tail);
   });
 
-  it('should delete node', () => {
+  it('should delete nodes', () => {
     const inst = new DoublyLinkedList();
     assert(inst.isEmpty());
 
@@ -147,6 +159,8 @@ describe('DoublyLinkedList', () => {
       '7 -> 6 -> 4 -> 2 -> 1 -> null'
     );
 
+    assert.deepStrictEqual(inst.getNode(1), inst.head);
+    assert.deepStrictEqual(inst.getNode(5), inst.tail);
     assert.equal(inst.length, 5);
   });
 });
