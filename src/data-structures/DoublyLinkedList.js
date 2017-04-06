@@ -105,6 +105,30 @@ class DoublyLinkedList {
   }
 
   /**
+   * Delete node from the list
+   * @param  {Node} node Node to be deleted
+   * @return {None}
+   */
+  deleteNode(node) {
+    if (node === null) {
+      throw new Error('Deleted node cannot be null');
+    }
+
+    if (node.prev === null) {
+      this._head = node.next;
+      node.next.prev = null;
+    } else {
+      node.prev.next = node.next;
+    }
+
+    if (node.next !== null) {
+      node.next.prev = node.prev;
+    }
+
+    this._length -= 1;
+  }
+
+  /**
    * Returns node at given index
    * @param  {Number} index Index of required node
    * @return {Node}         Required node
