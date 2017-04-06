@@ -3,6 +3,7 @@ const Node = require('./Node');
 class DoublyLinkedList {
   constructor() {
     this._head = null;
+    this._tail = null;
     this._length = 0;
   }
 
@@ -23,12 +24,32 @@ class DoublyLinkedList {
   }
 
   /**
-   * Pushes node to the front of Linked List
-   * @param  {*} data Data or value contained in Node
+   * Get tail of Doubly Linked List
+   * @return {Node} Tail node
+   */
+  get tail() {
+    return this._tail;
+  }
+
+  /**
+   * Get head of Doubly Linked List
+   * @return {Node} Head node
+   */
+  get head() {
+    return this._head;
+  }
+
+  /**
+   * Pushes node to the front of Doubly Linked List
+   * @param  {*}   data Data or value contained in Node
    * @return {None}
    */
   push(data) {
     const newNode = new Node(data);
+
+    if (this._head === null) {
+      this._tail = newNode;
+    }
 
     newNode.next = this._head;
     newNode.prev = null;
@@ -53,6 +74,10 @@ class DoublyLinkedList {
     }
 
     const newNode = new Node(data);
+
+    if (prevNode.next === null) {
+      this._tail = newNode;
+    }
 
     newNode.next = prevNode.next;
     prevNode.next = newNode;
@@ -111,18 +136,21 @@ class DoublyLinkedList {
    */
   deleteNode(node) {
     if (node === null) {
-      throw new Error('Deleted node cannot be null');
+      throw new Error('Node to be deleted cannot be null');
     }
 
-    if (node.prev === null) {
+    if (node.prev !== null) {
+      node.prev.next = node.next;
+    } else {
       this._head = node.next;
       node.next.prev = null;
-    } else {
-      node.prev.next = node.next;
     }
 
     if (node.next !== null) {
       node.next.prev = node.prev;
+    } else {
+      this._tail = node.prev;
+      node.prev.next = null;
     }
 
     this._length -= 1;
@@ -149,7 +177,7 @@ class DoublyLinkedList {
 
   /**
    * Returns string representing the Doubly Linked List
-   * @return {string} String representation of Doubly Linked List
+   * @return {String} String representation of Doubly Linked List
    */
   toString() {
     let reference = this._head;
