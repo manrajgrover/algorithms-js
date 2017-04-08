@@ -13,6 +13,14 @@ class Queue {
     return this._list.length;
   }
 
+  /**
+   * Check if Queue is empty or not
+   * @return {Boolean} `true` if empty else `false`
+   */
+  isEmpty() {
+    return this._list.isEmpty();
+  }
+
 }
 
 module.exports = Queue;
