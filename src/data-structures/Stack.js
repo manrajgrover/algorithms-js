@@ -38,6 +38,14 @@ class Stack {
     return this._list.pop().value;
   }
 
+  /**
+   * Get top value on stack
+   * @return {*} Value of node at the top
+   */
+  top() {
+    const top = this._list.head;
+    return top.value;
+  }
 }
 
 module.exports = Stack;
