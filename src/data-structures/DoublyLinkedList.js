@@ -118,15 +118,18 @@ class DoublyLinkedList {
 
   /**
    * Pop node from the head
-   * @return {None}
+   * @return {Node} Node popped
    */
   pop() {
     if (this._head === null) {
       throw new Error('No nodes to pop');
     }
 
+    const reference = this._head;
     this._head = this._head.next;
     this._length -= 1;
+
+    return reference;
   }
 
   /**
