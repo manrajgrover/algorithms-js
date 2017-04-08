@@ -21,6 +21,15 @@ class Stack {
     return this._list.isEmpty();
   }
 
+  /**
+   * Pushes node in Stack
+   * @param  {*}   data Data or value to be pushed
+   * @return {None}
+   */
+  push(data) {
+    this._list.push(data);
+  }
+
 }
 
 module.exports = Stack;
