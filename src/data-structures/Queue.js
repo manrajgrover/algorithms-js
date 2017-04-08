@@ -41,6 +41,21 @@ class Queue {
     return front.value;
   }
 
+  /**
+   * Get front value on Queue
+   * @return {*} Value of node at the front
+   */
+  front() {
+    return this._list.tail.value;
+  }
+
+  /**
+   * Get back value on Queue
+   * @return {*} Value of node at the back
+   */
+  back() {
+    return this._list.head.value;
+  }
 }
 
 module.exports = Queue;
