@@ -30,6 +30,17 @@ class Queue {
     this._list.push(data);
   }
 
+  /**
+   * Pop node from Queue
+   * @return {*} Value of node which was popped
+   */
+  pop() {
+    const front = this._list.tail;
+    this._list.deleteNode(front);
+
+    return front.value;
+  }
+
 }
 
 module.exports = Queue;
