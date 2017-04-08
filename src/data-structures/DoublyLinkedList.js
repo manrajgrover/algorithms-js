@@ -69,8 +69,8 @@ class DoublyLinkedList {
    * @return {None}
    */
   insertAfter(prevNode, data) {
-    if (prevNode === null) {
-      throw new Error('Previous node cannot be null');
+    if (prevNode === null || prevNode === undefined) {
+      throw new Error('Previous node cannot be null or undefined');
     }
 
     const newNode = new Node(data);
@@ -97,8 +97,8 @@ class DoublyLinkedList {
    * @return {Node}
    */
   insertBefore(node, data) {
-    if (node === null) {
-      throw new Error('Node cannot be null');
+    if (node === null || node === undefined) {
+      throw new Error('Node cannot be null or undefined');
     }
 
     const newNode = new Node(data);
@@ -135,7 +135,7 @@ class DoublyLinkedList {
    * @return {None}
    */
   deleteNode(node) {
-    if (node === null) {
+    if (node === null || node === undefined) {
       throw new Error('Node to be deleted cannot be null');
     }
 
