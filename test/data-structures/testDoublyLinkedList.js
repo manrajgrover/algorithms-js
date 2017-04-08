@@ -163,4 +163,29 @@ describe('DoublyLinkedList', () => {
     assert.deepStrictEqual(inst.getNode(5), inst.tail);
     assert.equal(inst.length, 5);
   });
+
+  it('should delete tail node', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    inst.push(1);
+    inst.push(2);
+    inst.push(3);
+
+    assert.equal(inst.toString(), '3 -> 2 -> 1 -> null');
+    inst.deleteNode(inst.getNode(3));
+    assert.equal(inst.tail.value, 2);
+    assert.equal(inst.length, 2);
+  });
+
+  it('should throw error on deletion of undefined node', () => {
+    const inst = new DoublyLinkedList();
+    assert(inst.isEmpty());
+
+    inst.push(1);
+    inst.push(2);
+    inst.push(3);
+
+    assert.throws(() => inst.deleteNode(), Error);
+  });
 });
