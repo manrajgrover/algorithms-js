@@ -142,18 +142,15 @@ class DoublyLinkedList {
       throw new Error('Node to be deleted cannot be null');
     }
 
-    if (node.prev !== null) {
-      node.prev.next = node.next;
-    } else {
-      this._head = node.next;
-      node.next.prev = null;
-    }
-
-    if (node.next !== null) {
-      node.next.prev = node.prev;
-    } else {
+    if (node === this._tail) {
       this._tail = node.prev;
-      node.prev.next = null;
+    } else {
+      node.next.prev = node.prev;
+    }
+    if (node === this._head) {
+      this._head = node.next;
+    } else {
+      node.prev.next = node.next;
     }
 
     this._length -= 1;
