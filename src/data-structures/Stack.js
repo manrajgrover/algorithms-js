@@ -30,6 +30,14 @@ class Stack {
     this._list.push(data);
   }
 
+  /**
+   * Pop node from Stack
+   * @return {*} Value of node which was popped
+   */
+  pop() {
+    return this._list.pop().value;
+  }
+
 }
 
 module.exports = Stack;
