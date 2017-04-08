@@ -40,7 +40,7 @@ class DoublyLinkedList {
   }
 
   /**
-   * Pushes node to the front of Doubly Linked List
+   * Pushes node to the head of Doubly Linked List
    * @param  {*}   data Data or value contained in Node
    * @return {None}
    */
