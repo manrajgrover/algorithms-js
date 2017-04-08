@@ -21,6 +21,15 @@ class Queue {
     return this._list.isEmpty();
   }
 
+  /**
+   * Pushes node in Queue
+   * @param  {*}   data Data or value to be pushed
+   * @return {None}
+   */
+  push(data) {
+    this._list.push(data);
+  }
+
 }
 
 module.exports = Queue;
