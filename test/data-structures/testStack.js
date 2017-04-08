@@ -51,6 +51,10 @@ describe('Stack', () => {
     assert.equal(poppedNodeVal, 20);
     assert.equal(inst.top(), 10);
     assert.equal(inst.size, 1);
+
+    inst.pop();
+
+    assert.throws(() => inst.pop(), Error);
   });
 
   it('should throw error on popping from empty stack', () => {
