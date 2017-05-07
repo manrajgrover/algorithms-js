@@ -1,4 +1,4 @@
-# algorithms-js
+# algorithms-js[*Currently under development*] 
 [![Build Status](https://travis-ci.org/ManrajGrover/algorithms-js.svg?branch=master)](https://travis-ci.org/ManrajGrover/algorithms-js)
 > Algorithms library in JavaScript
 
