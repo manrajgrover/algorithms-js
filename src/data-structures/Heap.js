@@ -10,15 +10,15 @@ class Heap {
   }
 
   _parent(index) {
-    return (index - 1) / 2;
+    return (index / 2);
   }
 
   _left(index) {
-    return (2 * index) + 1;
+    return index * 2;
   }
 
   _right(index) {
-    return (2 * index) + 2;
+    return (index * 2) + 1;
   }
 
   _swap(x, y) {
