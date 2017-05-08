@@ -47,6 +47,12 @@ class Heap {
   isEmpty() {
     return this.size === 0;
   }
+
+  top() {
+    if (this._length === 0) {
+      return null;
+    }
+    return this._list[0];
   }
 
   push(element) {
