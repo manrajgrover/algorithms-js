@@ -61,7 +61,8 @@ class Heap {
 
     let elemIndex = this._length - 1;
 
-    while (elemIndex !== 0 && this._list[this._parent(elemIndex)] > this._list[elemIndex]) {
+    while (elemIndex !== 0 &&
+        this._compareFunction(this._list[this._parent(elemIndex)], this._list[elemIndex])) {
       this._swap(this._parent(elemIndex), elemIndex);
       elemIndex = this._parent(elemIndex);
     }
