@@ -25,6 +25,25 @@ class Heap {
     [this._list[x], this._list[y]] = [this._list[y], this._list[x]];
   }
 
+  _heapify(index) {
+    const left = this._left(index);
+    const right = this._right(index);
+
+    let heapIndex = index;
+
+    if (left < this._length && this._compareFunction(this._list[left], this._list[index])) {
+      heapIndex = left;
+    }
+    if (right < this._length && this._compareFunction(this._list[right], this._list[heapIndex])) {
+      heapIndex = right;
+    }
+
+    if (heapIndex !== index) {
+      this._swap(index, heapIndex);
+      this._heapify(heapIndex);
+    }
+  }
+
   isEmpty() {
     return this.size() === 0;
   }
