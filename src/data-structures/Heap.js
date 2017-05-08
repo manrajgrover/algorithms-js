@@ -67,6 +67,26 @@ class Heap {
       elemIndex = this._parent(elemIndex);
     }
   }
+
+  pop() {
+    if (this._length <= 0) {
+      throw new Error('Heap is empty');
+    }
+
+    if (this._length === 1) {
+      this._length -= 1;
+      this._list.pop();
+      return this._list[0];
+    }
+
+    const top = this._list[0];
+    this._list[0] = this._list[this._length - 1];
+    this._list.pop();
+    this._length -= 1;
+    this._heapify(0);
+
+    return top;
+  }
 }
 
 module.exports = Heap;
