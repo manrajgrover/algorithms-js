@@ -1320,9 +1320,6 @@ var Node = function () {
     key: 'value',
     get: function get() {
       return this._value;
-    },
-    set: function set(data) {
-      this._value = data;
     }
   }, {
     key: 'next',
@@ -1581,6 +1578,123 @@ var DoublyLinkedList = function () {
 module.exports = DoublyLinkedList;
 
 },{}],7:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Heap = function () {
+  function Heap(compareFunc) {
+    _classCallCheck(this, Heap);
+
+    this._list = [];
+    this._length = 0;
+    this._compareFunc = compareFunc;
+  }
+
+  _createClass(Heap, [{
+    key: '_parent',
+    value: function _parent(index) {
+      return Math.floor((index - 1) / 2);
+    }
+  }, {
+    key: '_left',
+    value: function _left(index) {
+      return 2 * index + 1;
+    }
+  }, {
+    key: '_right',
+    value: function _right(index) {
+      return 2 * index + 2;
+    }
+  }, {
+    key: '_swap',
+    value: function _swap(x, y) {
+      var _ref = [this._list[y], this._list[x]];
+      this._list[x] = _ref[0];
+      this._list[y] = _ref[1];
+    }
+  }, {
+    key: '_heapify',
+    value: function _heapify(index) {
+      var left = this._left(index);
+      var right = this._right(index);
+
+      var heapIndex = index;
+
+      if (left < this._length && this._compareFunc(this._list[left], this._list[index])) {
+        heapIndex = left;
+      }
+      if (right < this._length && this._compareFunc(this._list[right], this._list[heapIndex])) {
+        heapIndex = right;
+      }
+
+      if (heapIndex !== index) {
+        this._swap(index, heapIndex);
+        this._heapify(heapIndex);
+      }
+    }
+  }, {
+    key: 'isEmpty',
+    value: function isEmpty() {
+      return this.size === 0;
+    }
+  }, {
+    key: 'top',
+    value: function top() {
+      if (this._length === 0) {
+        return null;
+      }
+      return this._list[0];
+    }
+  }, {
+    key: 'push',
+    value: function push(element) {
+      var elemIndex = this._length;
+
+      this._length += 1;
+      this._list.push(element);
+
+      while (elemIndex !== 0 && this._compareFunc(this._list[elemIndex], this._list[this._parent(elemIndex)])) {
+        this._swap(this._parent(elemIndex), elemIndex);
+        elemIndex = this._parent(elemIndex);
+      }
+    }
+  }, {
+    key: 'pop',
+    value: function pop() {
+      if (this._length <= 0) {
+        throw new Error('Heap is empty');
+      }
+
+      if (this._length === 1) {
+        this._length -= 1;
+        this._list.pop();
+        return this._list[0];
+      }
+
+      var top = this._list[0];
+      this._list[0] = this._list[this._length - 1];
+      this._list.pop();
+      this._length -= 1;
+      this._heapify(0);
+
+      return top;
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length;
+    }
+  }]);
+
+  return Heap;
+}();
+
+module.exports = Heap;
+
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1853,7 +1967,7 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],8:[function(require,module,exports){
+},{"assert":1}],9:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1946,7 +2060,7 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./DoublyLinkedList":6}],9:[function(require,module,exports){
+},{"./DoublyLinkedList":6}],10:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2026,22 +2140,24 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./DoublyLinkedList":6}],10:[function(require,module,exports){
+},{"./DoublyLinkedList":6}],11:[function(require,module,exports){
 'use strict';
 
 var DoublyLinkedList = require('./DoublyLinkedList');
+var Heap = require('./Heap');
 var LinkedList = require('./LinkedList');
 var Queue = require('./Queue');
 var Stack = require('./Stack');
 
 module.exports = {
   DoublyLinkedList: DoublyLinkedList,
+  Heap: Heap,
   LinkedList: LinkedList,
   Queue: Queue,
   Stack: Stack
 };
 
-},{"./DoublyLinkedList":6,"./LinkedList":7,"./Queue":8,"./Stack":9}],11:[function(require,module,exports){
+},{"./DoublyLinkedList":6,"./Heap":7,"./LinkedList":8,"./Queue":9,"./Stack":10}],12:[function(require,module,exports){
 'use strict';
 
 var DataStructures = require('./data-structures');
@@ -2050,4 +2166,4 @@ module.exports = {
   DataStructures: DataStructures
 };
 
-},{"./data-structures":10}]},{},[11]);
+},{"./data-structures":11}]},{},[12]);
