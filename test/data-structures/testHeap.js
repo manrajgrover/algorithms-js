@@ -9,6 +9,18 @@ describe('Heap', () => {
     assert.equal(inst.size, 0);
   });
 
+  it('should test default compare function', () => {
+    const inst = new Heap();
+    assert(inst.isEmpty());
+    assert.equal(inst.size, 0);
+
+    inst.push(10);
+    inst.push(5);
+
+    assert.equal(inst.top(), 5);
+    assert.equal(inst.size, 2);
+  });
+
   it('should insert values into heap', () => {
     const inst = new Heap((a, b) => a < b);
     assert(inst.isEmpty());
