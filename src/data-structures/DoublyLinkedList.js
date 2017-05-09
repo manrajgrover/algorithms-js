@@ -17,10 +17,6 @@ class Node {
     return this._prev;
   }
 
-  set value(data) {
-    this._value = data;
-  }
-
   set next(node) {
     this._next = node;
   }
