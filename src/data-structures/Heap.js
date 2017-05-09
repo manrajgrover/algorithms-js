@@ -1,8 +1,8 @@
 class Heap {
-  constructor(compareFunction) {
+  constructor(compareFunc) {
     this._list = [];
     this._length = 0;
-    this._compareFunction = compareFunction;
+    this._compareFunc = compareFunc;
   }
 
   get size() {
@@ -10,15 +10,15 @@ class Heap {
   }
 
   _parent(index) {
-    return (index / 2);
+    return Math.floor((index - 1) / 2);
   }
 
   _left(index) {
-    return index * 2;
+    return (2 * index) + 1;
   }
 
   _right(index) {
-    return (index * 2) + 1;
+    return (2 * index) + 2;
   }
 
   _swap(x, y) {
@@ -31,10 +31,10 @@ class Heap {
 
     let heapIndex = index;
 
-    if (left < this._length && this._compareFunction(this._list[left], this._list[index])) {
+    if (left < this._length && this._compareFunc(this._list[left], this._list[index])) {
       heapIndex = left;
     }
-    if (right < this._length && this._compareFunction(this._list[right], this._list[heapIndex])) {
+    if (right < this._length && this._compareFunc(this._list[right], this._list[heapIndex])) {
       heapIndex = right;
     }
 
@@ -56,13 +56,13 @@ class Heap {
   }
 
   push(element) {
+    let elemIndex = this._length;
+
     this._length += 1;
     this._list.push(element);
 
-    let elemIndex = this._length - 1;
-
     while (elemIndex !== 0 &&
-        this._compareFunction(this._list[this._parent(elemIndex)], this._list[elemIndex])) {
+        this._compareFunc(this._list[elemIndex], this._list[this._parent(elemIndex)])) {
       this._swap(this._parent(elemIndex), elemIndex);
       elemIndex = this._parent(elemIndex);
     }
