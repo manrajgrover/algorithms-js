@@ -1,5 +1,5 @@
 class Heap {
-  constructor(compareFunc) {
+  constructor(compareFunc = (a, b) => a < b) {
     this._list = [];
     this._length = 0;
     this._compareFunc = compareFunc;
