@@ -1586,7 +1586,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Heap = function () {
   function Heap() {
-    var compareFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (a, b) {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var compareFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (a, b) {
       return a < b;
     };
 
@@ -1595,9 +1596,21 @@ var Heap = function () {
     this._list = [];
     this._length = 0;
     this._compareFunc = compareFunc;
+    if (data.length !== 0) {
+      this._buildHeap(data);
+    }
   }
 
   _createClass(Heap, [{
+    key: '_buildHeap',
+    value: function _buildHeap(data) {
+      var _this = this;
+
+      data.forEach(function (val) {
+        _this.push(val);
+      });
+    }
+  }, {
     key: '_parent',
     value: function _parent(index) {
       return Math.floor((index - 1) / 2);
@@ -1630,6 +1643,7 @@ var Heap = function () {
       if (left < this._length && this._compareFunc(this._list[left], this._list[index])) {
         heapIndex = left;
       }
+
       if (right < this._length && this._compareFunc(this._list[right], this._list[heapIndex])) {
         heapIndex = right;
       }
@@ -1650,6 +1664,7 @@ var Heap = function () {
       if (this._length === 0) {
         return null;
       }
+
       return this._list[0];
     }
   }, {
