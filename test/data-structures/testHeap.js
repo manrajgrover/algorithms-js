@@ -22,7 +22,7 @@ describe('Heap', () => {
   });
 
   it('should insert values into heap', () => {
-    const inst = new Heap((a, b) => a < b);
+    const inst = new Heap(undefined, (a, b) => a < b);
     assert(inst.isEmpty());
     assert.equal(inst.size, 0);
 
@@ -36,7 +36,7 @@ describe('Heap', () => {
   });
 
   it('should pop values from heap', () => {
-    const inst = new Heap((a, b) => a < b);
+    const inst = new Heap(undefined, (a, b) => a < b);
     assert(inst.isEmpty());
     assert.equal(inst.size, 0);
 
@@ -69,7 +69,7 @@ describe('Heap', () => {
   });
 
   it('should test for max heap', () => {
-    const inst = new Heap((a, b) => a > b);
+    const inst = new Heap(undefined, (a, b) => a > b);
     assert(inst.isEmpty());
     assert.equal(inst.size, 0);
 
@@ -78,6 +78,27 @@ describe('Heap', () => {
     inst.push(10);
     inst.push(20);
     inst.push(100);
+
+    assert.equal(inst.top(), 100);
+    assert.equal(inst.size, 5);
+
+    inst.pop();
+    inst.pop();
+    assert.equal(inst.top(), 20);
+    assert.equal(inst.size, 3);
+
+    inst.pop();
+    assert.equal(inst.top(), 10);
+    assert.equal(inst.size, 2);
+    inst.pop();
+    inst.pop();
+    assert.throws(() => inst.pop(), Error);
+  });
+
+  it('should test for array heapify', () => {
+    const inst = new Heap([5, 30, 10, 20, 100], (a, b) => a > b);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 5);
 
     assert.equal(inst.top(), 100);
     assert.equal(inst.size, 5);
