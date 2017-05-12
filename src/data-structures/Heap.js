@@ -1,12 +1,21 @@
 class Heap {
-  constructor(compareFunc = (a, b) => a < b) {
+  constructor(data = [], compareFunc = (a, b) => a < b) {
     this._list = [];
     this._length = 0;
     this._compareFunc = compareFunc;
+    if (data.length !== 0) {
+      this._buildHeap(data);
+    }
   }
 
   get size() {
     return this._length;
+  }
+
+  _buildHeap(data) {
+    data.forEach((val) => {
+      this.push(val);
+    });
   }
 
   _parent(index) {
@@ -34,6 +43,7 @@ class Heap {
     if (left < this._length && this._compareFunc(this._list[left], this._list[index])) {
       heapIndex = left;
     }
+
     if (right < this._length && this._compareFunc(this._list[right], this._list[heapIndex])) {
       heapIndex = right;
     }
@@ -52,6 +62,7 @@ class Heap {
     if (this._length === 0) {
       return null;
     }
+
     return this._list[0];
   }
 
