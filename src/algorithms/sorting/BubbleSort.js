@@ -41,9 +41,8 @@ class BubbleSort {
     return list;
   }
 
-    data.forEach((val, index, array) => {
-      console.log(val, index, array);
-    });
+  toString() {
+    return this._sortedList.join(', ');
   }
 }
 
