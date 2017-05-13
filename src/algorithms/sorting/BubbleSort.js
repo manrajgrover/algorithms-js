@@ -8,7 +8,15 @@ class BubbleSort {
   }
 
   get size() {
-    return this._list.length;
+    return this._length;
+  }
+
+  get unsortedList() {
+    return this._unsortedList;
+  }
+
+  get sortedList() {
+    return this._sortedList;
   }
 
   _sort(list) {
