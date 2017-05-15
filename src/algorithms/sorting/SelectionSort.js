@@ -18,6 +18,25 @@ class SelectionSort {
   get sortedList() {
     return this._sortedList;
   }
+
+  _sort(list) {
+    const len = list.length;
+
+    for (let i = 0; i < len - 1; i += 1) {
+      let minIndex = i;
+
+      for (let j = i + 1; j < len; j += 1) {
+        if (this._compareFunc(list[j], list[minIndex])) {
+          minIndex = j;
+        }
+      }
+
+      [list[i], list[minIndex]] = [list[minIndex], list[i]];
+    }
+
+    return list;
+  }
+
 }
 
 module.exports = SelectionSort;
