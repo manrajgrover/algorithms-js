@@ -37,6 +37,9 @@ class SelectionSort {
     return list;
   }
 
+  toString() {
+    return this._sortedList.join(', ');
+  }
 }
 
 module.exports = SelectionSort;
