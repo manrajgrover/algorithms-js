@@ -6,6 +6,8 @@ describe('BubbleSort', () => {
   it('should have no data when empty initialization', () => {
     const inst = new BubbleSort();
     assert.equal(inst.size, 0);
+    assert.deepEqual(inst.unsortedList, []);
+    assert.deepEqual(inst.sortedList, []);
   });
 
   it('should sort the array', () => {
