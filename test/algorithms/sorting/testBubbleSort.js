@@ -45,4 +45,22 @@ describe('BubbleSort', () => {
     assert.deepEqual(inst.sortedList, [1]);
     assert.equal(inst.toString(), '1');
   });
+
+  it('should sort the array in decending order', () => {
+    const inst = new BubbleSort([2, 1, 3, 4], (a, b) => a > b);
+    assert.equal(inst.size, 4);
+
+    assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
+    assert.deepEqual(inst.sortedList, [4, 3, 2, 1]);
+    assert.equal(inst.toString(), '4, 3, 2, 1');
+  });
+
+  it('should sort the array in decending order with few equal vals', () => {
+    const inst = new BubbleSort([2, 1, 3, 4, 2], (a, b) => a > b);
+    assert.equal(inst.size, 5);
+
+    assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);
+    assert.deepEqual(inst.sortedList, [4, 3, 2, 2, 1]);
+    assert.equal(inst.toString(), '4, 3, 2, 2, 1');
+  });
 });
