@@ -8,32 +8,67 @@ class Heap {
     }
   }
 
+  /**
+   * Get size of Heap
+   * @return {Number} Size of Heap
+   */
   get size() {
     return this._length;
   }
 
+  /**
+   * Build Heap
+   * @param  {Array} data Array of data to be used for Heap
+   * @return {None}
+   */
   _buildHeap(data) {
     data.forEach((val) => {
       this.push(val);
     });
   }
 
+  /**
+   * Get parent of index
+   * @param  {Number} index Index for which parent is required
+   * @return {Number}       Parent of index
+   */
   _parent(index) {
     return Math.floor((index - 1) / 2);
   }
 
+  /**
+   * Get index of left node
+   * @param  {Number} index Index for which left node index is needed
+   * @return {Number}       Index of left node
+   */
   _left(index) {
     return (2 * index) + 1;
   }
 
+  /**
+   * Get index of right node
+   * @param  {Number} index Index for which right node index is needed
+   * @return {Number}       Index of right node
+   */
   _right(index) {
     return (2 * index) + 2;
   }
 
+  /**
+   * Swap nodes
+   * @param  {Number} x Index of node one
+   * @param  {Number} y Index of node two
+   * @return {None}
+   */
   _swap(x, y) {
     [this._list[x], this._list[y]] = [this._list[y], this._list[x]];
   }
 
+  /**
+   * Heapifies the array
+   * @param  {Number} index Index of root
+   * @return {None}
+   */
   _heapify(index) {
     const left = this._left(index);
     const right = this._right(index);
@@ -54,10 +89,18 @@ class Heap {
     }
   }
 
+  /**
+   * Whether Heap is empty
+   * @return {Boolean} Whether Heap is empty or not
+   */
   isEmpty() {
     return this.size === 0;
   }
 
+  /**
+   * Get top of Heap
+   * @return {Number, Object} Top value of Heap
+   */
   top() {
     if (this._length === 0) {
       return null;
