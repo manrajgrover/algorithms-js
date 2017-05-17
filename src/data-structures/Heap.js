@@ -99,7 +99,7 @@ class Heap {
 
   /**
    * Get top of Heap
-   * @return {Number, Object} Top value of Heap
+   * @return {*} Top value of Heap
    */
   top() {
     if (this._length === 0) {
@@ -109,6 +109,11 @@ class Heap {
     return this._list[0];
   }
 
+  /**
+   * Pushes node to the Heap
+   * @param  {*} element Value to be inserted
+   * @return {None}
+   */
   push(element) {
     let elemIndex = this._length;
 
@@ -122,6 +127,10 @@ class Heap {
     }
   }
 
+  /**
+   * Pop node from the Heap
+   * @return {*} Top popped node from the Heap
+   */
   pop() {
     if (this._length <= 0) {
       throw new Error('Heap is empty');
