@@ -7,18 +7,35 @@ class SelectionSort {
     this._length = data.length;
   }
 
+  /**
+   * Get size of array
+   * @return {Number} Size of array
+   */
   get size() {
     return this._length;
   }
 
+  /**
+   * Get unsorted array
+   * @return {Array} Unsorted/Initial array
+   */
   get unsortedList() {
     return this._unsortedList;
   }
 
+  /**
+   * Get sorted array
+   * @return {Array} Sorted array
+   */
   get sortedList() {
     return this._sortedList;
   }
 
+  /**
+   * Selection Sorts the array
+   * @param  {Array} list Array to be sorted
+   * @return {Array}      Sorted array
+   */
   _sort(list) {
     const len = list.length;
 
@@ -37,6 +54,10 @@ class SelectionSort {
     return list;
   }
 
+  /**
+   * Get string form of array
+   * @return {String} Comma separated string array
+   */
   toString() {
     return this._sortedList.join(', ');
   }
