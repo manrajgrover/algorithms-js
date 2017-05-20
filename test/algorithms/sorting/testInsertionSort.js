@@ -28,4 +28,13 @@ describe('Insertion Sort', () => {
     assert.equal(inst.toString(), '1, 2, 2, 3, 4');
   });
 
+  it('should sort 2 element array', () => {
+    const inst = new InsertionSort([2, 1]);
+    assert.equal(inst.size, 2);
+
+    assert.deepEqual(inst.unsortedList, [2, 1]);
+    assert.deepEqual(inst.sortedList, [1, 2]);
+    assert.equal(inst.toString(), '1, 2');
+  });
+
 });
