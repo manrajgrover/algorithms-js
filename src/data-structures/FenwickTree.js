@@ -18,6 +18,15 @@ class FenwickTree {
 
     return sum;
   }
+
+  updateTree(index = 0, element = 0) {
+    index += 1;
+
+    while (index <= this._length) {
+      this._list[index] += element;
+      index += (index & (-index));
+    }
+  }
 }
 
 module.exports = FenwickTree;
