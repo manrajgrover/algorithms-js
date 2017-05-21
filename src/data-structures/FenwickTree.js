@@ -27,6 +27,17 @@ class FenwickTree {
       index += (index & (-index));
     }
   }
+
+  buildTree(array) {
+    if (!Array.isArray(array)) {
+      throw new Error('Array needs to be passed in order to build the tree');
+    }
+
+    const len = array.length;
+    for (let i = 0; i < len; i += 1) {
+      this.updateTree(i, array[i]);
+    }
+  }
 }
 
 module.exports = FenwickTree;
