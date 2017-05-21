@@ -27,4 +27,11 @@ describe('Fenwick Tree', () => {
     assert.equal(inst.getSum(3), 10);
     assert.throws(() => inst.getSum(4), Error);
   });
+
+  it('should throw an error if passed object', () => {
+    const inst = new FenwickTree(4);
+
+    assert.throws(() => inst.buildTree({}), Error);
+  });
+
 });
