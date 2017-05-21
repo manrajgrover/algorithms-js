@@ -6,6 +6,7 @@
     "comma-dangle": "off",
     "import/no-extraneous-dependencies": "off",
     "no-param-reassign": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-bitwise": "off"
   }
 }
