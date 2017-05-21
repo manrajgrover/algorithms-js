@@ -1,20 +1,32 @@
 class FenwickTree {
-  constructor(array) {
-    this._list = array;
+  constructor(length) {
+    this._list = new Array(length + 1);
     this._list.fill(0);
     this._length = this._list.length;
-    this._buildTree(array);
   }
 
   get size() {
-    return this._length;
+    return this._length - 1;
+  }
+
+  buildTree(array) {
+    if (!Array.isArray(array)) {
+      throw new Error('Array needs to be passed in order to build the tree');
+    }
+
+    for (let i = 0; i < this._length; i += 1) {
+      this.updateTree(i, array[i]);
+    }
   }
 
   isEmpty() {
-    return this._length === 0;
+    return (this._length - 1) === 0;
   }
 
   getSum(index = 0) {
+    if (index + 1 >= (this._length)) {
+      throw new RangeError('Index out of bound');
+    }
     let sum = 0;
 
     index += 1;
@@ -37,13 +49,6 @@ class FenwickTree {
     }
   }
 
-  _buildTree(array) {
-    if (!Array.isArray(array)) {
-      throw new Error('Array needs to be passed in order to build the tree');
-    }
-
-    for (let i = 0; i < this._length; i += 1) {
-      this.updateTree(i, array[i]);
   rangeSum(left, right) {
     if (left > right) {
       [left, right] = [right, left];
