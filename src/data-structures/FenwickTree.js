@@ -44,7 +44,11 @@ class FenwickTree {
 
     for (let i = 0; i < this._length; i += 1) {
       this.updateTree(i, array[i]);
+  rangeSum(left, right) {
+    if (left > right) {
+      [left, right] = [right, left];
     }
+    return this.getSum(right) - this.getSum(left - 1);
   }
 }
 
