@@ -1,3 +1,9 @@
+/**
+ * Binary Search Algorithm
+ * @param  {Array}  sortedArray Sorted Array to be searched
+ * @param  {Number} element     Element to be searched
+ * @return {Number}             Index of the element, if found
+ */
 const binarysearch = (sortedArray, element) => {
   let left = 0;
   let right = sortedArray.length - 1;
