@@ -47,4 +47,19 @@ describe('Fenwick Tree', () => {
     assert.equal(inst.rangeSum(3, 1), 9);
     assert.equal(inst.rangeSum(3, 0), 10);
   });
+
+  it('should update element in tree', () => {
+    const inst = new FenwickTree(4);
+
+    inst.buildTree([1, 2, 3, 4]);
+
+    assert.equal(inst.rangeSum(2, 3), 7);
+    assert.equal(inst.rangeSum(1, 3), 9);
+    assert.equal(inst.rangeSum(0, 3), 10);
+
+    inst.updateTree(1, 4);
+
+    assert.equal(inst.getSum(2), 10);
+    assert.equal(inst.rangeSum(1, 1), 6);
+  });
 });
