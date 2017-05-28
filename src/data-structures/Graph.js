@@ -10,6 +10,8 @@ class Graph {
   }
 
   addVertex(vertex) {
+    vertex = String(vertex);
+
     if (this.vertices.has(vertex)) {
       throw new Error(`Vertix ${vertex} already exists`);
     }
