@@ -24,6 +24,22 @@ class Graph {
       this.edges[vertexB].push(vertexA);
     }
   }
+
+  isNeighbour(vertexA, vertexB) {
+    vertexA = String(vertexA);
+    vertexB = String(vertexB);
+
+    const neighbours = Object.keys(this.edges[vertexA]);
+
+    for (let i = 0; i < neighbours.length; i += 1) {
+      if (neighbours[i] === vertexB) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 }
 
 module.exports = Graph;
