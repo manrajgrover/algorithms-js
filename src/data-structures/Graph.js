@@ -1,8 +1,8 @@
 class Graph {
   constructor(directed = false) {
-    this.isDirected = directed;
-    this.vertices = new Set();
-    this.edges = [];
+    this._isDirected = directed;
+    this._vertices = new Set();
+    this._edges = [];
   }
 
   get size() {
@@ -12,30 +12,30 @@ class Graph {
   addVertex(vertex) {
     vertex = String(vertex);
 
-    if (this.vertices.has(vertex)) {
+    if (this._vertices.has(vertex)) {
       throw new Error(`Vertix ${vertex} already exists`);
     }
 
-    this.vertices.add(vertex);
-    this.edges[vertex] = {};
+    this._vertices.add(vertex);
+    this._edges[vertex] = {};
   }
 
   addEdge(vertexA, vertexB, weight = 0) {
     vertexA = String(vertexA);
     vertexB = String(vertexB);
 
-    if (!this.vertices.has(vertexA)) {
+    if (!this._vertices.has(vertexA)) {
       this.addVertex(vertexA);
     }
 
-    if (!this.vertices.has(vertexB)) {
+    if (!this._vertices.has(vertexB)) {
       this.addVertex(vertexB);
     }
 
-    this.edges[vertexA][vertexB] = (this.edges[vertexA][vertexB] || 0) + weight;
+    this._edges[vertexA][vertexB] = (this._edges[vertexA][vertexB] || 0) + weight;
 
     if (!this.isDirected) {
-      this.edges[vertexB][vertexA] = (this.edges[vertexB][vertexA] || 0) + weight;
+      this._edges[vertexB][vertexA] = (this._edges[vertexB][vertexA] || 0) + weight;
     }
   }
 
@@ -43,7 +43,7 @@ class Graph {
     vertexA = String(vertexA);
     vertexB = String(vertexB);
 
-    const neighbours = Object.keys(this.edges[vertexA]);
+    const neighbours = Object.keys(this._edges[vertexA]);
 
     for (let i = 0; i < neighbours.length; i += 1) {
       if (neighbours[i] === vertexB) {
@@ -55,7 +55,7 @@ class Graph {
   }
 
   getNeighbours(vertex) {
-    return this.edges[String(vertex)];
+    return this._edges[String(vertex)];
   }
 
   getEdgeWeight(vertexA, vertexB) {
@@ -63,7 +63,7 @@ class Graph {
       throw new Error(`Vertex ${vertexA} and ${vertexB} are not neighbours`);
     }
 
-    return this.edges[String(vertexA)][String(vertexB)];
+    return this._edges[String(vertexA)][String(vertexB)];
   }
 }
 
