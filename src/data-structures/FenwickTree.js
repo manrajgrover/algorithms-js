@@ -61,7 +61,7 @@ class FenwickTree {
   /**
    * Updates the tree with adding element to given index
    * @param  {Number} index   Index of element to be updated
-   * @param  {Number} element Element to be updated with
+   * @param  {Number} element Element to be added
    * @return {None}
    */
   updateTree(index = 0, element = 0) {
