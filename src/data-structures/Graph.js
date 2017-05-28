@@ -5,18 +5,34 @@ class Graph {
     this._edges = [];
   }
 
+  /**
+   * Get size of graph
+   * @return {Number} Size of graph
+   */
   get size() {
     return this._vertices.size;
   }
 
+  /**
+   * Get vertices of graph
+   * @return {Array} Vertices in the graph
+   */
   get vertices() {
     return [...this._vertices];
   }
 
+  /**
+   * Check whether graph is empty or not
+   * @return {Boolean} True if empty else False
+   */
   isEmpty() {
     return this._vertices.size === 0;
   }
 
+  /**
+   * Adds vertex to the Graph
+   * @param {Number} vertex Vertex label
+   */
   addVertex(vertex) {
     vertex = String(vertex);
 
@@ -28,6 +44,12 @@ class Graph {
     this._edges[vertex] = {};
   }
 
+  /**
+   * Adds edge between two vertices
+   * @param {Number} vertexA Starting vertex label
+   * @param {Number} vertexB Ending vertex label
+   * @param {Number} weight  Weight to be added for edge
+   */
   addEdge(vertexA, vertexB, weight = 0) {
     vertexA = String(vertexA);
     vertexB = String(vertexB);
@@ -47,6 +69,12 @@ class Graph {
     }
   }
 
+  /**
+   * Check whether one vertex is neighbour to another
+   * @param  {Number}  vertexA Origin vertex
+   * @param  {Number}  vertexB Vertex to be checked for
+   * @return {Boolean}         True if neighbour else False
+   */
   isNeighbour(vertexA, vertexB) {
     vertexA = String(vertexA);
     vertexB = String(vertexB);
@@ -62,10 +90,21 @@ class Graph {
     return false;
   }
 
+  /**
+   * Returns neighbours of a given vertex
+   * @param  {Number} vertex Vertex whose neighbours are required
+   * @return {Array}         List of neighbouring vertices
+   */
   getNeighbours(vertex) {
     return this._edges[String(vertex)];
   }
 
+  /**
+   * Returns edge weight of edge between two vertices
+   * @param  {Number} vertexA Starting Vertex label
+   * @param  {Number} vertexB Ending Vertex label
+   * @return {Number}         Edge weight
+   */
   getEdgeWeight(vertexA, vertexB) {
     if (!this.isNeighbour(vertexA, vertexB)) {
       throw new Error(`Vertex ${vertexA} and ${vertexB} are not neighbours`);
