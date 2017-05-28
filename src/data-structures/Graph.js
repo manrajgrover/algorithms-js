@@ -96,7 +96,7 @@ class Graph {
    * @return {Array}         List of neighbouring vertices
    */
   getNeighbours(vertex) {
-    return this._edges[String(vertex)];
+    return Object.keys(this._edges[String(vertex)]);
   }
 
   /**
