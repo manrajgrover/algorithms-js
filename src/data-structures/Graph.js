@@ -8,6 +8,10 @@ class Graph {
   get size() {
     return this._vertices.size;
   }
+
+  get vertices() {
+    return [...this._vertices];
+  }
   }
 
   addVertex(vertex) {
