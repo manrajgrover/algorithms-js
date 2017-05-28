@@ -12,6 +12,9 @@ class Graph {
   get vertices() {
     return [...this._vertices];
   }
+
+  isEmpty() {
+    return this._vertices.size === 0;
   }
 
   addVertex(vertex) {
