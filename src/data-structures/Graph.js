@@ -52,6 +52,9 @@ class Graph {
     return false;
   }
 
+  getNeighbours(vertex) {
+    return this.edges[String(vertex)];
+  }
 }
 
 module.exports = Graph;
