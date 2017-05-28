@@ -55,6 +55,14 @@ class Graph {
   getNeighbours(vertex) {
     return this.edges[String(vertex)];
   }
+
+  getEdgeWeight(vertexA, vertexB) {
+    if (!this.isNeighbour(vertexA, vertexB)) {
+      throw new Error(`Vertex ${vertexA} and ${vertexB} are not neighbours`);
+    }
+
+    return this.edges[String(vertexA)][String(vertexB)];
+  }
 }
 
 module.exports = Graph;
