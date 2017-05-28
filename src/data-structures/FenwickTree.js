@@ -5,10 +5,19 @@ class FenwickTree {
     this._length = this._list.length;
   }
 
+  /**
+   * Get size of Fenwick Tree
+   * @return {Number} Size of Fenwick Tree
+   */
   get size() {
     return this._length - 1;
   }
 
+  /**
+   * Builds Fenwick Tree
+   * @param  {Array} array Array elements to be used to build the tree
+   * @return {None}
+   */
   buildTree(array) {
     if (!Array.isArray(array)) {
       throw new Error('Array needs to be passed in order to build the tree');
@@ -19,10 +28,19 @@ class FenwickTree {
     }
   }
 
+  /**
+   * Check if tree is empty
+   * @return {Boolean} Returns true if empty else false
+   */
   isEmpty() {
     return (this._length - 1) === 0;
   }
 
+  /**
+   * Gets prefix sum of the array using the tree
+   * @param  {Number} index Index till which sum needs to be calculated
+   * @return {Number}       Prefix sum
+   */
   getSum(index = 0) {
     if (index + 1 >= (this._length)) {
       throw new RangeError('Index out of bound');
@@ -40,6 +58,12 @@ class FenwickTree {
     return sum;
   }
 
+  /**
+   * Updates the tree with adding element to given index
+   * @param  {Number} index   Index of element to be updated
+   * @param  {Number} element Element to be updated with
+   * @return {None}
+   */
   updateTree(index = 0, element = 0) {
     index += 1;
 
@@ -49,6 +73,12 @@ class FenwickTree {
     }
   }
 
+  /**
+   * Calculates range sum from given index to given index
+   * @param  {Number} left  Left index
+   * @param  {Number} right Right index
+   * @return {Number}       Range sum
+   */
   rangeSum(left, right) {
     if (left > right) {
       [left, right] = [right, left];
