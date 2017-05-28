@@ -10,6 +10,29 @@ describe('Graph', () => {
     assert.equal(inst.size, 0);
     assert.deepStrictEqual(inst.vertices, []);
   });
+
+  it('should create a graph', () => {
+    const inst = new Graph();
+    
+    inst.addVertex(1);
+    inst.addVertex(2);
+    inst.addVertex(3);
+    inst.addVertex(4);
+    inst.addVertex(5);
+
+    assert.throws(() => inst.addVertex(1));
+
+    inst.addEdge(1, 2, 1);
+    inst.addEdge(1, 3, 1);
+    inst.addEdge(1, 5, 1);
+    inst.addEdge(3, 4, 1);
+    inst.addEdge(1, 5, 1);
+
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 5);
+    assert.deepStrictEqual(inst.vertices, ['1', '2', '3', '4', '5']);
+  });
+
   it('should get neighbours', () => {
     const inst = new Graph();
     
