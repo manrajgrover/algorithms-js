@@ -18,10 +18,22 @@ class Graph {
     this.edges[vertex] = {};
   }
 
-  addEdge(vertexA, vertexB) {
-    this.edges[vertexA].push(vertexB);
+  addEdge(vertexA, vertexB, weight = 0) {
+    vertexA = String(vertexA);
+    vertexB = String(vertexB);
+
+    if (!this.vertices.has(vertexA)) {
+      this.addVertex(vertexA);
+    }
+
+    if (!this.vertices.has(vertexB)) {
+      this.addVertex(vertexB);
+    }
+
+    this.edges[vertexA][vertexB] = (this.edges[vertexA][vertexB] || 0) + weight;
+
     if (!this.isDirected) {
-      this.edges[vertexB].push(vertexA);
+      this.edges[vertexB][vertexA] = (this.edges[vertexB][vertexA] || 0) + weight;
     }
   }
 
