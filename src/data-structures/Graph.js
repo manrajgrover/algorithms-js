@@ -6,7 +6,8 @@ class Graph {
   }
 
   get size() {
-    return this.vertices.length;
+    return this._vertices.size;
+  }
   }
 
   addVertex(vertex) {
