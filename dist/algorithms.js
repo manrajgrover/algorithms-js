@@ -1303,6 +1303,379 @@ function hasOwnProperty(obj, prop) {
 },{"./support/isBuffer":4,"_process":2,"inherits":3}],6:[function(require,module,exports){
 'use strict';
 
+var Searching = require('./searching');
+var Sorting = require('./sorting');
+
+module.exports = {
+  Searching: Searching,
+  Sorting: Sorting
+};
+
+},{"./searching":8,"./sorting":12}],7:[function(require,module,exports){
+"use strict";
+
+/**
+ * Binary Search Algorithm
+ * @param  {Array}  sortedArray Sorted Array to be searched
+ * @param  {Number} element     Element to be searched
+ * @return {Number}             Index of the element, if found
+ */
+var binarysearch = function binarysearch(sortedArray, element) {
+  var left = 0;
+  var right = sortedArray.length - 1;
+
+  while (left <= right) {
+    var mid = left + (right - left >> 1);
+
+    if (sortedArray[mid] === element) {
+      return mid;
+    }
+
+    if (sortedArray[mid] < element) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
+};
+
+module.exports = binarysearch;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+var binarysearch = require('./BinarySearch');
+
+module.exports = {
+  binarysearch: binarysearch
+};
+
+},{"./BinarySearch":7}],9:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BubbleSort = function () {
+  function BubbleSort() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var compareFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (a, b) {
+      return a < b;
+    };
+
+    _classCallCheck(this, BubbleSort);
+
+    this._unsortedList = data;
+    this._compareFunc = compareFunc;
+
+    this._sortedList = this._sort(data.slice());
+    this._length = data.length;
+  }
+
+  /**
+   * Get size of array
+   * @return {Number} Size of array
+   */
+
+
+  _createClass(BubbleSort, [{
+    key: '_sort',
+
+
+    /**
+     * Bubble Sorts the array
+     * @param  {Array} list Array to be sorted
+     * @return {Array}      Sorted array
+     */
+    value: function _sort(list) {
+      var len = list.length;
+      var didSwap = void 0;
+
+      for (var i = 0; i < len - 1; i += 1) {
+        didSwap = false;
+
+        for (var j = 0; j < len - i - 1; j += 1) {
+          if (this._compareFunc(list[j + 1], list[j])) {
+            var _ref = [list[j + 1], list[j]];
+            list[j] = _ref[0];
+            list[j + 1] = _ref[1];
+
+            didSwap = true;
+          }
+        }
+
+        if (!didSwap) {
+          break;
+        }
+      }
+
+      return list;
+    }
+
+    /**
+     * Get string form of array
+     * @return {String} Comma separated string array
+     */
+
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return this._sortedList.join(', ');
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length;
+    }
+
+    /**
+     * Get unsorted array
+     * @return {Array} Unsorted/Initial array
+     */
+
+  }, {
+    key: 'unsortedList',
+    get: function get() {
+      return this._unsortedList;
+    }
+
+    /**
+     * Get sorted array
+     * @return {Array} Sorted array
+     */
+
+  }, {
+    key: 'sortedList',
+    get: function get() {
+      return this._sortedList;
+    }
+  }]);
+
+  return BubbleSort;
+}();
+
+module.exports = BubbleSort;
+
+},{}],10:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var InsertionSort = function () {
+  function InsertionSort() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var compareFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (a, b) {
+      return a < b;
+    };
+
+    _classCallCheck(this, InsertionSort);
+
+    this._unsortedList = data;
+    this._compareFunc = compareFunc;
+
+    this._sortedList = this._sort(data.slice());
+    this._length = data.length;
+  }
+
+  /**
+   * Get size of array
+   * @return {Number} Size of array
+   */
+
+
+  _createClass(InsertionSort, [{
+    key: '_sort',
+
+
+    /**
+     * Insertion Sorts the array
+     * @param  {Array} list Array to be sorted
+     * @return {Array}      Sorted array
+     */
+    value: function _sort(list) {
+      var len = list.length;
+
+      for (var i = 1; i < len; i += 1) {
+        var j = i - 1;
+        var key = list[i];
+
+        while (j >= 0 && this._compareFunc(key, list[j])) {
+          list[j + 1] = list[j];
+          j -= 1;
+        }
+        list[j + 1] = key;
+      }
+
+      return list;
+    }
+
+    /**
+     * Get string form of array
+     * @return {String} Comma separated string array
+     */
+
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return this._sortedList.join(', ');
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length;
+    }
+
+    /**
+     * Get unsorted array
+     * @return {Array} Unsorted/Initial array
+     */
+
+  }, {
+    key: 'unsortedList',
+    get: function get() {
+      return this._unsortedList;
+    }
+
+    /**
+     * Get sorted array
+     * @return {Array} Sorted array
+     */
+
+  }, {
+    key: 'sortedList',
+    get: function get() {
+      return this._sortedList;
+    }
+  }]);
+
+  return InsertionSort;
+}();
+
+module.exports = InsertionSort;
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var SelectionSort = function () {
+  function SelectionSort() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var compareFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (a, b) {
+      return a < b;
+    };
+
+    _classCallCheck(this, SelectionSort);
+
+    this._unsortedList = data;
+    this._compareFunc = compareFunc;
+
+    this._sortedList = this._sort(data.slice());
+    this._length = data.length;
+  }
+
+  /**
+   * Get size of array
+   * @return {Number} Size of array
+   */
+
+
+  _createClass(SelectionSort, [{
+    key: '_sort',
+
+
+    /**
+     * Selection Sorts the array
+     * @param  {Array} list Array to be sorted
+     * @return {Array}      Sorted array
+     */
+    value: function _sort(list) {
+      var len = list.length;
+
+      for (var i = 0; i < len - 1; i += 1) {
+        var minIndex = i;
+
+        for (var j = i + 1; j < len; j += 1) {
+          if (this._compareFunc(list[j], list[minIndex])) {
+            minIndex = j;
+          }
+        }
+
+        var _ref = [list[minIndex], list[i]];
+        list[i] = _ref[0];
+        list[minIndex] = _ref[1];
+      }
+
+      return list;
+    }
+
+    /**
+     * Get string form of array
+     * @return {String} Comma separated string array
+     */
+
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return this._sortedList.join(', ');
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length;
+    }
+
+    /**
+     * Get unsorted array
+     * @return {Array} Unsorted/Initial array
+     */
+
+  }, {
+    key: 'unsortedList',
+    get: function get() {
+      return this._unsortedList;
+    }
+
+    /**
+     * Get sorted array
+     * @return {Array} Sorted array
+     */
+
+  }, {
+    key: 'sortedList',
+    get: function get() {
+      return this._sortedList;
+    }
+  }]);
+
+  return SelectionSort;
+}();
+
+module.exports = SelectionSort;
+
+},{}],12:[function(require,module,exports){
+'use strict';
+
+var BubbleSort = require('./BubbleSort');
+var InsertionSort = require('./InsertionSort');
+var SelectionSort = require('./SelectionSort');
+
+module.exports = {
+  BubbleSort: BubbleSort,
+  InsertionSort: InsertionSort,
+  SelectionSort: SelectionSort
+};
+
+},{"./BubbleSort":9,"./InsertionSort":10,"./SelectionSort":11}],13:[function(require,module,exports){
+'use strict';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1577,7 +1950,297 @@ var DoublyLinkedList = function () {
 
 module.exports = DoublyLinkedList;
 
-},{}],7:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var FenwickTree = function () {
+  function FenwickTree(length) {
+    _classCallCheck(this, FenwickTree);
+
+    this._list = new Array(length + 1);
+    this._list.fill(0);
+    this._length = this._list.length;
+  }
+
+  /**
+   * Get size of Fenwick Tree
+   * @return {Number} Size of Fenwick Tree
+   */
+
+
+  _createClass(FenwickTree, [{
+    key: 'buildTree',
+
+
+    /**
+     * Builds Fenwick Tree
+     * @param  {Array} array Array elements to be used to build the tree
+     * @return {None}
+     */
+    value: function buildTree(array) {
+      if (!Array.isArray(array)) {
+        throw new Error('Array needs to be passed in order to build the tree');
+      }
+
+      for (var i = 0; i < this._length; i += 1) {
+        this.updateTree(i, array[i]);
+      }
+    }
+
+    /**
+     * Check if tree is empty
+     * @return {Boolean} Returns true if empty else false
+     */
+
+  }, {
+    key: 'isEmpty',
+    value: function isEmpty() {
+      return this._length - 1 === 0;
+    }
+
+    /**
+     * Gets prefix sum of the array using the tree
+     * @param  {Number} index Index till which sum needs to be calculated
+     * @return {Number}       Prefix sum
+     */
+
+  }, {
+    key: 'getSum',
+    value: function getSum() {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+      if (index + 1 >= this._length) {
+        throw new RangeError('Index out of bound');
+      }
+      var sum = 0;
+
+      index += 1;
+
+      while (index > 0) {
+        sum += this._list[index];
+
+        index -= index & -index;
+      }
+
+      return sum;
+    }
+
+    /**
+     * Updates the tree with adding element to given index
+     * @param  {Number} index   Index of element to be updated
+     * @param  {Number} element Element to be added
+     * @return {None}
+     */
+
+  }, {
+    key: 'updateTree',
+    value: function updateTree() {
+      var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var element = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      index += 1;
+
+      while (index <= this._length) {
+        this._list[index] += element;
+        index += index & -index;
+      }
+    }
+
+    /**
+     * Calculates range sum from given index to given index
+     * @param  {Number} left  Left index
+     * @param  {Number} right Right index
+     * @return {Number}       Range sum
+     */
+
+  }, {
+    key: 'rangeSum',
+    value: function rangeSum(left, right) {
+      if (left > right) {
+        var _ref = [right, left];
+        left = _ref[0];
+        right = _ref[1];
+      }
+      return this.getSum(right) - this.getSum(left - 1);
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length - 1;
+    }
+  }]);
+
+  return FenwickTree;
+}();
+
+module.exports = FenwickTree;
+
+},{}],15:[function(require,module,exports){
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Graph = function () {
+  function Graph() {
+    var directed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+    _classCallCheck(this, Graph);
+
+    this._isDirected = directed;
+    this._vertices = new Set();
+    this._edges = [];
+  }
+
+  /**
+   * Get size of graph
+   * @return {Number} Size of graph
+   */
+
+
+  _createClass(Graph, [{
+    key: "isEmpty",
+
+
+    /**
+     * Check whether graph is empty or not
+     * @return {Boolean} True if empty else False
+     */
+    value: function isEmpty() {
+      return this._vertices.size === 0;
+    }
+
+    /**
+     * Adds vertex to the Graph
+     * @param {Number} vertex Vertex label
+     */
+
+  }, {
+    key: "addVertex",
+    value: function addVertex(vertex) {
+      vertex = String(vertex);
+
+      if (this._vertices.has(vertex)) {
+        throw new Error("Vertix " + vertex + " already exists");
+      }
+
+      this._vertices.add(vertex);
+      this._edges[vertex] = {};
+    }
+
+    /**
+     * Adds edge between two vertices
+     * @param {Number} vertexA Starting vertex label
+     * @param {Number} vertexB Ending vertex label
+     * @param {Number} weight  Weight to be added for edge
+     */
+
+  }, {
+    key: "addEdge",
+    value: function addEdge(vertexA, vertexB) {
+      var weight = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+      vertexA = String(vertexA);
+      vertexB = String(vertexB);
+
+      if (!this._vertices.has(vertexA)) {
+        this.addVertex(vertexA);
+      }
+
+      if (!this._vertices.has(vertexB)) {
+        this.addVertex(vertexB);
+      }
+
+      this._edges[vertexA][vertexB] = (this._edges[vertexA][vertexB] || 0) + weight;
+
+      if (!this.isDirected) {
+        this._edges[vertexB][vertexA] = (this._edges[vertexB][vertexA] || 0) + weight;
+      }
+    }
+
+    /**
+     * Check whether one vertex is neighbour to another
+     * @param  {Number}  vertexA Origin vertex
+     * @param  {Number}  vertexB Vertex to be checked for
+     * @return {Boolean}         True if neighbour else False
+     */
+
+  }, {
+    key: "isNeighbour",
+    value: function isNeighbour(vertexA, vertexB) {
+      vertexA = String(vertexA);
+      vertexB = String(vertexB);
+
+      var neighbours = Object.keys(this._edges[vertexA]);
+
+      for (var i = 0; i < neighbours.length; i += 1) {
+        if (neighbours[i] === vertexB) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    /**
+     * Returns neighbours of a given vertex
+     * @param  {Number} vertex Vertex whose neighbours are required
+     * @return {Array}         List of neighbouring vertices
+     */
+
+  }, {
+    key: "getNeighbours",
+    value: function getNeighbours(vertex) {
+      return Object.keys(this._edges[String(vertex)]);
+    }
+
+    /**
+     * Returns edge weight of edge between two vertices
+     * @param  {Number} vertexA Starting Vertex label
+     * @param  {Number} vertexB Ending Vertex label
+     * @return {Number}         Edge weight
+     */
+
+  }, {
+    key: "getEdgeWeight",
+    value: function getEdgeWeight(vertexA, vertexB) {
+      if (!this.isNeighbour(vertexA, vertexB)) {
+        throw new Error("Vertex " + vertexA + " and " + vertexB + " are not neighbours");
+      }
+
+      return this._edges[String(vertexA)][String(vertexB)];
+    }
+  }, {
+    key: "size",
+    get: function get() {
+      return this._vertices.size;
+    }
+
+    /**
+     * Get vertices of graph
+     * @return {Array} Vertices in the graph
+     */
+
+  }, {
+    key: "vertices",
+    get: function get() {
+      return [].concat(_toConsumableArray(this._vertices));
+    }
+  }]);
+
+  return Graph;
+}();
+
+module.exports = Graph;
+
+},{}],16:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1601,8 +2264,21 @@ var Heap = function () {
     }
   }
 
+  /**
+   * Get size of Heap
+   * @return {Number} Size of Heap
+   */
+
+
   _createClass(Heap, [{
     key: '_buildHeap',
+
+
+    /**
+     * Build Heap
+     * @param  {Array} data Array of data to be used for Heap
+     * @return {None}
+     */
     value: function _buildHeap(data) {
       var _this = this;
 
@@ -1610,21 +2286,50 @@ var Heap = function () {
         _this.push(val);
       });
     }
+
+    /**
+     * Get parent of index
+     * @param  {Number} index Index for which parent is required
+     * @return {Number}       Parent of index
+     */
+
   }, {
     key: '_parent',
     value: function _parent(index) {
       return Math.floor((index - 1) / 2);
     }
+
+    /**
+     * Get index of left node
+     * @param  {Number} index Index for which left node index is needed
+     * @return {Number}       Index of left node
+     */
+
   }, {
     key: '_left',
     value: function _left(index) {
       return 2 * index + 1;
     }
+
+    /**
+     * Get index of right node
+     * @param  {Number} index Index for which right node index is needed
+     * @return {Number}       Index of right node
+     */
+
   }, {
     key: '_right',
     value: function _right(index) {
       return 2 * index + 2;
     }
+
+    /**
+     * Swap nodes
+     * @param  {Number} x Index of node one
+     * @param  {Number} y Index of node two
+     * @return {None}
+     */
+
   }, {
     key: '_swap',
     value: function _swap(x, y) {
@@ -1632,6 +2337,13 @@ var Heap = function () {
       this._list[x] = _ref[0];
       this._list[y] = _ref[1];
     }
+
+    /**
+     * Heapifies the array
+     * @param  {Number} index Index of root
+     * @return {None}
+     */
+
   }, {
     key: '_heapify',
     value: function _heapify(index) {
@@ -1653,11 +2365,23 @@ var Heap = function () {
         this._heapify(heapIndex);
       }
     }
+
+    /**
+     * Whether Heap is empty
+     * @return {Boolean} Whether Heap is empty or not
+     */
+
   }, {
     key: 'isEmpty',
     value: function isEmpty() {
       return this.size === 0;
     }
+
+    /**
+     * Get top of Heap
+     * @return {*} Top value of Heap
+     */
+
   }, {
     key: 'top',
     value: function top() {
@@ -1667,6 +2391,13 @@ var Heap = function () {
 
       return this._list[0];
     }
+
+    /**
+     * Pushes node to the Heap
+     * @param  {*} element Value to be inserted
+     * @return {None}
+     */
+
   }, {
     key: 'push',
     value: function push(element) {
@@ -1680,6 +2411,12 @@ var Heap = function () {
         elemIndex = this._parent(elemIndex);
       }
     }
+
+    /**
+     * Pop node from the Heap
+     * @return {*} Top popped node from the Heap
+     */
+
   }, {
     key: 'pop',
     value: function pop() {
@@ -1713,7 +2450,7 @@ var Heap = function () {
 
 module.exports = Heap;
 
-},{}],8:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1986,7 +2723,7 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],9:[function(require,module,exports){
+},{"assert":1}],18:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2079,7 +2816,7 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./DoublyLinkedList":6}],10:[function(require,module,exports){
+},{"./DoublyLinkedList":13}],19:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2159,10 +2896,12 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./DoublyLinkedList":6}],11:[function(require,module,exports){
+},{"./DoublyLinkedList":13}],20:[function(require,module,exports){
 'use strict';
 
 var DoublyLinkedList = require('./DoublyLinkedList');
+var FenwickTree = require('./FenwickTree');
+var Graph = require('./Graph');
 var Heap = require('./Heap');
 var LinkedList = require('./LinkedList');
 var Queue = require('./Queue');
@@ -2170,19 +2909,23 @@ var Stack = require('./Stack');
 
 module.exports = {
   DoublyLinkedList: DoublyLinkedList,
+  FenwickTree: FenwickTree,
+  Graph: Graph,
   Heap: Heap,
   LinkedList: LinkedList,
   Queue: Queue,
   Stack: Stack
 };
 
-},{"./DoublyLinkedList":6,"./Heap":7,"./LinkedList":8,"./Queue":9,"./Stack":10}],12:[function(require,module,exports){
+},{"./DoublyLinkedList":13,"./FenwickTree":14,"./Graph":15,"./Heap":16,"./LinkedList":17,"./Queue":18,"./Stack":19}],21:[function(require,module,exports){
 'use strict';
 
+var Algorithms = require('./algorithms');
 var DataStructures = require('./data-structures');
 
 module.exports = {
+  Algorithms: Algorithms,
   DataStructures: DataStructures
 };
 
-},{"./data-structures":11}]},{},[12]);
+},{"./algorithms":6,"./data-structures":20}]},{},[21]);
