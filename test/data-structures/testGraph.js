@@ -13,7 +13,7 @@ describe('Graph', () => {
 
   it('should create a graph', () => {
     const inst = new Graph();
-    
+
     inst.addVertex(1);
     inst.addVertex(2);
     inst.addVertex(3);
@@ -35,7 +35,7 @@ describe('Graph', () => {
 
   it('should get edge weight', () => {
     const inst = new Graph();
-    
+
     inst.addVertex(1);
     inst.addVertex(2);
     inst.addVertex(3);
@@ -58,7 +58,7 @@ describe('Graph', () => {
 
   it('should get neighbours', () => {
     const inst = new Graph();
-    
+
     inst.addVertex(1);
     inst.addVertex(2);
     inst.addVertex(3);
