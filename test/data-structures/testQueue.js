@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const Queue = require('../../src').DataStructures.Queue;
+const Queue = require('../../src').datastructures.Queue;
 const assert = require('assert');
 
 describe('Queue', () => {

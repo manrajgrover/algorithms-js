@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const BubbleSort = require('../../../src').Algorithms.Sorting.BubbleSort;
+const BubbleSort = require('../../../src').algorithms.Sorting.BubbleSort;
 const assert = require('assert');
 
 describe('BubbleSort', () => {

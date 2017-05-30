@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const SelectionSort = require('../../../src').Algorithms.Sorting.SelectionSort;
+const SelectionSort = require('../../../src').algorithms.Sorting.SelectionSort;
 const assert = require('assert');
 
 describe('SelectionSort', () => {

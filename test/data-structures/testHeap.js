@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const Heap = require('../../src').DataStructures.Heap;
+const Heap = require('../../src').datastructures.Heap;
 const assert = require('assert');
 
 describe('Heap', () => {

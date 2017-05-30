@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const Graph = require('../../src').DataStructures.Graph;
+const Graph = require('../../src').datastructures.Graph;
 const assert = require('assert');
 
 describe('Graph', () => {

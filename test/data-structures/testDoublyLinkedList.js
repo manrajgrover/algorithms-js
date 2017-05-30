@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const DoublyLinkedList = require('../../src').DataStructures.DoublyLinkedList;
+const DoublyLinkedList = require('../../src').datastructures.DoublyLinkedList;
 const assert = require('assert');
 
 describe('DoublyLinkedList', () => {

@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const Stack = require('../../src').DataStructures.Stack;
+const Stack = require('../../src').datastructures.Stack;
 const assert = require('assert');
 
 describe('Stack', () => {

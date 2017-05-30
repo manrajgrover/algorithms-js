@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const InsertionSort = require('../../../src').Algorithms.Sorting.InsertionSort;
+const InsertionSort = require('../../../src').algorithms.Sorting.InsertionSort;
 const assert = require('assert');
 
 describe('Insertion Sort', () => {

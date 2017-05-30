@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const FenwickTree = require('../../src').DataStructures.FenwickTree;
+const FenwickTree = require('../../src').datastructures.FenwickTree;
 const assert = require('assert');
 
 describe('Fenwick Tree', () => {

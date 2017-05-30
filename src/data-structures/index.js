@@ -1,10 +1,10 @@
-const DoublyLinkedList = require('./DoublyLinkedList');
-const FenwickTree = require('./FenwickTree');
-const Graph = require('./Graph');
-const Heap = require('./Heap');
-const LinkedList = require('./LinkedList');
-const Queue = require('./Queue');
-const Stack = require('./Stack');
+const DoublyLinkedList = require('./doubly_linked_list');
+const FenwickTree = require('./fenwick_tree');
+const Graph = require('./graph');
+const Heap = require('./heap');
+const LinkedList = require('./linked_list');
+const Queue = require('./queue');
+const Stack = require('./stack');
 
 module.exports = {
   DoublyLinkedList,
