@@ -1311,7 +1311,7 @@ module.exports = {
   Sorting: Sorting
 };
 
-},{"./searching":8,"./sorting":12}],7:[function(require,module,exports){
+},{"./searching":8,"./sorting":10}],7:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1346,13 +1346,13 @@ module.exports = binarysearch;
 },{}],8:[function(require,module,exports){
 'use strict';
 
-var binarysearch = require('./BinarySearch');
+var binarysearch = require('./binary_search');
 
 module.exports = {
   binarysearch: binarysearch
 };
 
-},{"./BinarySearch":7}],9:[function(require,module,exports){
+},{"./binary_search":7}],9:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1462,6 +1462,19 @@ module.exports = BubbleSort;
 },{}],10:[function(require,module,exports){
 'use strict';
 
+var BubbleSort = require('./bubble_sort');
+var InsertionSort = require('./insertion_sort');
+var SelectionSort = require('./selection_sort');
+
+module.exports = {
+  BubbleSort: BubbleSort,
+  InsertionSort: InsertionSort,
+  SelectionSort: SelectionSort
+};
+
+},{"./bubble_sort":9,"./insertion_sort":11,"./selection_sort":12}],11:[function(require,module,exports){
+'use strict';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1558,7 +1571,7 @@ var InsertionSort = function () {
 
 module.exports = InsertionSort;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1660,20 +1673,7 @@ var SelectionSort = function () {
 
 module.exports = SelectionSort;
 
-},{}],12:[function(require,module,exports){
-'use strict';
-
-var BubbleSort = require('./BubbleSort');
-var InsertionSort = require('./InsertionSort');
-var SelectionSort = require('./SelectionSort');
-
-module.exports = {
-  BubbleSort: BubbleSort,
-  InsertionSort: InsertionSort,
-  SelectionSort: SelectionSort
-};
-
-},{"./BubbleSort":9,"./InsertionSort":10,"./SelectionSort":11}],13:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2453,6 +2453,27 @@ module.exports = Heap;
 },{}],17:[function(require,module,exports){
 'use strict';
 
+var DoublyLinkedList = require('./doubly_linked_list');
+var FenwickTree = require('./fenwick_tree');
+var Graph = require('./graph');
+var Heap = require('./heap');
+var LinkedList = require('./linked_list');
+var Queue = require('./queue');
+var Stack = require('./stack');
+
+module.exports = {
+  DoublyLinkedList: DoublyLinkedList,
+  FenwickTree: FenwickTree,
+  Graph: Graph,
+  Heap: Heap,
+  LinkedList: LinkedList,
+  Queue: Queue,
+  Stack: Stack
+};
+
+},{"./doubly_linked_list":13,"./fenwick_tree":14,"./graph":15,"./heap":16,"./linked_list":18,"./queue":19,"./stack":20}],18:[function(require,module,exports){
+'use strict';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2723,14 +2744,14 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],18:[function(require,module,exports){
+},{"assert":1}],19:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DoublyLinkedList = require('./DoublyLinkedList');
+var DoublyLinkedList = require('./doubly_linked_list');
 
 var Queue = function () {
   function Queue() {
@@ -2816,14 +2837,14 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./DoublyLinkedList":13}],19:[function(require,module,exports){
+},{"./doubly_linked_list":13}],20:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DoublyLinkedList = require('./DoublyLinkedList');
+var DoublyLinkedList = require('./doubly_linked_list');
 
 var Stack = function () {
   function Stack() {
@@ -2896,36 +2917,15 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./DoublyLinkedList":13}],20:[function(require,module,exports){
+},{"./doubly_linked_list":13}],21:[function(require,module,exports){
 'use strict';
 
-var DoublyLinkedList = require('./DoublyLinkedList');
-var FenwickTree = require('./FenwickTree');
-var Graph = require('./Graph');
-var Heap = require('./Heap');
-var LinkedList = require('./LinkedList');
-var Queue = require('./Queue');
-var Stack = require('./Stack');
+var algorithms = require('./algorithms');
+var datastructures = require('./data-structures');
 
 module.exports = {
-  DoublyLinkedList: DoublyLinkedList,
-  FenwickTree: FenwickTree,
-  Graph: Graph,
-  Heap: Heap,
-  LinkedList: LinkedList,
-  Queue: Queue,
-  Stack: Stack
+  algorithms: algorithms,
+  datastructures: datastructures
 };
 
-},{"./DoublyLinkedList":13,"./FenwickTree":14,"./Graph":15,"./Heap":16,"./LinkedList":17,"./Queue":18,"./Stack":19}],21:[function(require,module,exports){
-'use strict';
-
-var Algorithms = require('./algorithms');
-var DataStructures = require('./data-structures');
-
-module.exports = {
-  Algorithms: Algorithms,
-  DataStructures: DataStructures
-};
-
-},{"./algorithms":6,"./data-structures":20}]},{},[21]);
+},{"./algorithms":6,"./data-structures":17}]},{},[21]);
