@@ -31,6 +31,13 @@ class MergeSort {
     return this._sortedList;
   }
 
+  /**
+   * Get string form of array
+   * @return {String} Comma separated string array
+   */
+  toString() {
+    return this._sortedList.join(', ');
+  }
 }
 
 module.exports = MergeSort;
