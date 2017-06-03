@@ -37,4 +37,13 @@ describe('HeapSort', () => {
     assert.equal(inst.toString(), '1, 2');
   });
 
+  it('should sort 1 element array', () => {
+    const inst = new HeapSort([1]);
+    assert.equal(inst.size, 1);
+
+    assert.deepEqual(inst.unsortedList, [1]);
+    assert.deepEqual(inst.sortedList, [1]);
+    assert.equal(inst.toString(), '1');
+  });
+
 });
