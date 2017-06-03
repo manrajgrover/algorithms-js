@@ -17,6 +17,22 @@ class HeapSort {
     return this._length;
   }
 
+  /**
+   * Get unsorted array
+   * @return {Array} Unsorted/Initial array
+   */
+  get unsortedList() {
+    return this._unsortedList;
+  }
+
+  /**
+   * Get sorted array
+   * @return {Array} Sorted array
+   */
+  get sortedList() {
+    return this._sortedList;
+  }
+
 }
 
 module.exports = HeapSort;
