@@ -33,6 +33,23 @@ class HeapSort {
     return this._sortedList;
   }
 
+  /**
+   * Heap Sorts the array
+   * @param  {Array} list Array to be sorted
+   * @return {Array}      Sorted array
+   */
+  _sort(list) {
+    const result = [];
+    const heap = new Heap(list, this._compareFunc);
+
+    while (!heap.isEmpty()) {
+      result.push(heap.top());
+      heap.pop();
+    }
+
+    return result;
+  }
+
 }
 
 module.exports = HeapSort;
