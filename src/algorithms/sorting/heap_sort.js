@@ -50,6 +50,13 @@ class HeapSort {
     return result;
   }
 
+  /**
+   * Get string form of array
+   * @return {String} Comma separated string array
+   */
+  toString() {
+    return this._sortedList.join(', ');
+  }
 }
 
 module.exports = HeapSort;
