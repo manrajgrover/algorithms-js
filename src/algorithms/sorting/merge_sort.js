@@ -31,6 +31,12 @@ class MergeSort {
     return this._sortedList;
   }
 
+  /**
+   * Merges the two array in sorted order
+   * @param  {Array} leftList  Left array
+   * @param  {Array} rightList Right array
+   * @return {Array}           Merged array
+   */
   _merge(leftList, rightList) {
     let i = 0;
     let j = 0;
@@ -50,6 +56,11 @@ class MergeSort {
     return resultList.concat((i < leftList.length ? leftList.slice(i) : rightList.slice(j)));
   }
 
+  /**
+   * Recursive function to divide array into two halves and merge the sorted array
+   * @param  {Array} list Array to be sorted
+   * @return {Array}      Sorted Array
+   */
   _mergeSort(list) {
     if (list.length > 1) {
       const middle = list.length >> 1;
