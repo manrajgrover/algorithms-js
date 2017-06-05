@@ -64,7 +64,7 @@ class Graph {
 
     this._edges[vertexA][vertexB] = (this._edges[vertexA][vertexB] || 0) + weight;
 
-    if (!this.isDirected) {
+    if (!this._isDirected) {
       this._edges[vertexB][vertexA] = (this._edges[vertexB][vertexA] || 0) + weight;
     }
   }
