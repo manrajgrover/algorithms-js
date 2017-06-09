@@ -5,6 +5,7 @@ const Heap = require('./heap');
 const LinkedList = require('./linked_list');
 const Queue = require('./queue');
 const Stack = require('./stack');
+const Trie = require('./trie');
 
 module.exports = {
   DoublyLinkedList,
@@ -13,5 +14,6 @@ module.exports = {
   Heap,
   LinkedList,
   Queue,
-  Stack
+  Stack,
+  Trie
 };
