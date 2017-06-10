@@ -39,6 +39,27 @@ class Trie {
   isEmpty() {
     return Object.keys(this._root.children).length === 0;
   }
+
+  insert(data, val) {
+    let crawler = this._root;
+
+    for (let i = 0; i < data.length; i += 1) {
+      let child = crawler.children[data[i]];
+
+      if (child === undefined) {
+        child = new Node();
+        crawler.children[data[i]] = child;
+      }
+
+      crawler = child;
+    }
+
+    this._size += 1;
+    crawler.isLeaf = true;
+    crawler.data = val;
+
+    return data;
+  }
   }
 }
 
