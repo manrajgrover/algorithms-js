@@ -31,6 +31,11 @@ class Trie {
     this._root = new Node();
     this._size = 0;
   }
+
+  get size() {
+    return this._size;
+  }
+
   }
 }
 
