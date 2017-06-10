@@ -79,5 +79,5 @@ describe('Trie', () => {
     assert(!inst.delete('them'));
     assert.equal(inst.size, 4);
     assert(!inst.search('them'));
-  }); 
+  });
 });
