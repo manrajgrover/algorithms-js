@@ -76,6 +76,39 @@ class Trie {
 
     return (crawler !== undefined && crawler.isLeaf);
   }
+
+  _remove(node, data, level, length) {
+    if (node) {
+      if (level === length) {
+        if (node.isLeaf) {
+          node.isLeaf = false;
+
+          if (Object.keys(node.children).length === 0) {
+            return true;
+          }
+
+          return false;
+        }
+      } else {
+        const index = data[level];
+
+        if (this._remove(node.children[index], data, level + 1, length)) {
+          delete node.children[index];
+
+          return (!node.isLeaf && Object.keys(node.children).length === 0);
+        }
+      }
+    }
+
+    return false;
+  }
+
+  delete(data) {
+    if (this.search(data)) {
+      this._size -= 1;
+      return this._remove(this._root, data, 0, data.length);
+    }
+    return false;
   }
 }
 
