@@ -28,7 +28,9 @@ class Node {
 
 class Trie {
   constructor() {
-    this._root = new Node('');
+    this._root = new Node();
+    this._size = 0;
+  }
   }
 }
 
