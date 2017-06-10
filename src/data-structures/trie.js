@@ -1,8 +1,9 @@
 class Node {
-  constructor(char) {
+  constructor(data) {
     this._isLeaf = false;
     this._children = {};
-    this._data = char;
+    this._data = data;
+  }
   }
 }
 
