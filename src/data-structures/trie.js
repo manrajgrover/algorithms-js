@@ -36,6 +36,9 @@ class Trie {
     return this._size;
   }
 
+  isEmpty() {
+    return Object.keys(this._root.children).length === 0;
+  }
   }
 }
 
