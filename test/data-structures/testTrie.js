@@ -61,4 +61,23 @@ describe('Trie', () => {
     assert.equal(inst.size, 2);
     assert(!inst.search('themselves'));
   });
+
+  it('should try deleting deleted word', () => {
+    const inst = new Trie();
+
+    inst.insert('cool');
+    inst.insert('the');
+    inst.insert('their');
+    inst.insert('them');
+    inst.insert('themselves');
+
+    inst.delete('them');
+    assert(!inst.search('them'));
+
+    assert.equal(inst.size, 4);
+
+    assert(!inst.delete('them'));
+    assert.equal(inst.size, 4);
+    assert(!inst.search('them'));
+  }); 
 });
