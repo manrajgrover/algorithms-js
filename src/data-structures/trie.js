@@ -4,6 +4,15 @@ class Node {
     this._children = {};
     this._data = data;
   }
+
+  get isLeaf() {
+    return this._isLeaf;
+  }
+
+  set isLeaf(val) {
+    this._isLeaf = val;
+  }
+
   }
 }
 
