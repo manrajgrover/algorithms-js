@@ -38,4 +38,23 @@ describe('Trie', () => {
     assert(inst.search('cool'));
   });
 
+  it('should search with deleted words in Trie', () => {
+    const inst = new Trie();
+
+    inst.insert('cool');
+    inst.insert('the');
+    inst.insert('their');
+    inst.insert('them');
+    inst.insert('themselves');
+
+    inst.delete('them');
+    assert(!inst.search('them'));
+
+    assert.equal(inst.size, 4);
+
+    inst.delete('the');
+    assert.equal(inst.size, 3);
+    assert(!inst.search('the'));
+    assert(inst.search('themselves'));
+  });
 });
