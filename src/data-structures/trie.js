@@ -13,6 +13,16 @@ class Node {
     this._isLeaf = val;
   }
 
+  get children() {
+    return this._children;
+  }
+
+  get data() {
+    return this._data;
+  }
+
+  set data(val) {
+    this._data = val;
   }
 }
 
