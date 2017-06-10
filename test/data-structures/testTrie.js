@@ -56,5 +56,9 @@ describe('Trie', () => {
     assert.equal(inst.size, 3);
     assert(!inst.search('the'));
     assert(inst.search('themselves'));
+
+    inst.delete('themselves');
+    assert.equal(inst.size, 2);
+    assert(!inst.search('themselves'));
   });
 });
