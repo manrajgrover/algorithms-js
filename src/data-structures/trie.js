@@ -60,6 +60,22 @@ class Trie {
 
     return data;
   }
+
+  search(data) {
+    let crawler = this._root;
+
+    for (let i = 0; i < data.length; i += 1) {
+      const child = crawler.children[data[i]];
+
+      if (child === undefined) {
+        return false;
+      }
+
+      crawler = child;
+    }
+
+    return (crawler !== undefined && crawler.isLeaf);
+  }
   }
 }
 
