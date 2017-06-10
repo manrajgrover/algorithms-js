@@ -9,4 +9,17 @@ describe('Trie', () => {
     assert(inst.isEmpty());
     assert.equal(inst.size, 0);
   });
+
+  it('should insert words in Trie', () => {
+    const inst = new Trie();
+
+    inst.insert('cool');
+    inst.insert('the');
+    inst.insert('their');
+    inst.insert('them');
+
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 4);
+  });
+
 });
