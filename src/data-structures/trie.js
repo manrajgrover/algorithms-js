@@ -17,10 +17,6 @@ class Node {
     return this._children;
   }
 
-  get data() {
-    return this._data;
-  }
-
   set data(val) {
     this._data = val;
   }
