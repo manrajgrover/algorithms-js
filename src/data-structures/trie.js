@@ -32,6 +32,10 @@ class Trie {
     return this._size;
   }
 
+  /**
+   * Checks if trie is empty or not
+   * @return {Boolean} true if empty else false
+   */
   isEmpty() {
     return Object.keys(this._root.children).length === 0;
   }
@@ -57,6 +61,11 @@ class Trie {
     return data;
   }
 
+  /**
+   * Searches and returns whether word exists in trie
+   * @param  {String} data  Data to be searched
+   * @return {Boolean}      true if exists else false
+   */
   search(data) {
     let crawler = this._root;
 
@@ -73,6 +82,14 @@ class Trie {
     return (crawler !== undefined && crawler.isLeaf);
   }
 
+  /**
+   * Recursively deletes word from the trie
+   * @param  {Node}    node   Current node being explored
+   * @param  {String}  data   Word to be deleted
+   * @param  {Integer} level  Depth looked in trie
+   * @param  {Integer} length Length of word
+   * @return {Boolean}        true if deleted else false
+   */
   _remove(node, data, level, length) {
     if (node) {
       if (level === length) {
@@ -99,6 +116,11 @@ class Trie {
     return false;
   }
 
+  /**
+   * Word to be deleted
+   * @param  {String} data  Word to be deleted
+   * @return {Boolean}      true if deleted else false
+   */
   delete(data) {
     if (this.search(data)) {
       this._size -= 1;
