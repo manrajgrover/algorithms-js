@@ -40,6 +40,12 @@ class Trie {
     return Object.keys(this._root.children).length === 0;
   }
 
+  /**
+   * Inserts data into trie
+   * @param  {String} data String to be inserted
+   * @param  {*} val       Leaf node value
+   * @return {String}      Inserted string
+   */
   insert(data, val) {
     let crawler = this._root;
 
