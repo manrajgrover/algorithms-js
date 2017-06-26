@@ -17,6 +17,10 @@ class Node {
     return this._children;
   }
 
+  get data() {
+    return this._data;
+  }
+
   set data(val) {
     this._data = val;
   }
@@ -46,7 +50,7 @@ class Trie {
    * @param  {*} val       Leaf node value
    * @return {String}      Inserted string
    */
-  insert(data, val) {
+  insert(data, val = undefined) {
     let crawler = this._root;
 
     for (let i = 0; i < data.length; i += 1) {
@@ -70,7 +74,7 @@ class Trie {
   /**
    * Searches and returns whether word exists in trie
    * @param  {String} data  Data to be searched
-   * @return {Boolean}      true if exists else false
+   * @return {*}            val of leaf node, if exist else false
    */
   search(data) {
     let crawler = this._root;
@@ -79,13 +83,17 @@ class Trie {
       const child = crawler.children[data[i]];
 
       if (child === undefined) {
-        return false;
+        return -1;
       }
 
       crawler = child;
     }
 
-    return (crawler !== undefined && crawler.isLeaf);
+    if (crawler !== undefined && crawler.isLeaf) {
+      return crawler.data;
+    }
+
+    return -1;
   }
 
   /**
@@ -128,7 +136,7 @@ class Trie {
    * @return {Boolean}      true if deleted else false
    */
   delete(data) {
-    if (this.search(data)) {
+    if (this.search(data) !== -1) {
       this._size -= 1;
       return this._remove(this._root, data, 0, data.length);
     }
