@@ -9,6 +9,12 @@ describe('Heap', () => {
     assert.equal(inst.size, 0);
   });
 
+  it('should initialize with 1 element', () => {
+    const inst = new Heap(1);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 1);
+  });
+
   it('should test default compare function', () => {
     const inst = new Heap();
     assert(inst.isEmpty());
