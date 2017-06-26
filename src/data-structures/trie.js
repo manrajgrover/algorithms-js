@@ -48,7 +48,7 @@ class Trie {
    * Inserts data into trie
    * @param  {String} data String to be inserted
    * @param  {*} val       Leaf node value
-   * @return {String}      Inserted string
+   * @return {Node}        Inserted node in trie
    */
   insert(data, val = undefined) {
     let crawler = this._root;
@@ -68,7 +68,7 @@ class Trie {
     crawler.isLeaf = true;
     crawler.data = val;
 
-    return data;
+    return crawler;
   }
 
   /**
