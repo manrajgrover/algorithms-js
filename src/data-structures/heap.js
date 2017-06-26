@@ -3,9 +3,7 @@ class Heap {
     this._list = [];
     this._length = 0;
     this._compareFunc = compareFunc;
-    if (data.length !== 0) {
-      this._buildHeap(data);
-    }
+    this._buildHeap(data);
   }
 
   /**
@@ -18,13 +16,17 @@ class Heap {
 
   /**
    * Build Heap
-   * @param  {Array} data Array of data to be used for Heap
+   * @param  {*} data Single element or array of data to be used for Heap
    * @return {None}
    */
   _buildHeap(data) {
-    data.forEach((val) => {
-      this.push(val);
-    });
+    if (Array.isArray(data)) {
+      data.forEach((val) => {
+        this.push(val);
+      });
+    } else {
+      this.push(data);
+    }
   }
 
   /**
