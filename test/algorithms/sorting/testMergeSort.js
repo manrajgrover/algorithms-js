@@ -2,7 +2,7 @@
 const MergeSort = require('../../../src').algorithms.Sorting.MergeSort;
 const assert = require('assert');
 
-describe('MergeSort', () => {
+describe('Merge Sort', () => {
   it('should have no data when empty initialization', () => {
     const inst = new MergeSort();
     assert.equal(inst.size, 0);

@@ -2,7 +2,7 @@
 const DoublyLinkedList = require('../../src').datastructures.DoublyLinkedList;
 const assert = require('assert');
 
-describe('DoublyLinkedList', () => {
+describe('Doubly Linked List', () => {
   it('should be empty when initialized', () => {
     const inst = new DoublyLinkedList();
     assert(inst.isEmpty());

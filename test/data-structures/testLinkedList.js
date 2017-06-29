@@ -2,7 +2,7 @@
 const LinkedList = require('../../src').datastructures.LinkedList;
 const assert = require('assert');
 
-describe('LinkedList', () => {
+describe('Linked List', () => {
   it('should be empty when initialized', () => {
     const inst = new LinkedList();
     assert(inst.isEmpty());

@@ -2,7 +2,7 @@
 const interpolationsearch = require('../../../src').algorithms.Searching.interpolationsearch;
 const assert = require('assert');
 
-describe('Binary Search', () => {
+describe('Interpolation Search', () => {
   it('should return -1 for empty array', () => {
     const index = interpolationsearch([], 1);
 

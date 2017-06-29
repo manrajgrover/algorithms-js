@@ -2,7 +2,7 @@
 const BubbleSort = require('../../../src').algorithms.Sorting.BubbleSort;
 const assert = require('assert');
 
-describe('BubbleSort', () => {
+describe('Bubble Sort', () => {
   it('should have no data when empty initialization', () => {
     const inst = new BubbleSort();
     assert.equal(inst.size, 0);

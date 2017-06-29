@@ -2,7 +2,7 @@
 const linearsearch = require('../../../src').algorithms.Searching.linearsearch;
 const assert = require('assert');
 
-describe('Binary Search', () => {
+describe('Linear Search', () => {
   it('should return -1 for empty array', () => {
     const index = linearsearch([], 1);
 

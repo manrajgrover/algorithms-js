@@ -2,7 +2,7 @@
 const SelectionSort = require('../../../src').algorithms.Sorting.SelectionSort;
 const assert = require('assert');
 
-describe('SelectionSort', () => {
+describe('Selection Sort', () => {
   it('should have no data when empty initialization', () => {
     const inst = new SelectionSort();
     assert.equal(inst.size, 0);
