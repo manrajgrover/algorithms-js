@@ -1,8 +1,11 @@
 const DoublyLinkedList = require('./doubly_linked_list');
 
 class Queue {
-  constructor() {
+  constructor(data) {
     this._list = new DoublyLinkedList();
+    if (data !== undefined) {
+      this.push(data);
+    }
   }
 
   /**
