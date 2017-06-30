@@ -17,6 +17,23 @@ describe('Queue', () => {
     assert.equal(inst.size, 1);
   });
 
+  it('should not be empty when initialized with array', () => {
+    const inst = new Queue([1, 2, 3, 4, 5]);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 5);
+
+    assert.equal(inst.front(), 1);
+    assert.equal(inst.back(), 5);
+  });
+
+  it('should not be empty when initialized with 1 data point', () => {
+    const inst = new Queue(1);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 1);
+    assert.equal(inst.front(), 1);
+    assert.equal(inst.back(), 1);
+  });
+
   it('should check front and back value', () => {
     const inst = new Queue();
 
