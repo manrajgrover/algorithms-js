@@ -9,6 +9,20 @@ describe('Stack', () => {
     assert.equal(inst.size, 0);
   });
 
+  it('should not be empty when initialized with array', () => {
+    const inst = new Stack([1, 2, 3, 4, 5]);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 5);
+    assert.equal(inst.top(), 5);
+  });
+
+  it('should not be empty when initialized with 1 data point', () => {
+    const inst = new Stack(1);
+    assert(!inst.isEmpty());
+    assert.equal(inst.size, 1);
+    assert.equal(inst.top(), 1);
+  });
+
   it('should push a node', () => {
     const inst = new Stack();
 
