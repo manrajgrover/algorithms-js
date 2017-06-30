@@ -27,7 +27,11 @@ class Stack {
    * @return {None}
    */
   push(data) {
-    this._list.push(data);
+    if (Array.isArray(data)) {
+      data.forEach(val => this._list.push(val));
+    } else {
+      this._list.push(data);
+    }
   }
 
   /**
