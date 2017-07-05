@@ -32,4 +32,16 @@ describe('Jump Search', () => {
 
     assert.equal(index, 4);
   });
+
+  it('should return index of last element', () => {
+    const sortedArray = [];
+
+    for (let i = 0; i <= 100; i += 2) {
+      sortedArray.push(i);
+    }
+
+    assert.equal(jumpsearch(sortedArray, 6), 3);
+    assert.equal(jumpsearch(sortedArray, 103), -1);
+    assert.equal(jumpsearch(sortedArray, 79), -1);
+  });
 });
