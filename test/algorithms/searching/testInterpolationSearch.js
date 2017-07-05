@@ -32,4 +32,17 @@ describe('Interpolation Search', () => {
 
     assert.equal(index, 4);
   });
+
+  it('should check for edge case where element at pos < element to search', () => {
+    const sortedArray = [];
+
+    for (let i = 0; i <= 100; i += 2) {
+      sortedArray.push(i);
+    }
+
+    assert.equal(interpolationsearch(sortedArray, 6), 3);
+    assert.equal(interpolationsearch(sortedArray, 103), -1);
+    assert.equal(interpolationsearch(sortedArray, 37), -1);
+    assert.equal(interpolationsearch(sortedArray, 68), 34);
+  });
 });

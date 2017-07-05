@@ -33,7 +33,7 @@ describe('Jump Search', () => {
     assert.equal(index, 4);
   });
 
-  it('should return index of last element', () => {
+  it('should check for edge case where prev >= len', () => {
     const sortedArray = [];
 
     for (let i = 0; i <= 100; i += 2) {
@@ -42,6 +42,6 @@ describe('Jump Search', () => {
 
     assert.equal(jumpsearch(sortedArray, 6), 3);
     assert.equal(jumpsearch(sortedArray, 103), -1);
-    assert.equal(jumpsearch(sortedArray, 79), -1);
+    assert.equal(jumpsearch(sortedArray, 37), -1);
   });
 });
