@@ -113,14 +113,14 @@ class Trie {
       }
 
       return false;
-    } else {
-      const index = data[level];
+    }
 
-      if (this._remove(node.children[index], data, level + 1, length)) {
-        delete node.children[index];
+    const index = data[level];
 
-        return (!node.isLeaf && Object.keys(node.children).length === 0);
-      }
+    if (this._remove(node.children[index], data, level + 1, length)) {
+      delete node.children[index];
+
+      return (!node.isLeaf && Object.keys(node.children).length === 0);
     }
 
     return false;
