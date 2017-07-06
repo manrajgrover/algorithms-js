@@ -50,7 +50,7 @@ class Graph {
    * @param {Number} vertexB Ending vertex label
    * @param {Number} weight  Weight to be added for edge
    */
-  addEdge(vertexA, vertexB, weight = 0) {
+  addEdge(vertexA, vertexB, weight) {
     vertexA = String(vertexA);
     vertexB = String(vertexB);
 

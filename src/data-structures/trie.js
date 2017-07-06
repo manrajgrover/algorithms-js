@@ -105,25 +105,21 @@ class Trie {
    * @return {Boolean}        true if deleted else false
    */
   _remove(node, data, level, length) {
-    if (node) {
-      if (level === length) {
-        if (node.isLeaf) {
-          node.isLeaf = false;
+    if (node && level === length && node.isLeaf) {
+      node.isLeaf = false;
 
-          if (Object.keys(node.children).length === 0) {
-            return true;
-          }
+      if (Object.keys(node.children).length === 0) {
+        return true;
+      }
 
-          return false;
-        }
-      } else {
-        const index = data[level];
+      return false;
+    } else {
+      const index = data[level];
 
-        if (this._remove(node.children[index], data, level + 1, length)) {
-          delete node.children[index];
+      if (this._remove(node.children[index], data, level + 1, length)) {
+        delete node.children[index];
 
-          return (!node.isLeaf && Object.keys(node.children).length === 0);
-        }
+        return (!node.isLeaf && Object.keys(node.children).length === 0);
       }
     }
 

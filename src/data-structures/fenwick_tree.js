@@ -41,7 +41,7 @@ class FenwickTree {
    * @param  {Number} index Index till which sum needs to be calculated
    * @return {Number}       Prefix sum
    */
-  getSum(index = 0) {
+  getSum(index) {
     if (index + 1 >= (this._length)) {
       throw new RangeError('Index out of bound');
     }
@@ -64,7 +64,7 @@ class FenwickTree {
    * @param  {Number} element Element to be added
    * @return {None}
    */
-  updateTree(index = 0, element = 0) {
+  updateTree(index, element) {
     index += 1;
 
     while (index <= this._length) {
