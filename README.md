@@ -32,6 +32,17 @@ Sorts an array of items
 - Heap Sort
 - Merge Sort
 
+### Data Structures
+Currently library supports following data structures:
+
+- Linked List
+- Doubly Linked List
+- Stack
+- Queue
+- Heap
+- Fenwick Tree
+- Trie
+
 ## Get in touch
 Say hi on [twitter](https://twitter.com/manrajsgrover)
 
