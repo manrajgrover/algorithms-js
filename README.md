@@ -9,6 +9,29 @@
 $ npm install algorithms-js
 ```
 
+## Usage
+Library contains both algorithms as well as data structures:
+
+### Algorithms
+Currently library supports following algorithms:
+
+#### Searching
+Searches an array of items
+
+- Linear Search
+- Binary Search
+- Interpolation Search
+- Jump Search
+
+#### Sorting
+Sorts an array of items
+
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Heap Sort
+- Merge Sort
+
 ## Get in touch
 Say hi on [twitter](https://twitter.com/manrajsgrover)
 
