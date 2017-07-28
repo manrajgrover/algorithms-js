@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const linearsearch = require('../../../src').algorithms.Searching.linearsearch;
+const linearsearch = require('../../../src').algorithms.search.linearsearch;
 const assert = require('assert');
 
 describe('Linear Search', () => {

@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const jumpsearch = require('../../../src').algorithms.Searching.jumpsearch;
+const jumpsearch = require('../../../src').algorithms.search.jumpsearch;
 const assert = require('assert');
 
 describe('Jump Search', () => {

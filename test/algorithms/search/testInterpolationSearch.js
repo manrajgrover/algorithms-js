@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const interpolationsearch = require('../../../src').algorithms.Searching.interpolationsearch;
+const interpolationsearch = require('../../../src').algorithms.search.interpolationsearch;
 const assert = require('assert');
 
 describe('Interpolation Search', () => {

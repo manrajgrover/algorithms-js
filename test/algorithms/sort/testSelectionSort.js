@@ -1,17 +1,17 @@
 /* eslint-env mocha */
-const HeapSort = require('../../../src').algorithms.Sorting.HeapSort;
+const SelectionSort = require('../../../src').algorithms.sort.SelectionSort;
 const assert = require('assert');
 
-describe('Heap Sort', () => {
+describe('Selection Sort', () => {
   it('should have no data when empty initialization', () => {
-    const inst = new HeapSort();
+    const inst = new SelectionSort();
     assert.equal(inst.size, 0);
     assert.deepEqual(inst.unsortedList, []);
     assert.deepEqual(inst.sortedList, []);
   });
 
   it('should sort the array', () => {
-    const inst = new HeapSort([2, 1, 3, 4]);
+    const inst = new SelectionSort([2, 1, 3, 4]);
     assert.equal(inst.size, 4);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
@@ -20,7 +20,7 @@ describe('Heap Sort', () => {
   });
 
   it('should sort the array in ascending order with few equal vals', () => {
-    const inst = new HeapSort([2, 1, 3, 4, 2], (a, b) => a < b);
+    const inst = new SelectionSort([2, 1, 3, 4, 2], (a, b) => a < b);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);
@@ -29,7 +29,7 @@ describe('Heap Sort', () => {
   });
 
   it('should sort 2 element array', () => {
-    const inst = new HeapSort([2, 1]);
+    const inst = new SelectionSort([2, 1]);
     assert.equal(inst.size, 2);
 
     assert.deepEqual(inst.unsortedList, [2, 1]);
@@ -38,7 +38,7 @@ describe('Heap Sort', () => {
   });
 
   it('should sort 1 element array', () => {
-    const inst = new HeapSort([1]);
+    const inst = new SelectionSort([1]);
     assert.equal(inst.size, 1);
 
     assert.deepEqual(inst.unsortedList, [1]);
@@ -47,7 +47,7 @@ describe('Heap Sort', () => {
   });
 
   it('should sort the array in decending order', () => {
-    const inst = new HeapSort([2, 1, 3, 4], (a, b) => a > b);
+    const inst = new SelectionSort([2, 1, 3, 4], (a, b) => a > b);
     assert.equal(inst.size, 4);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
@@ -56,7 +56,7 @@ describe('Heap Sort', () => {
   });
 
   it('should sort the array in decending order with few equal vals', () => {
-    const inst = new HeapSort([2, 1, 3, 4, 2], (a, b) => a > b);
+    const inst = new SelectionSort([2, 1, 3, 4, 2], (a, b) => a > b);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);

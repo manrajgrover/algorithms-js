@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const binarysearch = require('../../../src').algorithms.Searching.binarysearch;
+const binarysearch = require('../../../src').algorithms.search.binarysearch;
 const assert = require('assert');
 
 describe('Binary Search', () => {

@@ -1,17 +1,17 @@
 /* eslint-env mocha */
-const InsertionSort = require('../../../src').algorithms.Sorting.InsertionSort;
+const MergeSort = require('../../../src').algorithms.sort.MergeSort;
 const assert = require('assert');
 
-describe('Insertion Sort', () => {
+describe('Merge Sort', () => {
   it('should have no data when empty initialization', () => {
-    const inst = new InsertionSort();
+    const inst = new MergeSort();
     assert.equal(inst.size, 0);
     assert.deepEqual(inst.unsortedList, []);
     assert.deepEqual(inst.sortedList, []);
   });
 
   it('should sort the array', () => {
-    const inst = new InsertionSort([2, 1, 3, 4]);
+    const inst = new MergeSort([2, 1, 3, 4]);
     assert.equal(inst.size, 4);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
@@ -20,7 +20,7 @@ describe('Insertion Sort', () => {
   });
 
   it('should sort the array in ascending order with few equal vals', () => {
-    const inst = new InsertionSort([2, 1, 3, 4, 2], (a, b) => a < b);
+    const inst = new MergeSort([2, 1, 3, 4, 2], (a, b) => a < b);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);
@@ -29,7 +29,7 @@ describe('Insertion Sort', () => {
   });
 
   it('should sort 2 element array', () => {
-    const inst = new InsertionSort([2, 1]);
+    const inst = new MergeSort([2, 1]);
     assert.equal(inst.size, 2);
 
     assert.deepEqual(inst.unsortedList, [2, 1]);
@@ -38,7 +38,7 @@ describe('Insertion Sort', () => {
   });
 
   it('should sort 1 element array', () => {
-    const inst = new InsertionSort([1]);
+    const inst = new MergeSort([1]);
     assert.equal(inst.size, 1);
 
     assert.deepEqual(inst.unsortedList, [1]);
@@ -47,7 +47,7 @@ describe('Insertion Sort', () => {
   });
 
   it('should sort the array in decending order', () => {
-    const inst = new InsertionSort([2, 1, 3, 4], (a, b) => a > b);
+    const inst = new MergeSort([2, 1, 3, 4], (a, b) => a > b);
     assert.equal(inst.size, 4);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
@@ -56,7 +56,7 @@ describe('Insertion Sort', () => {
   });
 
   it('should sort the array in decending order with few equal vals', () => {
-    const inst = new InsertionSort([2, 1, 3, 4, 2], (a, b) => a > b);
+    const inst = new MergeSort([2, 1, 3, 4, 2], (a, b) => a > b);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);

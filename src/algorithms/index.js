@@ -1,7 +1,7 @@
-const Searching = require('./searching');
-const Sorting = require('./sorting');
+const search = require('./search');
+const sort = require('./sort');
 
 module.exports = {
-  Searching,
-  Sorting
+  search,
+  sort
 };
