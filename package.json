@@ -7,7 +7,8 @@
     "test": "mocha --recursive",
     "report": "nyc mocha --recursive",
     "lint": "eslint ./src ./test",
-    "all": "npm run test && npm run lint"
+    "all": "npm run test && npm run lint",
+    "docs": "doxdox 'src/**/*.js' --layout bootstrap --output docs/index.html && doxdox 'src/**/*.js' --layout markdown --output docs/README.md"
   },
   "repository": {
     "type": "git",
