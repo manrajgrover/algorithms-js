@@ -1,15 +1,19 @@
 class InsertionSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
   get size() {
     return this._length;
@@ -18,6 +22,7 @@ class InsertionSort {
   /**
    * Get unsorted array
    * @return {Array} Unsorted/Initial array
+   * @public
    */
   get unsortedList() {
     return this._unsortedList;
@@ -26,6 +31,7 @@ class InsertionSort {
   /**
    * Get sorted array
    * @return {Array} Sorted array
+   * @public
    */
   get sortedList() {
     return this._sortedList;
@@ -35,6 +41,7 @@ class InsertionSort {
    * Insertion Sorts the array
    * @param  {Array} list Array to be sorted
    * @return {Array}      Sorted array
+   * @private
    */
   _sort(list) {
     const len = list.length;
@@ -56,6 +63,7 @@ class InsertionSort {
   /**
    * Get string form of array
    * @return {String} Comma separated string array
+   * @public
    */
   toString() {
     return this._sortedList.join(', ');

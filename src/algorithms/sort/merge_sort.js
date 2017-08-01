@@ -1,15 +1,19 @@
 class MergeSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
   get size() {
     return this._length;
@@ -18,6 +22,7 @@ class MergeSort {
   /**
    * Get unsorted array
    * @return {Array} Unsorted/Initial array
+   * @public
    */
   get unsortedList() {
     return this._unsortedList;
@@ -26,6 +31,7 @@ class MergeSort {
   /**
    * Get sorted array
    * @return {Array} Sorted array
+   * @public
    */
   get sortedList() {
     return this._sortedList;
@@ -36,6 +42,7 @@ class MergeSort {
    * @param  {Array} leftList  Left array
    * @param  {Array} rightList Right array
    * @return {Array}           Merged array
+   * @private
    */
   _merge(leftList, rightList) {
     let i = 0;
@@ -60,6 +67,7 @@ class MergeSort {
    * Recursive function to divide array into two halves and merge the sorted array
    * @param  {Array} list Array to be sorted
    * @return {Array}      Sorted Array
+   * @private
    */
   _mergeSort(list) {
     if (list.length > 1) {
@@ -78,6 +86,7 @@ class MergeSort {
    * Merge Sorts the array
    * @param  {Array} list Array to be sorted
    * @return {Array}      Sorted array
+   * @private
    */
   _sort(list) {
     list = this._mergeSort(list);
@@ -87,6 +96,7 @@ class MergeSort {
   /**
    * Get string form of array
    * @return {String} Comma separated string array
+   * @public
    */
   toString() {
     return this._sortedList.join(', ');
