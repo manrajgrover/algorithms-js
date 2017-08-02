@@ -1157,6 +1157,38 @@ Returns string representing the Doubly Linked List
 ### src/data-structures/fenwick_tree.js
 
 
+#### this._list()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### size() 
 
 Get size of Fenwick Tree
@@ -1285,6 +1317,54 @@ Calculates range sum from given index to given index
 
 
 ### src/data-structures/graph.js
+
+
+#### this._isDirected()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._vertices()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._edges()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### size() 
@@ -1458,6 +1538,54 @@ Returns edge weight of edge between two vertices
 ### src/data-structures/heap.js
 
 
+#### this._list()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._compareFunc()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### size() 
 
 Get size of Heap
@@ -1474,7 +1602,7 @@ Get size of Heap
 
 
 
-#### _buildHeap(data) 
+#### _buildHeap(data)  *private method*
 
 Build Heap
 
@@ -1497,7 +1625,7 @@ Build Heap
 
 
 
-#### _parent(index) 
+#### _parent(index)  *private method*
 
 Get parent of index
 
@@ -1520,7 +1648,7 @@ Get parent of index
 
 
 
-#### _left(index) 
+#### _left(index)  *private method*
 
 Get index of left node
 
@@ -1543,7 +1671,7 @@ Get index of left node
 
 
 
-#### _right(index) 
+#### _right(index)  *private method*
 
 Get index of right node
 
@@ -1566,7 +1694,7 @@ Get index of right node
 
 
 
-#### _swap(x, y) 
+#### _swap(x, y)  *private method*
 
 Swap nodes
 
@@ -1590,7 +1718,7 @@ Swap nodes
 
 
 
-#### _heapify(index) 
+#### _heapify(index)  *private method*
 
 Heapifies the array
 
@@ -1686,6 +1814,38 @@ Pop node from the Heap
 
 
 ### src/data-structures/linked_list.js
+
+
+#### this._head()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### length() 
@@ -1903,6 +2063,22 @@ Returns string representing the linked list
 ### src/data-structures/queue.js
 
 
+#### this._list()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### size() 
 
 Get length of Queue
@@ -2010,6 +2186,22 @@ Get back value on Queue
 ### src/data-structures/stack.js
 
 
+#### this._list()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### size() 
 
 Get length of Stack
@@ -2101,6 +2293,54 @@ Get top value on stack
 ### src/data-structures/trie.js
 
 
+#### this._root()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._size()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### size() 
+
+Get size of Trie
+
+
+
+
+
+
+##### Returns
+
+
+- `Number`  Size of Trie
+
+
+
 #### isEmpty() 
 
 Checks if trie is empty or not
@@ -2164,7 +2404,7 @@ Searches and returns whether word exists in trie
 
 
 
-#### _remove(node, data, level, length) 
+#### _remove(node, data, level, length)  *private method*
 
 Recursively deletes word from the trie
 
@@ -2190,7 +2430,7 @@ Recursively deletes word from the trie
 
 
 
-#### delete(data) 
+#### delete(data)  *private method*
 
 Word to be deleted
 
