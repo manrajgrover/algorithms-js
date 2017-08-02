@@ -25,13 +25,16 @@ class Node {
 
 class LinkedList {
   constructor() {
+    /** @private */
     this._head = null;
+    /** @private */
     this._length = 0;
   }
 
   /**
    * Get length of Linked List
    * @return {Number} Length of Linked List
+   * @public
    */
   get length() {
     return this._length;
@@ -40,6 +43,7 @@ class LinkedList {
   /**
    * Check if Linked List is empty or not
    * @return {Boolean} `true` if empty else `false`
+   * @public
    */
   isEmpty() {
     return this._length === 0;
@@ -49,6 +53,7 @@ class LinkedList {
    * Pushes node to the end of Linked List
    * @param  {*}          data Data or value contained in Node
    * @return {LinkedList}      `this`
+   * @public
    */
   push(data) {
     const newNode = new Node(data);
@@ -67,6 +72,7 @@ class LinkedList {
   /**
    * Pops node from the end of Linked List
    * @return {LinkedList} `this`
+   * @public
    */
   pop() {
     if (this._head === null) {
@@ -83,6 +89,7 @@ class LinkedList {
    * Pops node from particular place in Linked List
    * @param  {Number}     index Index of node from end of the list
    * @return {LinkedList}       `this`
+   * @public
    */
   popNodeByIndex(index) {
     if (index < 0 || index >= this._length) {
@@ -107,6 +114,7 @@ class LinkedList {
    * Returns node at particular index else throws error if index out of range
    * @param  {Number} index Index of node from end
    * @return {Node}         Required node
+   * @public
    */
   getNodeByIndex(index) {
     if (index < 0 || index >= this._length) {
@@ -126,6 +134,7 @@ class LinkedList {
    * Returns first occurance of node with given value
    * @param  {*}    value Value to be searched
    * @return {Node}       First occurance of node with given value else -1
+   * @public
    */
   getNodeByValue(value) {
     let reference = this._head;
@@ -145,6 +154,7 @@ class LinkedList {
   /**
    * Returns Linked List as Array
    * @return {Array} Array containing values of Linked List
+   * @public
    */
   getListAsArray() {
     let reference = this._head;
@@ -162,6 +172,7 @@ class LinkedList {
   /**
    * Reverses Linked List
    * @return None
+   * @public
    */
   reverseList() {
     if (!this._head || !this._head.next) {
@@ -186,6 +197,7 @@ class LinkedList {
    * Iterates over all nodes of linked list and runs function on the node value
    * @param  {func} func Function containing logic to be applied to node value
    * @return {None}
+   * @public
    */
   forEach(func) {
     let reference = this._head;
@@ -201,6 +213,7 @@ class LinkedList {
   /**
    * Returns string representing the linked list
    * @return {string} String representation of linked list
+   * @public
    */
   toString() {
     let reference = this._head;

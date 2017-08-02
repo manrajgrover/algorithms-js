@@ -1,13 +1,17 @@
 class Graph {
   constructor(directed = false) {
+    /** @private */
     this._isDirected = directed;
+    /** @private */
     this._vertices = new Set();
+    /** @private */
     this._edges = [];
   }
 
   /**
    * Get size of graph
    * @return {Number} Size of graph
+   * @public
    */
   get size() {
     return this._vertices.size;
@@ -16,6 +20,7 @@ class Graph {
   /**
    * Get vertices of graph
    * @return {Array} Vertices in the graph
+   * @public
    */
   get vertices() {
     return [...this._vertices];
@@ -24,6 +29,7 @@ class Graph {
   /**
    * Check whether graph is empty or not
    * @return {Boolean} True if empty else False
+   * @public
    */
   isEmpty() {
     return this._vertices.size === 0;
@@ -32,6 +38,7 @@ class Graph {
   /**
    * Adds vertex to the Graph
    * @param {Number} vertex Vertex label
+   * @public
    */
   addVertex(vertex) {
     vertex = String(vertex);
@@ -49,6 +56,7 @@ class Graph {
    * @param {Number} vertexA Starting vertex label
    * @param {Number} vertexB Ending vertex label
    * @param {Number} weight  Weight to be added for edge
+   * @public
    */
   addEdge(vertexA, vertexB, weight) {
     vertexA = String(vertexA);
@@ -74,6 +82,7 @@ class Graph {
    * @param  {Number}  vertexA Origin vertex
    * @param  {Number}  vertexB Vertex to be checked for
    * @return {Boolean}         True if neighbour else False
+   * @public
    */
   isNeighbour(vertexA, vertexB) {
     vertexA = String(vertexA);
@@ -94,6 +103,7 @@ class Graph {
    * Returns neighbours of a given vertex
    * @param  {Number} vertex Vertex whose neighbours are required
    * @return {Array}         List of neighbouring vertices
+   * @public
    */
   getNeighbours(vertex) {
     return Object.keys(this._edges[String(vertex)]);
@@ -104,6 +114,7 @@ class Graph {
    * @param  {Number} vertexA Starting Vertex label
    * @param  {Number} vertexB Ending Vertex label
    * @return {Number}         Edge weight
+   * @public
    */
   getEdgeWeight(vertexA, vertexB) {
     if (!this.isNeighbour(vertexA, vertexB)) {

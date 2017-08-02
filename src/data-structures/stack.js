@@ -2,6 +2,7 @@ const DoublyLinkedList = require('./doubly_linked_list');
 
 class Stack {
   constructor(data) {
+    /** @private */
     this._list = new DoublyLinkedList();
     if (data !== undefined) {
       this.push(data);
@@ -11,6 +12,7 @@ class Stack {
   /**
    * Get length of Stack
    * @return {Number} Size of Stack
+   * @public
    */
   get size() {
     return this._list.length;
@@ -19,6 +21,7 @@ class Stack {
   /**
    * Check if Stack is empty or not
    * @return {Boolean} `true` if empty else `false`
+   * @public
    */
   isEmpty() {
     return this._list.isEmpty();
@@ -28,6 +31,7 @@ class Stack {
    * Pushes node in Stack
    * @param  {*}   data Data or value to be pushed
    * @return {None}
+   * @public
    */
   push(data) {
     if (Array.isArray(data)) {
@@ -40,6 +44,7 @@ class Stack {
   /**
    * Pop node from Stack
    * @return {*} Value of node which was popped
+   * @public
    */
   pop() {
     return this._list.pop().value;
@@ -48,6 +53,7 @@ class Stack {
   /**
    * Get top value on stack
    * @return {*} Value of node at the top
+   * @public
    */
   top() {
     const top = this._list.head;

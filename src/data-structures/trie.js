@@ -28,10 +28,17 @@ class Node {
 
 class Trie {
   constructor() {
+    /** @private */
     this._root = new Node();
+    /** @private */
     this._size = 0;
   }
 
+  /**
+   * Get size of Trie
+   * @return {Number} Size of Trie
+   * @public
+   */
   get size() {
     return this._size;
   }
@@ -39,6 +46,7 @@ class Trie {
   /**
    * Checks if trie is empty or not
    * @return {Boolean} true if empty else false
+   * @public
    */
   isEmpty() {
     return Object.keys(this._root.children).length === 0;
@@ -49,6 +57,7 @@ class Trie {
    * @param  {String} data String to be inserted
    * @param  {*} val       Leaf node value
    * @return {Node}        Inserted node in trie
+   * @public
    */
   insert(data, val = undefined) {
     let crawler = this._root;
@@ -75,6 +84,7 @@ class Trie {
    * Searches and returns whether word exists in trie
    * @param  {String} data  Data to be searched
    * @return {*}            val of leaf node, if exist else false
+   * @public
    */
   search(data) {
     let crawler = this._root;
@@ -103,6 +113,7 @@ class Trie {
    * @param  {Integer} level  Depth looked in trie
    * @param  {Integer} length Length of word
    * @return {Boolean}        true if deleted else false
+   * @private
    */
   _remove(node, data, level, length) {
     if (node && level === length && node.isLeaf) {
@@ -130,6 +141,7 @@ class Trie {
    * Word to be deleted
    * @param  {String} data  Word to be deleted
    * @return {Boolean}      true if deleted else false
+   * @private
    */
   delete(data) {
     if (this.search(data) !== -1) {

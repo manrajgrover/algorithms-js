@@ -2,7 +2,9 @@ const DoublyLinkedList = require('./doubly_linked_list');
 
 class Queue {
   constructor(data) {
+    /** @private */
     this._list = new DoublyLinkedList();
+
     if (data !== undefined) {
       this.push(data);
     }
@@ -11,6 +13,7 @@ class Queue {
   /**
    * Get length of Queue
    * @return {Number} Size of Queue
+   * @public
    */
   get size() {
     return this._list.length;
@@ -19,6 +22,7 @@ class Queue {
   /**
    * Check if Queue is empty or not
    * @return {Boolean} `true` if empty else `false`
+   * @public
    */
   isEmpty() {
     return this._list.isEmpty();
@@ -28,6 +32,7 @@ class Queue {
    * Pushes node in Queue
    * @param  {*}   data Data or value to be pushed
    * @return {None}
+   * @public
    */
   push(data) {
     if (Array.isArray(data)) {
@@ -40,6 +45,7 @@ class Queue {
   /**
    * Pop node from Queue
    * @return {*} Value of node which was popped
+   * @public
    */
   pop() {
     const front = this._list.tail;
@@ -51,6 +57,7 @@ class Queue {
   /**
    * Get front value on Queue
    * @return {*} Value of node at the front
+   * @public
    */
   front() {
     return this._list.tail.value;
@@ -59,6 +66,7 @@ class Queue {
   /**
    * Get back value on Queue
    * @return {*} Value of node at the back
+   * @public
    */
   back() {
     return this._list.head.value;
