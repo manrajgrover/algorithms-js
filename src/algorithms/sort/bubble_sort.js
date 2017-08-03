@@ -1,3 +1,6 @@
+/**
+ * Class for Bubble Sorting an array
+ */
 class BubbleSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

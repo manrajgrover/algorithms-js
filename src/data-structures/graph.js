@@ -1,3 +1,6 @@
+/**
+ * Class for Graphs
+ */
 class Graph {
   constructor(directed = false) {
     /** @private */

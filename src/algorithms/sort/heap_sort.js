@@ -1,5 +1,8 @@
 const Heap = require('../../data-structures/heap');
 
+/**
+ * Class for Heap Sorting an array
+ */
 class HeapSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

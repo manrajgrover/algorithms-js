@@ -23,6 +23,9 @@ class Node {
   }
 }
 
+/**
+ * Class for Linked List
+ */
 class LinkedList {
   constructor() {
     /** @private */

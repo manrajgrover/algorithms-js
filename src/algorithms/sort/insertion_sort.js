@@ -1,3 +1,6 @@
+/**
+ * Class for Insertion Sort for an array
+ */
 class InsertionSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

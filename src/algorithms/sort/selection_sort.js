@@ -1,3 +1,6 @@
+/**
+ * Class for Selection Sort for an array
+ */
 class SelectionSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

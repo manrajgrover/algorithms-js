@@ -26,6 +26,9 @@ class Node {
   }
 }
 
+/**
+ * Class for Trie
+ */
 class Trie {
   constructor() {
     /** @private */

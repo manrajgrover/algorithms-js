@@ -1,3 +1,6 @@
+/**
+ * Class for Fenwick Tree
+ */
 class FenwickTree {
   constructor(length) {
     /** @private */

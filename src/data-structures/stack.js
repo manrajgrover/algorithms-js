@@ -1,5 +1,8 @@
 const DoublyLinkedList = require('./doubly_linked_list');
 
+/**
+ * Class for Stacks
+ */
 class Stack {
   constructor(data) {
     /** @private */

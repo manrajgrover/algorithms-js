@@ -1,3 +1,6 @@
+/**
+ * Class for Merge Sorting an array
+ */
 class MergeSort {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

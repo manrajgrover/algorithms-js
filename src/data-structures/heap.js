@@ -1,3 +1,6 @@
+/**
+ * Class for Heaps
+ */
 class Heap {
   constructor(data = [], compareFunc = (a, b) => a < b) {
     /** @private */

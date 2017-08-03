@@ -26,6 +26,9 @@ class Node {
   }
 }
 
+/**
+ * Class for Doubly Linked List
+ */
 class DoublyLinkedList {
   constructor() {
     this._head = null;
