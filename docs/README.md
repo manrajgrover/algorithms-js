@@ -118,6 +118,22 @@ Linear Search Algorithm
 ### src/algorithms/sort/bubble_sort.js
 
 
+#### new BubbleSort() 
+
+Class for Bubble Sorting an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._unsortedList()  *private method*
 
 
@@ -271,6 +287,22 @@ Get string form of array
 
 
 ### src/algorithms/sort/heap_sort.js
+
+
+#### new HeapSort() 
+
+Class for Heap Sorting an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._unsortedList()  *private method*
@@ -428,6 +460,22 @@ Get string form of array
 ### src/algorithms/sort/insertion_sort.js
 
 
+#### new InsertionSort() 
+
+Class for Insertion Sort for an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._unsortedList()  *private method*
 
 
@@ -581,6 +629,22 @@ Get string form of array
 
 
 ### src/algorithms/sort/merge_sort.js
+
+
+#### new MergeSort() 
+
+Class for Merge Sorting an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._unsortedList()  *private method*
@@ -785,6 +849,22 @@ Get string form of array
 ### src/algorithms/sort/selection_sort.js
 
 
+#### new SelectionSort() 
+
+Class for Selection Sort for an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._unsortedList()  *private method*
 
 
@@ -940,7 +1020,23 @@ Get string form of array
 ### src/data-structures/doubly_linked_list.js
 
 
-#### length() 
+#### new DoublyLinkedList() 
+
+Class for Doubly Linked List
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### DoublyLinkedList.length() 
 
 Get length of Doubly Linked List
 
@@ -956,7 +1052,7 @@ Get length of Doubly Linked List
 
 
 
-#### isEmpty() 
+#### DoublyLinkedList.isEmpty() 
 
 Check if Doubly Linked List is empty or not
 
@@ -972,7 +1068,7 @@ Check if Doubly Linked List is empty or not
 
 
 
-#### tail() 
+#### DoublyLinkedList.tail() 
 
 Get tail of Doubly Linked List
 
@@ -988,7 +1084,7 @@ Get tail of Doubly Linked List
 
 
 
-#### head() 
+#### DoublyLinkedList.head() 
 
 Get head of Doubly Linked List
 
@@ -1004,7 +1100,7 @@ Get head of Doubly Linked List
 
 
 
-#### push(data) 
+#### DoublyLinkedList.push(data) 
 
 Pushes node to the head of Doubly Linked List
 
@@ -1027,7 +1123,7 @@ Pushes node to the head of Doubly Linked List
 
 
 
-#### insertAfter(prevNode, data) 
+#### DoublyLinkedList.insertAfter(prevNode, data) 
 
 Inserts node after a given node
 
@@ -1051,7 +1147,7 @@ Inserts node after a given node
 
 
 
-#### insertBefore(node, data) 
+#### DoublyLinkedList.insertBefore(node, data) 
 
 Inserts node before a given node
 
@@ -1075,7 +1171,7 @@ Inserts node before a given node
 
 
 
-#### pop() 
+#### DoublyLinkedList.pop() 
 
 Pop node from the head
 
@@ -1091,7 +1187,7 @@ Pop node from the head
 
 
 
-#### deleteNode(node) 
+#### DoublyLinkedList.deleteNode(node) 
 
 Delete node from the list
 
@@ -1114,7 +1210,7 @@ Delete node from the list
 
 
 
-#### getNode(index) 
+#### DoublyLinkedList.getNode(index) 
 
 Returns node at given index
 
@@ -1137,7 +1233,7 @@ Returns node at given index
 
 
 
-#### toString() 
+#### DoublyLinkedList.toString() 
 
 Returns string representing the Doubly Linked List
 
@@ -1155,6 +1251,22 @@ Returns string representing the Doubly Linked List
 
 
 ### src/data-structures/fenwick_tree.js
+
+
+#### new FenwickTree() 
+
+Class for Fenwick Tree
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._list()  *private method*
@@ -1317,6 +1429,22 @@ Calculates range sum from given index to given index
 
 
 ### src/data-structures/graph.js
+
+
+#### new Graph() 
+
+Class for Graphs
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._isDirected()  *private method*
@@ -1536,6 +1664,22 @@ Returns edge weight of edge between two vertices
 
 
 ### src/data-structures/heap.js
+
+
+#### new Heap() 
+
+Class for Heaps
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._list()  *private method*
@@ -1816,6 +1960,22 @@ Pop node from the Heap
 ### src/data-structures/linked_list.js
 
 
+#### new LinkedList() 
+
+Class for Linked List
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._head()  *private method*
 
 
@@ -2063,6 +2223,22 @@ Returns string representing the linked list
 ### src/data-structures/queue.js
 
 
+#### new Queue() 
+
+Class for Queues
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._list()  *private method*
 
 
@@ -2186,6 +2362,22 @@ Get back value on Queue
 ### src/data-structures/stack.js
 
 
+#### new Stack() 
+
+Class for Stacks
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
 #### this._list()  *private method*
 
 
@@ -2291,6 +2483,22 @@ Get top value on stack
 
 
 ### src/data-structures/trie.js
+
+
+#### new Trie() 
+
+Class for Trie
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
 
 
 #### this._root()  *private method*
