@@ -115,6 +115,34 @@ Linear Search Algorithm
 
 
 
+### src/algorithms/search/ternary_search.js
+
+
+#### ternarysearch(sortedArray, element) 
+
+Ternary Search Algorithm
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| sortedArray | `Array`  | Sorted Array to be searched | &nbsp; |
+| element | `Number`  | Element to be searched | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Index of the element, if found
+
+
+
+
 ### src/algorithms/sort/bubble_sort.js
 
 
