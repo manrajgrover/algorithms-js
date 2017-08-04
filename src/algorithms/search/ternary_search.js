@@ -9,17 +9,20 @@ const ternarysearch = (sortedArray, element) => {
   let right = sortedArray.length - 1;
 
   while (left <= right) {
-    const firstMid = (left) + ((right - left) / 3);
-    const secondMid = (firstMid) + ((right - left) / 3);
+    const firstMid = (left) + Math.floor((right - left) / 3);
+    const secondMid = (firstMid) + Math.floor((right - left) / 3);
 
     if (sortedArray[firstMid] === element) {
       return firstMid;
-    } else if (sortedArray[secondMid] === element) {
+    }
+    if (sortedArray[secondMid] === element) {
       return secondMid;
-    } else if (sortedArray[firstMid] > element) {
+    }
+
+    if (sortedArray[firstMid] > element) {
       right = firstMid - 1;
     } else if (sortedArray[secondMid] < element) {
-      left = secondMid - 1;
+      left = secondMid + 1;
     } else {
       left = firstMid + 1;
       right = secondMid - 1;
