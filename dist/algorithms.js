@@ -1311,7 +1311,7 @@ module.exports = {
   sort: sort
 };
 
-},{"./search":8,"./sort":14}],7:[function(require,module,exports){
+},{"./search":8,"./sort":15}],7:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1350,15 +1350,17 @@ var binarysearch = require('./binary_search');
 var interpolationsearch = require('./interpolation_search');
 var jumpsearch = require('./jump_search');
 var linearsearch = require('./linear_search');
+var ternarysearch = require('./ternary_search');
 
 module.exports = {
   binarysearch: binarysearch,
   interpolationsearch: interpolationsearch,
   jumpsearch: jumpsearch,
-  linearsearch: linearsearch
+  linearsearch: linearsearch,
+  ternarysearch: ternarysearch
 };
 
-},{"./binary_search":7,"./interpolation_search":9,"./jump_search":10,"./linear_search":11}],9:[function(require,module,exports){
+},{"./binary_search":7,"./interpolation_search":9,"./jump_search":10,"./linear_search":11,"./ternary_search":12}],9:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1457,6 +1459,45 @@ var linearsearch = function linearsearch(array, element) {
 module.exports = linearsearch;
 
 },{}],12:[function(require,module,exports){
+"use strict";
+
+/**
+ * Ternary Search Algorithm
+ * @param  {Array}  sortedArray Sorted Array to be searched
+ * @param  {Number} element     Element to be searched
+ * @return {Number}             Index of the element, if found
+ */
+var ternarysearch = function ternarysearch(sortedArray, element) {
+  var left = 0;
+  var right = sortedArray.length - 1;
+
+  while (left <= right) {
+    var firstMid = left + Math.floor((right - left) / 3);
+    var secondMid = firstMid + Math.floor((right - left) / 3);
+
+    if (sortedArray[firstMid] === element) {
+      return firstMid;
+    }
+    if (sortedArray[secondMid] === element) {
+      return secondMid;
+    }
+
+    if (sortedArray[firstMid] > element) {
+      right = firstMid - 1;
+    } else if (sortedArray[secondMid] < element) {
+      left = secondMid + 1;
+    } else {
+      left = firstMid + 1;
+      right = secondMid - 1;
+    }
+  }
+
+  return -1;
+};
+
+module.exports = ternarysearch;
+
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1464,7 +1505,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
- * Performs bubble sort on given array
+ * Class for Bubble Sorting an array
  */
 var BubbleSort = function () {
   function BubbleSort() {
@@ -1475,16 +1516,20 @@ var BubbleSort = function () {
 
     _classCallCheck(this, BubbleSort);
 
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
 
 
@@ -1496,6 +1541,7 @@ var BubbleSort = function () {
      * Bubble Sorts the array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted array
+     * @private
      */
     value: function _sort(list) {
       var len = list.length;
@@ -1525,6 +1571,7 @@ var BubbleSort = function () {
     /**
      * Get string form of array
      * @return {String} Comma separated string array
+     * @public
      */
 
   }, {
@@ -1541,6 +1588,7 @@ var BubbleSort = function () {
     /**
      * Get unsorted array
      * @return {Array} Unsorted/Initial array
+     * @public
      */
 
   }, {
@@ -1552,6 +1600,7 @@ var BubbleSort = function () {
     /**
      * Get sorted array
      * @return {Array} Sorted array
+     * @public
      */
 
   }, {
@@ -1566,7 +1615,7 @@ var BubbleSort = function () {
 
 module.exports = BubbleSort;
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1576,7 +1625,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var Heap = require('../../data-structures/heap');
 
 /**
- * Performs heap sort on given array
+ * Class for Heap Sorting an array
  */
 
 var HeapSort = function () {
@@ -1588,16 +1637,20 @@ var HeapSort = function () {
 
     _classCallCheck(this, HeapSort);
 
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
 
 
@@ -1609,6 +1662,7 @@ var HeapSort = function () {
      * Heap Sorts the array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted array
+     * @private
      */
     value: function _sort(list) {
       var result = [];
@@ -1625,6 +1679,7 @@ var HeapSort = function () {
     /**
      * Get string form of array
      * @return {String} Comma separated string array
+     * @public
      */
 
   }, {
@@ -1641,6 +1696,7 @@ var HeapSort = function () {
     /**
      * Get unsorted array
      * @return {Array} Unsorted/Initial array
+     * @public
      */
 
   }, {
@@ -1652,6 +1708,7 @@ var HeapSort = function () {
     /**
      * Get sorted array
      * @return {Array} Sorted array
+     * @public
      */
 
   }, {
@@ -1666,7 +1723,7 @@ var HeapSort = function () {
 
 module.exports = HeapSort;
 
-},{"../../data-structures/heap":21}],14:[function(require,module,exports){
+},{"../../data-structures/heap":22}],15:[function(require,module,exports){
 'use strict';
 
 var BubbleSort = require('./bubble_sort');
@@ -1683,13 +1740,16 @@ module.exports = {
   SelectionSort: SelectionSort
 };
 
-},{"./bubble_sort":12,"./heap_sort":13,"./insertion_sort":15,"./merge_sort":16,"./selection_sort":17}],15:[function(require,module,exports){
+},{"./bubble_sort":13,"./heap_sort":14,"./insertion_sort":16,"./merge_sort":17,"./selection_sort":18}],16:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Insertion Sort for an array
+ */
 var InsertionSort = function () {
   function InsertionSort() {
     var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -1699,16 +1759,20 @@ var InsertionSort = function () {
 
     _classCallCheck(this, InsertionSort);
 
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
 
 
@@ -1720,6 +1784,7 @@ var InsertionSort = function () {
      * Insertion Sorts the array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted array
+     * @private
      */
     value: function _sort(list) {
       var len = list.length;
@@ -1741,6 +1806,7 @@ var InsertionSort = function () {
     /**
      * Get string form of array
      * @return {String} Comma separated string array
+     * @public
      */
 
   }, {
@@ -1757,6 +1823,7 @@ var InsertionSort = function () {
     /**
      * Get unsorted array
      * @return {Array} Unsorted/Initial array
+     * @public
      */
 
   }, {
@@ -1768,6 +1835,7 @@ var InsertionSort = function () {
     /**
      * Get sorted array
      * @return {Array} Sorted array
+     * @public
      */
 
   }, {
@@ -1782,13 +1850,16 @@ var InsertionSort = function () {
 
 module.exports = InsertionSort;
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Merge Sorting an array
+ */
 var MergeSort = function () {
   function MergeSort() {
     var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -1798,16 +1869,20 @@ var MergeSort = function () {
 
     _classCallCheck(this, MergeSort);
 
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
 
 
@@ -1820,6 +1895,7 @@ var MergeSort = function () {
      * @param  {Array} leftList  Left array
      * @param  {Array} rightList Right array
      * @return {Array}           Merged array
+     * @private
      */
     value: function _merge(leftList, rightList) {
       var i = 0;
@@ -1844,6 +1920,7 @@ var MergeSort = function () {
      * Recursive function to divide array into two halves and merge the sorted array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted Array
+     * @private
      */
 
   }, {
@@ -1865,6 +1942,7 @@ var MergeSort = function () {
      * Merge Sorts the array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted array
+     * @private
      */
 
   }, {
@@ -1877,6 +1955,7 @@ var MergeSort = function () {
     /**
      * Get string form of array
      * @return {String} Comma separated string array
+     * @public
      */
 
   }, {
@@ -1893,6 +1972,7 @@ var MergeSort = function () {
     /**
      * Get unsorted array
      * @return {Array} Unsorted/Initial array
+     * @public
      */
 
   }, {
@@ -1904,6 +1984,7 @@ var MergeSort = function () {
     /**
      * Get sorted array
      * @return {Array} Sorted array
+     * @public
      */
 
   }, {
@@ -1918,13 +1999,16 @@ var MergeSort = function () {
 
 module.exports = MergeSort;
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Selection Sort for an array
+ */
 var SelectionSort = function () {
   function SelectionSort() {
     var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -1934,16 +2018,20 @@ var SelectionSort = function () {
 
     _classCallCheck(this, SelectionSort);
 
+    /** @private */
     this._unsortedList = data;
+    /** @private */
     this._compareFunc = compareFunc;
-
+    /** @private */
     this._sortedList = this._sort(data.slice());
+    /** @private */
     this._length = data.length;
   }
 
   /**
    * Get size of array
    * @return {Number} Size of array
+   * @public
    */
 
 
@@ -1955,6 +2043,7 @@ var SelectionSort = function () {
      * Selection Sorts the array
      * @param  {Array} list Array to be sorted
      * @return {Array}      Sorted array
+     * @private
      */
     value: function _sort(list) {
       var len = list.length;
@@ -1979,6 +2068,7 @@ var SelectionSort = function () {
     /**
      * Get string form of array
      * @return {String} Comma separated string array
+     * @public
      */
 
   }, {
@@ -1995,6 +2085,7 @@ var SelectionSort = function () {
     /**
      * Get unsorted array
      * @return {Array} Unsorted/Initial array
+     * @public
      */
 
   }, {
@@ -2006,6 +2097,7 @@ var SelectionSort = function () {
     /**
      * Get sorted array
      * @return {Array} Sorted array
+     * @public
      */
 
   }, {
@@ -2020,7 +2112,7 @@ var SelectionSort = function () {
 
 module.exports = SelectionSort;
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2061,6 +2153,11 @@ var Node = function () {
 
   return Node;
 }();
+
+/**
+ * Class for Doubly Linked List
+ */
+
 
 var DoublyLinkedList = function () {
   function DoublyLinkedList() {
@@ -2297,25 +2394,32 @@ var DoublyLinkedList = function () {
 
 module.exports = DoublyLinkedList;
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Fenwick Tree
+ */
 var FenwickTree = function () {
   function FenwickTree(length) {
     _classCallCheck(this, FenwickTree);
 
+    /** @private */
     this._list = new Array(length + 1);
+    /** @private */
     this._list.fill(0);
+    /** @private */
     this._length = this._list.length;
   }
 
   /**
    * Get size of Fenwick Tree
    * @return {Number} Size of Fenwick Tree
+   * @public
    */
 
 
@@ -2327,6 +2431,7 @@ var FenwickTree = function () {
      * Builds Fenwick Tree
      * @param  {Array} array Array elements to be used to build the tree
      * @return {None}
+     * @public
      */
     value: function buildTree(array) {
       if (!Array.isArray(array)) {
@@ -2341,6 +2446,7 @@ var FenwickTree = function () {
     /**
      * Check if tree is empty
      * @return {Boolean} Returns true if empty else false
+     * @public
      */
 
   }, {
@@ -2353,6 +2459,7 @@ var FenwickTree = function () {
      * Gets prefix sum of the array using the tree
      * @param  {Number} index Index till which sum needs to be calculated
      * @return {Number}       Prefix sum
+     * @public
      */
 
   }, {
@@ -2379,6 +2486,7 @@ var FenwickTree = function () {
      * @param  {Number} index   Index of element to be updated
      * @param  {Number} element Element to be added
      * @return {None}
+     * @public
      */
 
   }, {
@@ -2397,6 +2505,7 @@ var FenwickTree = function () {
      * @param  {Number} left  Left index
      * @param  {Number} right Right index
      * @return {Number}       Range sum
+     * @public
      */
 
   }, {
@@ -2421,7 +2530,7 @@ var FenwickTree = function () {
 
 module.exports = FenwickTree;
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2430,20 +2539,27 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Graphs
+ */
 var Graph = function () {
   function Graph() {
     var directed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
     _classCallCheck(this, Graph);
 
+    /** @private */
     this._isDirected = directed;
+    /** @private */
     this._vertices = new Set();
+    /** @private */
     this._edges = [];
   }
 
   /**
    * Get size of graph
    * @return {Number} Size of graph
+   * @public
    */
 
 
@@ -2454,6 +2570,7 @@ var Graph = function () {
     /**
      * Check whether graph is empty or not
      * @return {Boolean} True if empty else False
+     * @public
      */
     value: function isEmpty() {
       return this._vertices.size === 0;
@@ -2462,6 +2579,7 @@ var Graph = function () {
     /**
      * Adds vertex to the Graph
      * @param {Number} vertex Vertex label
+     * @public
      */
 
   }, {
@@ -2482,6 +2600,7 @@ var Graph = function () {
      * @param {Number} vertexA Starting vertex label
      * @param {Number} vertexB Ending vertex label
      * @param {Number} weight  Weight to be added for edge
+     * @public
      */
 
   }, {
@@ -2510,6 +2629,7 @@ var Graph = function () {
      * @param  {Number}  vertexA Origin vertex
      * @param  {Number}  vertexB Vertex to be checked for
      * @return {Boolean}         True if neighbour else False
+     * @public
      */
 
   }, {
@@ -2533,6 +2653,7 @@ var Graph = function () {
      * Returns neighbours of a given vertex
      * @param  {Number} vertex Vertex whose neighbours are required
      * @return {Array}         List of neighbouring vertices
+     * @public
      */
 
   }, {
@@ -2546,6 +2667,7 @@ var Graph = function () {
      * @param  {Number} vertexA Starting Vertex label
      * @param  {Number} vertexB Ending Vertex label
      * @return {Number}         Edge weight
+     * @public
      */
 
   }, {
@@ -2566,6 +2688,7 @@ var Graph = function () {
     /**
      * Get vertices of graph
      * @return {Array} Vertices in the graph
+     * @public
      */
 
   }, {
@@ -2580,13 +2703,16 @@ var Graph = function () {
 
 module.exports = Graph;
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Class for Heaps
+ */
 var Heap = function () {
   function Heap() {
     var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -2596,15 +2722,20 @@ var Heap = function () {
 
     _classCallCheck(this, Heap);
 
+    /** @private */
     this._list = [];
+    /** @private */
     this._length = 0;
+    /** @private */
     this._compareFunc = compareFunc;
+    /** @private */
     this._buildHeap(data);
   }
 
   /**
    * Get size of Heap
    * @return {Number} Size of Heap
+   * @public
    */
 
 
@@ -2616,6 +2747,7 @@ var Heap = function () {
      * Build Heap
      * @param  {*} data Single element or array of data to be used for Heap
      * @return {None}
+     * @private
      */
     value: function _buildHeap(data) {
       var _this = this;
@@ -2633,6 +2765,7 @@ var Heap = function () {
      * Get parent of index
      * @param  {Number} index Index for which parent is required
      * @return {Number}       Parent of index
+     * @private
      */
 
   }, {
@@ -2645,6 +2778,7 @@ var Heap = function () {
      * Get index of left node
      * @param  {Number} index Index for which left node index is needed
      * @return {Number}       Index of left node
+     * @private
      */
 
   }, {
@@ -2657,6 +2791,7 @@ var Heap = function () {
      * Get index of right node
      * @param  {Number} index Index for which right node index is needed
      * @return {Number}       Index of right node
+     * @private
      */
 
   }, {
@@ -2670,6 +2805,7 @@ var Heap = function () {
      * @param  {Number} x Index of node one
      * @param  {Number} y Index of node two
      * @return {None}
+     * @private
      */
 
   }, {
@@ -2684,6 +2820,7 @@ var Heap = function () {
      * Heapifies the array
      * @param  {Number} index Index of root
      * @return {None}
+     * @private
      */
 
   }, {
@@ -2711,6 +2848,7 @@ var Heap = function () {
     /**
      * Whether Heap is empty
      * @return {Boolean} Whether Heap is empty or not
+     * @public
      */
 
   }, {
@@ -2722,6 +2860,7 @@ var Heap = function () {
     /**
      * Get top of Heap
      * @return {*} Top value of Heap
+     * @public
      */
 
   }, {
@@ -2738,6 +2877,7 @@ var Heap = function () {
      * Pushes node to the Heap
      * @param  {*} element Value to be inserted
      * @return {None}
+     * @public
      */
 
   }, {
@@ -2757,6 +2897,7 @@ var Heap = function () {
     /**
      * Pop node from the Heap
      * @return {*} Top popped node from the Heap
+     * @public
      */
 
   }, {
@@ -2792,7 +2933,7 @@ var Heap = function () {
 
 module.exports = Heap;
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var DoublyLinkedList = require('./doubly_linked_list');
@@ -2815,7 +2956,7 @@ module.exports = {
   Trie: Trie
 };
 
-},{"./doubly_linked_list":18,"./fenwick_tree":19,"./graph":20,"./heap":21,"./linked_list":23,"./queue":24,"./stack":25,"./trie":26}],23:[function(require,module,exports){
+},{"./doubly_linked_list":19,"./fenwick_tree":20,"./graph":21,"./heap":22,"./linked_list":24,"./queue":25,"./stack":26,"./trie":27}],24:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2853,17 +2994,25 @@ var Node = function () {
   return Node;
 }();
 
+/**
+ * Class for Linked List
+ */
+
+
 var LinkedList = function () {
   function LinkedList() {
     _classCallCheck(this, LinkedList);
 
+    /** @private */
     this._head = null;
+    /** @private */
     this._length = 0;
   }
 
   /**
    * Get length of Linked List
    * @return {Number} Length of Linked List
+   * @public
    */
 
 
@@ -2874,6 +3023,7 @@ var LinkedList = function () {
     /**
      * Check if Linked List is empty or not
      * @return {Boolean} `true` if empty else `false`
+     * @public
      */
     value: function isEmpty() {
       return this._length === 0;
@@ -2883,6 +3033,7 @@ var LinkedList = function () {
      * Pushes node to the end of Linked List
      * @param  {*}          data Data or value contained in Node
      * @return {LinkedList}      `this`
+     * @public
      */
 
   }, {
@@ -2904,6 +3055,7 @@ var LinkedList = function () {
     /**
      * Pops node from the end of Linked List
      * @return {LinkedList} `this`
+     * @public
      */
 
   }, {
@@ -2923,6 +3075,7 @@ var LinkedList = function () {
      * Pops node from particular place in Linked List
      * @param  {Number}     index Index of node from end of the list
      * @return {LinkedList}       `this`
+     * @public
      */
 
   }, {
@@ -2950,6 +3103,7 @@ var LinkedList = function () {
      * Returns node at particular index else throws error if index out of range
      * @param  {Number} index Index of node from end
      * @return {Node}         Required node
+     * @public
      */
 
   }, {
@@ -2972,6 +3126,7 @@ var LinkedList = function () {
      * Returns first occurance of node with given value
      * @param  {*}    value Value to be searched
      * @return {Node}       First occurance of node with given value else -1
+     * @public
      */
 
   }, {
@@ -2994,6 +3149,7 @@ var LinkedList = function () {
     /**
      * Returns Linked List as Array
      * @return {Array} Array containing values of Linked List
+     * @public
      */
 
   }, {
@@ -3014,6 +3170,7 @@ var LinkedList = function () {
     /**
      * Reverses Linked List
      * @return None
+     * @public
      */
 
   }, {
@@ -3041,6 +3198,7 @@ var LinkedList = function () {
      * Iterates over all nodes of linked list and runs function on the node value
      * @param  {func} func Function containing logic to be applied to node value
      * @return {None}
+     * @public
      */
 
   }, {
@@ -3059,6 +3217,7 @@ var LinkedList = function () {
     /**
      * Returns string representing the linked list
      * @return {string} String representation of linked list
+     * @public
      */
 
   }, {
@@ -3088,7 +3247,7 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],24:[function(require,module,exports){
+},{"assert":1}],25:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3097,11 +3256,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var DoublyLinkedList = require('./doubly_linked_list');
 
+/**
+ * Class for Queues
+ */
+
 var Queue = function () {
   function Queue(data) {
     _classCallCheck(this, Queue);
 
+    /** @private */
     this._list = new DoublyLinkedList();
+
     if (data !== undefined) {
       this.push(data);
     }
@@ -3110,6 +3275,7 @@ var Queue = function () {
   /**
    * Get length of Queue
    * @return {Number} Size of Queue
+   * @public
    */
 
 
@@ -3120,6 +3286,7 @@ var Queue = function () {
     /**
      * Check if Queue is empty or not
      * @return {Boolean} `true` if empty else `false`
+     * @public
      */
     value: function isEmpty() {
       return this._list.isEmpty();
@@ -3129,6 +3296,7 @@ var Queue = function () {
      * Pushes node in Queue
      * @param  {*}   data Data or value to be pushed
      * @return {None}
+     * @public
      */
 
   }, {
@@ -3148,6 +3316,7 @@ var Queue = function () {
     /**
      * Pop node from Queue
      * @return {*} Value of node which was popped
+     * @public
      */
 
   }, {
@@ -3162,6 +3331,7 @@ var Queue = function () {
     /**
      * Get front value on Queue
      * @return {*} Value of node at the front
+     * @public
      */
 
   }, {
@@ -3173,6 +3343,7 @@ var Queue = function () {
     /**
      * Get back value on Queue
      * @return {*} Value of node at the back
+     * @public
      */
 
   }, {
@@ -3192,7 +3363,7 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./doubly_linked_list":18}],25:[function(require,module,exports){
+},{"./doubly_linked_list":19}],26:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3201,10 +3372,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var DoublyLinkedList = require('./doubly_linked_list');
 
+/**
+ * Class for Stacks
+ */
+
 var Stack = function () {
   function Stack(data) {
     _classCallCheck(this, Stack);
 
+    /** @private */
     this._list = new DoublyLinkedList();
     if (data !== undefined) {
       this.push(data);
@@ -3214,6 +3390,7 @@ var Stack = function () {
   /**
    * Get length of Stack
    * @return {Number} Size of Stack
+   * @public
    */
 
 
@@ -3224,6 +3401,7 @@ var Stack = function () {
     /**
      * Check if Stack is empty or not
      * @return {Boolean} `true` if empty else `false`
+     * @public
      */
     value: function isEmpty() {
       return this._list.isEmpty();
@@ -3233,6 +3411,7 @@ var Stack = function () {
      * Pushes node in Stack
      * @param  {*}   data Data or value to be pushed
      * @return {None}
+     * @public
      */
 
   }, {
@@ -3252,6 +3431,7 @@ var Stack = function () {
     /**
      * Pop node from Stack
      * @return {*} Value of node which was popped
+     * @public
      */
 
   }, {
@@ -3263,6 +3443,7 @@ var Stack = function () {
     /**
      * Get top value on stack
      * @return {*} Value of node at the top
+     * @public
      */
 
   }, {
@@ -3283,7 +3464,7 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./doubly_linked_list":18}],26:[function(require,module,exports){
+},{"./doubly_linked_list":19}],27:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3325,13 +3506,27 @@ var Node = function () {
   return Node;
 }();
 
+/**
+ * Class for Trie
+ */
+
+
 var Trie = function () {
   function Trie() {
     _classCallCheck(this, Trie);
 
+    /** @private */
     this._root = new Node();
+    /** @private */
     this._size = 0;
   }
+
+  /**
+   * Get size of Trie
+   * @return {Number} Size of Trie
+   * @public
+   */
+
 
   _createClass(Trie, [{
     key: "isEmpty",
@@ -3340,6 +3535,7 @@ var Trie = function () {
     /**
      * Checks if trie is empty or not
      * @return {Boolean} true if empty else false
+     * @public
      */
     value: function isEmpty() {
       return Object.keys(this._root.children).length === 0;
@@ -3350,6 +3546,7 @@ var Trie = function () {
      * @param  {String} data String to be inserted
      * @param  {*} val       Leaf node value
      * @return {Node}        Inserted node in trie
+     * @public
      */
 
   }, {
@@ -3381,6 +3578,7 @@ var Trie = function () {
      * Searches and returns whether word exists in trie
      * @param  {String} data  Data to be searched
      * @return {*}            val of leaf node, if exist else false
+     * @public
      */
 
   }, {
@@ -3412,6 +3610,7 @@ var Trie = function () {
      * @param  {Integer} level  Depth looked in trie
      * @param  {Integer} length Length of word
      * @return {Boolean}        true if deleted else false
+     * @private
      */
 
   }, {
@@ -3442,6 +3641,7 @@ var Trie = function () {
      * Word to be deleted
      * @param  {String} data  Word to be deleted
      * @return {Boolean}      true if deleted else false
+     * @private
      */
 
   }, {
@@ -3465,7 +3665,7 @@ var Trie = function () {
 
 module.exports = Trie;
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var algorithms = require('./algorithms');
@@ -3476,4 +3676,4 @@ module.exports = {
   datastructures: datastructures
 };
 
-},{"./algorithms":6,"./data-structures":22}]},{},[27]);
+},{"./algorithms":6,"./data-structures":23}]},{},[28]);
