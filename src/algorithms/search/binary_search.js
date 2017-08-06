@@ -4,9 +4,9 @@
  * @param  {Number} element     Element to be searched
  * @return {Number}             Index of the element, if found
  */
-const binarysearch = (sortedArray, element) => {
-  let left = 0;
-  let right = sortedArray.length - 1;
+const binarysearch = (sortedArray, element, left, right) => {
+  left = left === undefined ? 0 : left;
+  right = right === undefined ? sortedArray.length - 1 : right;
 
   while (left <= right) {
     const mid = (left) + ((right - left) >> 1);
