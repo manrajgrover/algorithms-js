@@ -5,7 +5,7 @@ const buffer = require('vinyl-buffer');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 
-gulp.task('build', () => {
+gulp.task('build-dev', () => {
   browserify({ entries: './src/index.js', debug: true })
     .transform('babelify', { presets: ['es2015'] })
     .bundle()
@@ -25,8 +25,8 @@ gulp.task('build-prod', () => {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('watch', ['build'], () => {
-  gulp.watch('./src/js/*.js', ['build']);
+gulp.task('watch', () => {
+  gulp.watch('./src/js/*.js', ['build-dev']);
 });
 
-gulp.task('default', ['build', 'build-prod']);
+gulp.task('default', ['build-dev', 'build-prod']);
