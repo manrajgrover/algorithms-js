@@ -1,1 +1,5 @@
-module.exports = {};
+const gcd = require('./gcd');
+
+module.exports = {
+  gcd
+};
