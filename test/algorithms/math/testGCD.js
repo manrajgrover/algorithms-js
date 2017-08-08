@@ -21,4 +21,10 @@ describe('GCD', () => {
     assert.equal(gcd(65, 10), 5);
     assert.equal(gcd(3, 2), 1);
   });
+
+  it('should return gcd of negative numbers', () => {
+    assert.equal(gcd(-60, -10), 10);
+    assert.equal(gcd(65, -10), 5);
+    assert.equal(gcd(-3, 2), 1);
+  });
 });
