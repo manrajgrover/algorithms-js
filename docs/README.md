@@ -1,6 +1,63 @@
-# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.5*
+# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.6*
 
 > Algorithms Library in JavaScript
+
+
+### src/algorithms/math/gcd.js
+
+
+#### gcd(a, b) 
+
+Calculates GCD of two numbers
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | First number | &nbsp; |
+| b | `Number`  | Second number | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  HCF or GCD of two numbers 
+References: https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number
+
+
+
+
+### src/algorithms/math/lcm.js
+
+
+#### lcm(a, b) 
+
+Calculates LCM of two numbers
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | First number | &nbsp; |
+| b | `Number`  | Second number | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  LCM of two numbers
+
+
 
 
 ### src/algorithms/search/binary_search.js
@@ -9,6 +66,34 @@
 #### binarysearch(sortedArray, element) 
 
 Binary Search Algorithm
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| sortedArray | `Array`  | Sorted Array to be searched | &nbsp; |
+| element | `Number`  | Element to be searched | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Index of the element, if found
+
+
+
+
+### src/algorithms/search/exponential_search.js
+
+
+#### exponentialsearch(sortedArray, element) 
+
+Exponential Search Algorithm
 
 
 

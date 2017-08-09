@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>algorithms-js 0.0.5 &#8212; Algorithms Library in JavaScript</title>
+<title>algorithms-js 0.0.6 &#8212; Algorithms Library in JavaScript</title>
 <meta name="description" content="Algorithms Library in JavaScript">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -163,7 +163,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
         <h1>
                 <a href="https://github.com/ManrajGrover/algorithms-js#readme">algorithms-js</a>
-            <small>0.0.5</small>
+            <small>0.0.6</small>
         </h1>
 
         <p>Algorithms Library in JavaScript</p>
@@ -186,12 +186,57 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
                     <li>
+                        <a href="#src/algorithms/math/gcd.js" class="file"><b>src/algorithms/math/gcd.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-gcd.js-gcd" title="gcd">gcd</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#src/algorithms/math/lcm.js" class="file"><b>src/algorithms/math/lcm.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-lcm.js-lcm" title="lcm">lcm</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
                         <a href="#src/algorithms/search/binary_search.js" class="file"><b>src/algorithms/search/binary_search.js</b></a>
                         <ul>
 
 
                         <li class="method-link scope-public">
                             <a href="#src-algorithms-search-binary_search.js-binarysearch" title="binarysearch">binarysearch</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#src/algorithms/search/exponential_search.js" class="file"><b>src/algorithms/search/exponential_search.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-search-exponential_search.js-exponentialsearch" title="exponentialsearch">exponentialsearch</a>
                         </li>
 
 
@@ -1087,6 +1132,179 @@ input[type="search"]::-webkit-search-cancel-button {
             <div class="col-md-9">
 
 
+                <a id="src/algorithms/math/gcd.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-gcd.js-gcd">
+                            <a href="#src-algorithms-math-gcd.js-gcd" class="permalink">#</a>
+                            <span class="method-name" title="gcd(a, b)">gcd(a, b)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Calculates GCD of two numbers</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>First number</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>b</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Second number</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>HCF or GCD of two numbers
+References: <a href="https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number">https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number</a></p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
+                <a id="src/algorithms/math/lcm.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-lcm.js-lcm">
+                            <a href="#src-algorithms-math-lcm.js-lcm" class="permalink">#</a>
+                            <span class="method-name" title="lcm(a, b)">lcm(a, b)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Calculates LCM of two numbers</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>First number</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>b</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Second number</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>LCM of two numbers</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
                 <a id="src/algorithms/search/binary_search.js"></a>
 
 
@@ -1100,6 +1318,92 @@ input[type="search"]::-webkit-search-cancel-button {
                         <div class="description lead">
 
                             <p>Binary Search Algorithm</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>sortedArray</td>
+                                        <td>
+                                            <code>Array</code>
+                                        </td>
+                                        <td><p>Sorted Array to be searched</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>element</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Element to be searched</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>Index of the element, if found</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
+                <a id="src/algorithms/search/exponential_search.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-search-exponential_search.js-exponentialsearch">
+                            <a href="#src-algorithms-search-exponential_search.js-exponentialsearch" class="permalink">#</a>
+                            <span class="method-name" title="exponentialsearch(sortedArray, element)">exponentialsearch(sortedArray, element)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Exponential Search Algorithm</p>
 
 
                         </div>
