@@ -6,6 +6,10 @@
  * @return {Number}     Base to a power keeping mod in check
  */
 const fastexp = (a, e, mod = 1e9 + 7) => {
+  if (a === 0 && e === 0) {
+    return undefined;
+  }
+
   let res = 1;
 
   while (e > 0) {
