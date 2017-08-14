@@ -3,6 +3,35 @@
 > Algorithms Library in JavaScript
 
 
+### src/algorithms/math/fast_exp.js
+
+
+#### fastexp(a, e, mod) 
+
+Raises base to a power keeping mod in check
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Base | &nbsp; |
+| e | `Number`  | Power | &nbsp; |
+| mod | `Number`  | Mod Value | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Base to a power keeping mod in check
+
+
+
+
 ### src/algorithms/math/gcd.js
 
 
@@ -939,6 +968,229 @@ Merge Sorts the array
 
 
 - `Array`  Sorted array
+
+
+
+#### toString() 
+
+Get string form of array
+
+
+
+
+
+
+##### Returns
+
+
+- `String`  Comma separated string array
+
+
+
+
+### src/algorithms/sort/quick_sort.js
+
+
+#### new QuickSort() 
+
+Class for Quick Sorting an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._unsortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._compareFunc()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._sortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### size() 
+
+Get size of array
+
+
+
+
+
+
+##### Returns
+
+
+- `Number`  Size of array
+
+
+
+#### unsortedList() 
+
+Get unsorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Unsorted/Initial array
+
+
+
+#### sortedList() 
+
+Get sorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted array
+
+
+
+#### _partition(list, low, high) 
+
+Create a partition and sort the individual parts
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| list | `Array`  | List to be sorted | &nbsp; |
+| low | `Number`  | Left index | &nbsp; |
+| high | `Number`  | Right index | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `List`  List containing sorted list and partition index
+
+
+
+#### _quickSort(list, low, high) 
+
+Recursive function to create partition and sort the halves
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| list | `Array`  | List to be sorted | &nbsp; |
+| low | `Number`  | Left index | &nbsp; |
+| high | `Number`  | Right index | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `List`  Sorted list
+
+
+
+#### _sort(list, low, high) 
+
+Quick sorts the array
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| list | `Array`  | Unsorted List | &nbsp; |
+| low | `Number`  | Left index | &nbsp; |
+| high | `Number`  | Right index | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted list
 
 
 
