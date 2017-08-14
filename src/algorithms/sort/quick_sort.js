@@ -40,6 +40,13 @@ class QuickSort {
     return this._sortedList;
   }
 
+  /**
+   * Create a partition and sort the individual parts
+   * @param  {Array}  list List to be sorted
+   * @param  {Number} low  Left index
+   * @param  {Number} high Right index
+   * @return {List}        List containing sorted list and partition index
+   */
   _partition(list, low, high) {
     const pivot = list[high];
     let i = (low - 1);
@@ -55,6 +62,13 @@ class QuickSort {
     return [list, i + 1];
   }
 
+  /**
+   * Recursive function to create partition and sort the halves
+   * @param  {Array}  list List to be sorted
+   * @param  {Number} low  Left index
+   * @param  {Number} high Right index
+   * @return {List}        Sorted list
+   */
   _quickSort(list, low, high) {
     if (low < high) {
       const [sortedlist, pi] = this._partition(list, low, high);
@@ -66,6 +80,13 @@ class QuickSort {
     return list;
   }
 
+  /**
+   * Quick sorts the array
+   * @param  {Array}  list Unsorted List
+   * @param  {Number} low  Left index
+   * @param  {Number} high Right index
+   * @return {Array}       Sorted list
+   */
   _sort(list, low, high) {
     list = this._quickSort(list, low, high);
     return list;
