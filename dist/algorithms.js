@@ -1303,15 +1303,117 @@ function hasOwnProperty(obj, prop) {
 },{"./support/isBuffer":4,"_process":2,"inherits":3}],6:[function(require,module,exports){
 'use strict';
 
+var math = require('./math');
 var search = require('./search');
 var sort = require('./sort');
 
 module.exports = {
+  math: math,
   search: search,
   sort: sort
 };
 
-},{"./search":9,"./sort":16}],7:[function(require,module,exports){
+},{"./math":9,"./search":13,"./sort":20}],7:[function(require,module,exports){
+"use strict";
+
+/**
+ * Raises base to a power keeping mod in check
+ * @param  {Number} a   Base
+ * @param  {Number} e   Power
+ * @param  {Number} mod Mod Value
+ * @return {Number}     Base to a power keeping mod in check
+ */
+var fastexp = function fastexp(a, e) {
+  var mod = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1e9 + 7;
+
+  if (a === 0 && e === 0) {
+    return undefined;
+  }
+
+  var res = 1;
+
+  while (e > 0) {
+    if (e % 2 === 1) {
+      res = res * a % mod;
+    }
+
+    a = a * a % mod;
+    e /= 2;
+  }
+
+  return res % mod;
+};
+
+module.exports = fastexp;
+
+},{}],8:[function(require,module,exports){
+"use strict";
+
+/**
+ * Calculates GCD of two numbers
+ * @param  {Number} a First number
+ * @param  {Number} b Second number
+ * @return {Number}   HCF or GCD of two numbers
+ *
+ * References: https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number
+ */
+var gcd = function gcd(a, b) {
+  a = Math.abs(a);
+  b = Math.abs(b);
+
+  if (a === 0 || b === 0) {
+    return 0;
+  }
+
+  if (a === b) {
+    return a;
+  }
+
+  if (a > b) {
+    return gcd(a - b, b);
+  }
+
+  return gcd(a, b - a);
+};
+
+module.exports = gcd;
+
+},{}],9:[function(require,module,exports){
+'use strict';
+
+var gcd = require('./gcd');
+var fastexp = require('./fast_exp');
+var lcm = require('./lcm');
+
+module.exports = {
+  gcd: gcd,
+  fastexp: fastexp,
+  lcm: lcm
+};
+
+},{"./fast_exp":7,"./gcd":8,"./lcm":10}],10:[function(require,module,exports){
+'use strict';
+
+var gcd = require('./gcd');
+
+/**
+ * Calculates LCM of two numbers
+ * @param  {Number} a First number
+ * @param  {Number} b Second number
+ * @return {Number}   LCM of two numbers
+ */
+var lcm = function lcm(a, b) {
+  if (a === 0 || b === 0) {
+    return 0;
+  }
+  a = Math.abs(a);
+  b = Math.abs(b);
+  return a * b / gcd(a, b);
+};
+
+module.exports = lcm;
+
+},{"./gcd":8}],11:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1343,7 +1445,7 @@ var binarysearch = function binarysearch(sortedArray, element, left, right) {
 
 module.exports = binarysearch;
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 var binarysearch = require('./binary_search');
@@ -1372,7 +1474,7 @@ var exponentialsearch = function exponentialsearch(sortedArray, element) {
 
 module.exports = exponentialsearch;
 
-},{"./binary_search":7}],9:[function(require,module,exports){
+},{"./binary_search":11}],13:[function(require,module,exports){
 'use strict';
 
 var binarysearch = require('./binary_search');
@@ -1391,7 +1493,7 @@ module.exports = {
   ternarysearch: ternarysearch
 };
 
-},{"./binary_search":7,"./exponential_search":8,"./interpolation_search":10,"./jump_search":11,"./linear_search":12,"./ternary_search":13}],10:[function(require,module,exports){
+},{"./binary_search":11,"./exponential_search":12,"./interpolation_search":14,"./jump_search":15,"./linear_search":16,"./ternary_search":17}],14:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1427,7 +1529,7 @@ var interpolationsearch = function interpolationsearch(sortedArray, element) {
 
 module.exports = interpolationsearch;
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1466,7 +1568,7 @@ var jumpsearch = function jumpsearch(sortedArray, element) {
 
 module.exports = jumpsearch;
 
-},{}],12:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1489,7 +1591,7 @@ var linearsearch = function linearsearch(array, element) {
 
 module.exports = linearsearch;
 
-},{}],13:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1528,7 +1630,7 @@ var ternarysearch = function ternarysearch(sortedArray, element) {
 
 module.exports = ternarysearch;
 
-},{}],14:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1646,7 +1748,7 @@ var BubbleSort = function () {
 
 module.exports = BubbleSort;
 
-},{}],15:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1754,13 +1856,14 @@ var HeapSort = function () {
 
 module.exports = HeapSort;
 
-},{"../../data-structures/heap":23}],16:[function(require,module,exports){
+},{"../../data-structures/heap":28}],20:[function(require,module,exports){
 'use strict';
 
 var BubbleSort = require('./bubble_sort');
 var HeapSort = require('./heap_sort');
 var InsertionSort = require('./insertion_sort');
 var MergeSort = require('./merge_sort');
+var QuickSort = require('./quick_sort');
 var SelectionSort = require('./selection_sort');
 
 module.exports = {
@@ -1768,10 +1871,11 @@ module.exports = {
   HeapSort: HeapSort,
   InsertionSort: InsertionSort,
   MergeSort: MergeSort,
+  QuickSort: QuickSort,
   SelectionSort: SelectionSort
 };
 
-},{"./bubble_sort":14,"./heap_sort":15,"./insertion_sort":17,"./merge_sort":18,"./selection_sort":19}],17:[function(require,module,exports){
+},{"./bubble_sort":18,"./heap_sort":19,"./insertion_sort":21,"./merge_sort":22,"./quick_sort":23,"./selection_sort":24}],21:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1881,7 +1985,7 @@ var InsertionSort = function () {
 
 module.exports = InsertionSort;
 
-},{}],18:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2030,7 +2134,162 @@ var MergeSort = function () {
 
 module.exports = MergeSort;
 
-},{}],19:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Class for Quick Sorting an array
+ */
+var QuickSort = function () {
+  function QuickSort() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var compareFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (a, b) {
+      return a <= b;
+    };
+
+    _classCallCheck(this, QuickSort);
+
+    /** @private */
+    this._unsortedList = data;
+    /** @private */
+    this._compareFunc = compareFunc;
+    /** @private */
+    this._sortedList = this._sort(data.slice(), 0, data.length - 1);
+    /** @private */
+    this._length = data.length;
+  }
+
+  /**
+   * Get size of array
+   * @return {Number} Size of array
+   * @public
+   */
+
+
+  _createClass(QuickSort, [{
+    key: '_partition',
+
+
+    /**
+     * Create a partition and sort the individual parts
+     * @param  {Array}  list List to be sorted
+     * @param  {Number} low  Left index
+     * @param  {Number} high Right index
+     * @return {List}        List containing sorted list and partition index
+     */
+    value: function _partition(list, low, high) {
+      var pivot = list[high];
+      var i = low - 1;
+
+      for (var j = low; j <= high - 1; j += 1) {
+        if (this._compareFunc(list[j], pivot)) {
+          i += 1;
+          var _ref = [list[j], list[i]];
+          list[i] = _ref[0];
+          list[j] = _ref[1];
+        }
+      }
+
+      var _ref2 = [list[high], list[i + 1]];
+      list[i + 1] = _ref2[0];
+      list[high] = _ref2[1];
+
+      return [list, i + 1];
+    }
+
+    /**
+     * Recursive function to create partition and sort the halves
+     * @param  {Array}  list List to be sorted
+     * @param  {Number} low  Left index
+     * @param  {Number} high Right index
+     * @return {List}        Sorted list
+     */
+
+  }, {
+    key: '_quickSort',
+    value: function _quickSort(list, low, high) {
+      if (low < high) {
+        var _partition2 = this._partition(list, low, high),
+            _partition3 = _slicedToArray(_partition2, 2),
+            sortedlist = _partition3[0],
+            pi = _partition3[1];
+
+        this._quickSort(sortedlist, low, pi - 1);
+        this._quickSort(sortedlist, pi + 1, high);
+      }
+
+      return list;
+    }
+
+    /**
+     * Quick sorts the array
+     * @param  {Array}  list Unsorted List
+     * @param  {Number} low  Left index
+     * @param  {Number} high Right index
+     * @return {Array}       Sorted list
+     */
+
+  }, {
+    key: '_sort',
+    value: function _sort(list, low, high) {
+      list = this._quickSort(list, low, high);
+      return list;
+    }
+
+    /**
+     * Get string form of array
+     * @return {String} Comma separated string array
+     * @public
+     */
+
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return this._sortedList.join(', ');
+    }
+  }, {
+    key: 'size',
+    get: function get() {
+      return this._length;
+    }
+
+    /**
+     * Get unsorted array
+     * @return {Array} Unsorted/Initial array
+     * @public
+     */
+
+  }, {
+    key: 'unsortedList',
+    get: function get() {
+      return this._unsortedList;
+    }
+
+    /**
+     * Get sorted array
+     * @return {Array} Sorted array
+     * @public
+     */
+
+  }, {
+    key: 'sortedList',
+    get: function get() {
+      return this._sortedList;
+    }
+  }]);
+
+  return QuickSort;
+}();
+
+module.exports = QuickSort;
+
+},{}],24:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2143,7 +2402,7 @@ var SelectionSort = function () {
 
 module.exports = SelectionSort;
 
-},{}],20:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2425,7 +2684,7 @@ var DoublyLinkedList = function () {
 
 module.exports = DoublyLinkedList;
 
-},{}],21:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2561,7 +2820,7 @@ var FenwickTree = function () {
 
 module.exports = FenwickTree;
 
-},{}],22:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2734,7 +2993,7 @@ var Graph = function () {
 
 module.exports = Graph;
 
-},{}],23:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2964,7 +3223,7 @@ var Heap = function () {
 
 module.exports = Heap;
 
-},{}],24:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var DoublyLinkedList = require('./doubly_linked_list');
@@ -2987,7 +3246,7 @@ module.exports = {
   Trie: Trie
 };
 
-},{"./doubly_linked_list":20,"./fenwick_tree":21,"./graph":22,"./heap":23,"./linked_list":25,"./queue":26,"./stack":27,"./trie":28}],25:[function(require,module,exports){
+},{"./doubly_linked_list":25,"./fenwick_tree":26,"./graph":27,"./heap":28,"./linked_list":30,"./queue":31,"./stack":32,"./trie":33}],30:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3278,7 +3537,7 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],26:[function(require,module,exports){
+},{"assert":1}],31:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3394,7 +3653,7 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./doubly_linked_list":20}],27:[function(require,module,exports){
+},{"./doubly_linked_list":25}],32:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3495,7 +3754,7 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./doubly_linked_list":20}],28:[function(require,module,exports){
+},{"./doubly_linked_list":25}],33:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3696,7 +3955,7 @@ var Trie = function () {
 
 module.exports = Trie;
 
-},{}],29:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var algorithms = require('./algorithms');
@@ -3707,4 +3966,4 @@ module.exports = {
   datastructures: datastructures
 };
 
-},{"./algorithms":6,"./data-structures":24}]},{},[29]);
+},{"./algorithms":6,"./data-structures":29}]},{},[34]);
