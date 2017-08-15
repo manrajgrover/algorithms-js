@@ -8,7 +8,10 @@
     "report": "nyc mocha --recursive",
     "lint": "eslint ./src ./test",
     "all": "npm run test && npm run lint",
-    "docs": "doxdox 'src/**/*.js' --layout bootstrap --output docs/index.html && doxdox 'src/**/*.js' --layout markdown --output docs/README.md"
+    "docs": "doxdox 'src/**/*.js' --layout bootstrap --output docs/index.html && doxdox 'src/**/*.js' --layout markdown --output docs/README.md",
+    "build": "gulp build-prod",
+    "build-dev": "gulp build-dev",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
