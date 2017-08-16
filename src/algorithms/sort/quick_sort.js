@@ -46,6 +46,7 @@ class QuickSort {
    * @param  {Number} low  Left index
    * @param  {Number} high Right index
    * @return {List}        List containing sorted list and partition index
+   * @private
    */
   _partition(list, low, high) {
     const pivot = list[high];
@@ -68,6 +69,7 @@ class QuickSort {
    * @param  {Number} low  Left index
    * @param  {Number} high Right index
    * @return {List}        Sorted list
+   * @private
    */
   _quickSort(list, low, high) {
     if (low < high) {
@@ -86,6 +88,7 @@ class QuickSort {
    * @param  {Number} low  Left index
    * @param  {Number} high Right index
    * @return {Array}       Sorted list
+   * @private
    */
   _sort(list, low, high) {
     list = this._quickSort(list, low, high);
