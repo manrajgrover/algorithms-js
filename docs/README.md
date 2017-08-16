@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.6*
+# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.7*
 
 > Algorithms Library in JavaScript
 
@@ -1119,7 +1119,7 @@ Get sorted array
 
 
 
-#### _partition(list, low, high) 
+#### _partition(list, low, high)  *private method*
 
 Create a partition and sort the individual parts
 
@@ -1144,7 +1144,7 @@ Create a partition and sort the individual parts
 
 
 
-#### _quickSort(list, low, high) 
+#### _quickSort(list, low, high)  *private method*
 
 Recursive function to create partition and sort the halves
 
@@ -1169,7 +1169,7 @@ Recursive function to create partition and sort the halves
 
 
 
-#### _sort(list, low, high) 
+#### _sort(list, low, high)  *private method*
 
 Quick sorts the array
 
