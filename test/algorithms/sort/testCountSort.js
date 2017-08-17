@@ -20,7 +20,7 @@ describe('Count Sort', () => {
   });
 
   it('should sort the array in ascending order with few equal vals', () => {
-    const inst = new CountSort([2, 1, 3, 4, 2], (a, b) => a < b);
+    const inst = new CountSort([2, 1, 3, 4, 2]);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);
@@ -47,7 +47,7 @@ describe('Count Sort', () => {
   });
 
   it('should sort the array in decending order', () => {
-    const inst = new CountSort([2, 1, 3, 4], (a, b) => a > b);
+    const inst = new CountSort([2, 1, 3, 4], true);
     assert.equal(inst.size, 4);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4]);
@@ -56,7 +56,7 @@ describe('Count Sort', () => {
   });
 
   it('should sort the array in decending order with few equal vals', () => {
-    const inst = new CountSort([2, 1, 3, 4, 2], (a, b) => a > b);
+    const inst = new CountSort([2, 1, 3, 4, 2], true);
     assert.equal(inst.size, 5);
 
     assert.deepEqual(inst.unsortedList, [2, 1, 3, 4, 2]);
