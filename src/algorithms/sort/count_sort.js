@@ -2,7 +2,7 @@
  * Class for Count Sorting an array
  */
 class CountSort {
-  constructor(data = [], reverse=false) {
+  constructor(data = [], reverse = false) {
     /** @private */
     this._unsortedList = data;
     /** @private */
@@ -68,7 +68,7 @@ class CountSort {
     }
 
     for (let i = 0; i < len; i += 1) {
-      output[count[list[i]]-1] = list[i];
+      output[count[list[i]] - 1] = list[i];
       count[list[i]] -= 1;
     }
 
