@@ -2,11 +2,11 @@
  * Class for Count Sorting an array
  */
 class CountSort {
-  constructor(data = [], compareFunc = (a, b) => a < b) {
+  constructor(data = [], reverse=false) {
     /** @private */
     this._unsortedList = data;
     /** @private */
-    this._compareFunc = compareFunc;
+    this._reverse = reverse;
     /** @private */
     this._sortedList = this._sort(data.slice());
     /** @private */
@@ -50,6 +50,11 @@ class CountSort {
     const len = list.length;
 
     const range = Math.max(...list);
+
+    if (range === -Infinity) {
+      return list;
+    }
+
     const count = new Array(range + 1);
     const output = new Array(len);
     count.fill(0);
@@ -71,7 +76,7 @@ class CountSort {
       list[i] = output[i];
     }
 
-    return list;
+    return this._reverse ? list.reverse() : list;
   }
 
   /**
