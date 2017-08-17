@@ -428,6 +428,177 @@ Get string form of array
 
 
 
+### src/algorithms/sort/count_sort.js
+
+
+#### new CountSort() 
+
+Class for Count Sorting an array
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._unsortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._reverse()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._sortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### size() 
+
+Get size of array
+
+
+
+
+
+
+##### Returns
+
+
+- `Number`  Size of array
+
+
+
+#### unsortedList() 
+
+Get unsorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Unsorted/Initial array
+
+
+
+#### sortedList() 
+
+Get sorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted array
+
+
+
+#### _sort(list)  *private method*
+
+Count Sorts the array
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| list | `Array`  | Array to be sorted | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted array
+
+
+
+#### toString() 
+
+Get string form of array
+
+
+
+
+
+
+##### Returns
+
+
+- `String`  Comma separated string array
+
+
+
+
 ### src/algorithms/sort/heap_sort.js
 
 
