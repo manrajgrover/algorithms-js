@@ -7,36 +7,61 @@
  * @return {Object}   Object containing value of x, y and gcd
  */
 const extendedEuclidean = (a, b) => {
+  const terminate = 1;
+
   let x = 1;
   let y = 0;
-  let lastx = 0;
-  let lasty = 1;
+
+  let m = 0;
+  let n = 1;
+
+  if (a === 0) {
+    return { gcd: b, x, y };
+  }
+
+  if (b === 0) {
+    return { gcd: b, x: m, y: n };
+  }
+
   let q;
-  let r;
-  let m;
-  let n;
+  let gcd;
+  let finalX;
+  let finalY;
 
-  while (a !== 0) {
-    q = Math.floor(b / a);
-    r = b % a;
+  while (terminate) {
+    q = Math.round(a / b);
+    a %= b;
 
-    m = lastx - (q * x);
-    n = lasty - (q * y);
+    m -= q * x;
+    n -= q * y;
 
-    lastx = x;
-    lasty = y;
+    if (a === 0) {
+      gcd = b;
+      finalX = x;
+      finalY = y;
 
-    x = m;
-    y = n;
+      break;
+    }
 
-    b = a;
-    a = r;
+    q = Math.round(b / a);
+    b %= a;
+
+    x -= q * m;
+    y -= q * n;
+
+    if (b === 0) {
+      gcd = a;
+      finalX = m;
+      finalY = n;
+
+      break;
+    }
   }
 
   return {
-    gcd: b,
-    x: lastx,
-    y: lasty
+    gcd,
+    x: finalX,
+    y: finalY
   };
 };
 
