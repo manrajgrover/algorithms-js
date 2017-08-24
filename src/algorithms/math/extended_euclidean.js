@@ -16,11 +16,11 @@ const extendedEuclidean = (a, b) => {
   let n = 1;
 
   if (a === 0) {
-    return { gcd: b, x, y };
+    return { gcd: b, x: y, y: n };
   }
 
   if (b === 0) {
-    return { gcd: b, x: m, y: n };
+    return { gcd: a, x, y: m };
   }
 
   let q;
@@ -32,13 +32,13 @@ const extendedEuclidean = (a, b) => {
     q = Math.round(a / b);
     a %= b;
 
-    m -= q * x;
-    n -= q * y;
+    x -= q * y;
+    m -= q * n;
 
     if (a === 0) {
       gcd = b;
-      finalX = x;
-      finalY = y;
+      finalX = y;
+      finalY = n;
 
       break;
     }
@@ -46,13 +46,13 @@ const extendedEuclidean = (a, b) => {
     q = Math.round(b / a);
     b %= a;
 
-    x -= q * m;
-    y -= q * n;
+    y -= q * x;
+    n -= q * m;
 
     if (b === 0) {
       gcd = a;
-      finalX = m;
-      finalY = n;
+      finalX = x;
+      finalY = m;
 
       break;
     }
