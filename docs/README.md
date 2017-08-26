@@ -3,6 +3,36 @@
 > Algorithms Library in JavaScript
 
 
+### src/algorithms/math/extended_euclidean.js
+
+
+#### extendedEuclidean(a, b) 
+
+The extended Euclidean algorithm is an algorithm to
+compute integers x and y such that given a and b.
+ax + by = gcd(a, b)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Coefficient of x | &nbsp; |
+| b | `Number`  | Coefficient of y | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Object`  Object containing value of x, y and gcd
+
+
+
+
 ### src/algorithms/math/fast_exp.js
 
 
