@@ -1404,13 +1404,13 @@ var fastexp = function fastexp(a, e) {
 
   var res = 1;
 
-  while (e > 0) {
+  while (e !== 0) {
     if (e % 2 === 1) {
       res = res * a % mod;
     }
 
     a = a * a % mod;
-    e /= 2;
+    e >>= 1;
   }
 
   return res % mod;
