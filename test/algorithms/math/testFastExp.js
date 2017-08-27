@@ -15,4 +15,10 @@ describe('Fast Exponentiation', () => {
     assert.equal(fastexp(10, 3), 1000);
     assert.equal(fastexp(10, 7), 10000000);
   });
+
+  it('should solve for modular exponentiation', () => {
+    assert.equal(fastexp(10, 2, 10), 0);
+    assert.equal(fastexp(10, 3, 9), 1);
+    assert.equal(fastexp(10, 7, 29), 17);
+  });
 });
