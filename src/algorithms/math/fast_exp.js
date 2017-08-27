@@ -12,13 +12,13 @@ const fastexp = (a, e, mod = 1e9 + 7) => {
 
   let res = 1;
 
-  while (e > 0) {
+  while (e !== 0) {
     if (e % 2 === 1) {
       res = (res * a) % mod;
     }
 
     a = (a * a) % mod;
-    e /= 2;
+    e >>= 1;
   }
 
   return res % mod;
