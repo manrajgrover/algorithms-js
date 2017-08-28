@@ -7,6 +7,7 @@
     "import/no-extraneous-dependencies": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
-    "no-bitwise": "off"
+    "no-bitwise": "off",
+    "no-continue": "off"
   }
 }
