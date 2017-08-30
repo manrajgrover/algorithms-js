@@ -14,6 +14,7 @@ describe('Extended Euclidean', () => {
     assert.deepStrictEqual(extendedEuclidean(35, 15), { gcd: 5, x: 1, y: -2 });
     assert.deepStrictEqual(extendedEuclidean(32, 1), { gcd: 1, x: 0, y: 1 });
     assert.deepStrictEqual(extendedEuclidean(1, 32), { gcd: 1, x: 1, y: 0 });
+    assert.deepStrictEqual(extendedEuclidean(15, 35), { gcd: 5, x: -2, y: 1 });
   });
 
   it('should check extended euclidean values for negative values of a and b', () => {
