@@ -3230,6 +3230,50 @@ var Graph = function () {
     }
 
     /**
+     * Removes vertex from the Graph
+     * @param  {Number} vertex Vertex label
+     * @public
+     */
+
+  }, {
+    key: "removeVertex",
+    value: function removeVertex(vertex) {
+      var _this = this;
+
+      vertex = String(vertex);
+
+      if (!this._vertices.has(vertex)) {
+        throw new Error("Vertix " + vertex + " does not exist");
+      }
+
+      this._vertices.delete(vertex);
+
+      this._vertices.forEach(function (v) {
+        _this.removeEdge(v, vertex);
+      });
+    }
+
+    /**
+     * Removes edge between two vertices
+     * @param  {Number} vertexA Starting vertex label
+     * @param  {Number} vertexB Ending vertex label
+     * @public
+     */
+
+  }, {
+    key: "removeEdge",
+    value: function removeEdge(vertexA, vertexB) {
+      vertexA = String(vertexA);
+      vertexB = String(vertexB);
+
+      delete this._edges[vertexA][vertexB];
+
+      if (!this._isDirected) {
+        delete this._edges[vertexB][vertexA];
+      }
+    }
+
+    /**
      * Check whether one vertex is neighbour to another
      * @param  {Number}  vertexA Origin vertex
      * @param  {Number}  vertexB Vertex to be checked for
