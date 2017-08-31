@@ -44,5 +44,6 @@ describe('Interpolation Search', () => {
     assert.equal(interpolationsearch(sortedArray, 103), -1);
     assert.equal(interpolationsearch(sortedArray, 37), -1);
     assert.equal(interpolationsearch(sortedArray, 68), 34);
+    assert.equal(interpolationsearch(sortedArray, 48), 24);
   });
 });
