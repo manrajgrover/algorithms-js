@@ -99,4 +99,56 @@ describe('Graph', () => {
     assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3', '5']);
     assert.deepStrictEqual(inst.getNeighbours(3), ['4']);
   });
+
+  it('should check if edge is removed', () => {
+    const inst = new Graph();
+
+    inst.addVertex(1);
+    inst.addVertex(2);
+    inst.addVertex(3);
+    inst.addVertex(4);
+    inst.addVertex(5);
+
+    inst.addEdge(1, 2);
+    inst.addEdge(1, 3);
+    inst.addEdge(1, 5);
+    inst.addEdge(3, 4);
+
+    assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3', '5']);
+    assert.deepStrictEqual(inst.getNeighbours(3), ['1', '4']);
+
+    inst.removeEdge(1, 2);
+    assert.deepStrictEqual(inst.getNeighbours(1), ['3', '5']);
+
+    inst.removeEdge(1, 3);
+    assert.deepStrictEqual(inst.getNeighbours(1), ['5']);
+    assert.deepStrictEqual(inst.getNeighbours(3), ['4']);
+  });
+
+  it('should check if vertex is removed', () => {
+    const inst = new Graph();
+
+    inst.addVertex(1);
+    inst.addVertex(2);
+    inst.addVertex(3);
+    inst.addVertex(4);
+    inst.addVertex(5);
+
+    inst.addEdge(1, 2);
+    inst.addEdge(1, 3);
+    inst.addEdge(1, 5);
+    inst.addEdge(1, 4);
+    inst.addEdge(3, 4);
+
+    assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3', '4', '5']);
+    assert.deepStrictEqual(inst.getNeighbours(3), ['1', '4']);
+
+    inst.removeVertex(5);
+    assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3', '4']);
+    assert.deepStrictEqual(inst.getNeighbours(3), ['1', '4']);
+
+    inst.removeVertex(4);
+    assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3']);
+    assert.deepStrictEqual(inst.getNeighbours(3), ['1']);
+  });
 });
