@@ -3,6 +3,141 @@
 > Algorithms Library in JavaScript
 
 
+### src/algorithms/geometry/tangent_between_circles.js
+
+
+#### new CircleTangents() 
+
+Class for finding Tangent between circles
+
+Implementation from
+https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Tangents_between_two_circles
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._x1()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._y1()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._r1()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._x2()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._y2()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._r2()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._tangents()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+
 ### src/algorithms/math/extended_euclidean.js
 
 
@@ -2146,6 +2281,53 @@ Adds edge between two vertices
 | vertexA | `Number`  | Starting vertex label | &nbsp; |
 | vertexB | `Number`  | Ending vertex label | &nbsp; |
 | weight | `Number`  | Weight to be added for edge | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### removeVertex(vertex) 
+
+Removes vertex from the Graph
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| vertex | `Number`  | Vertex label | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### removeEdge(vertexA, vertexB) 
+
+Removes edge between two vertices
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| vertexA | `Number`  | Starting vertex label | &nbsp; |
+| vertexB | `Number`  | Ending vertex label | &nbsp; |
 
 
 
