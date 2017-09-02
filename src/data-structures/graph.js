@@ -166,6 +166,12 @@ class Graph {
     return this._edges[String(vertexA)][String(vertexB)];
   }
 
+  /**
+   * Depth First Search
+   * @param  {Number}   root     Root vertex
+   * @param  {Function} callback Function to be called on each vertex
+   * @public
+   */
   dfs(root, callback) {
     const s = new Stack();
     let node;
@@ -191,6 +197,12 @@ class Graph {
     }
   }
 
+  /**
+   * Breadth First Search
+   * @param  {Number}   root     Root vertex
+   * @param  {Function} callback Function to be called on each vertex
+   * @public
+   */
   bfs(root, callback) {
     const q = new Queue();
     let node;
