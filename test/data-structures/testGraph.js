@@ -115,12 +115,19 @@ describe('Graph', () => {
     inst.addEdge(5, 2, 1);
     inst.addEdge(3, 4, 1);
 
-    const traversal = [];
+    const traversalOne = [];
 
-    const cb = v => traversal.push(v);
-    inst.bfs(1, cb);
+    const cbOne = v => traversalOne.push(v);
+    inst.bfs(1, cbOne);
 
-    assert.deepStrictEqual(traversal, ['1', '2', '3', '5', '4']);
+    assert.deepStrictEqual(traversalOne, ['1', '2', '3', '5', '4']);
+
+    const traversalTwo = [];
+
+    const cbTwo = v => traversalTwo.push(v);
+    inst.bfs(2, cbTwo);
+
+    assert.deepStrictEqual(traversalTwo, ['2']);
   });
 
   it('should check if edge is removed', () => {
