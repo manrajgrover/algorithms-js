@@ -177,7 +177,7 @@ class Graph {
     let node;
     const visited = {};
 
-    s.push(root);
+    s.push(String(root));
     visited[root] = true;
 
     while (!s.isEmpty()) {
