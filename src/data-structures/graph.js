@@ -208,7 +208,7 @@ class Graph {
     let node;
     const visited = {};
 
-    q.push(root);
+    q.push(String(root));
     visited[root] = true;
 
     while (!q.isEmpty()) {
