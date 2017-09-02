@@ -1,6 +1,6 @@
 const Stack = require('../../data-structures').Stack;
 
-const dfs = (root, valueProp, childProp, callback) => {
+const dfs = (root, childProp, callback) => {
   const s = new Stack();
   let node;
 
@@ -8,7 +8,7 @@ const dfs = (root, valueProp, childProp, callback) => {
 
   while (!s.isEmpty()) {
     node = s.pop();
-    callback(node[valueProp]);
+    callback(node);
 
     const children = node[childProp].length;
 

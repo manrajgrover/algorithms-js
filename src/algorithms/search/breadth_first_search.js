@@ -1,6 +1,6 @@
 const Queue = require('../../data-structures').Queue;
 
-const bfs = (root, valueProp, childProp, callback) => {
+const bfs = (root, childProp, callback) => {
   const q = new Queue();
   let node;
 
@@ -8,7 +8,7 @@ const bfs = (root, valueProp, childProp, callback) => {
 
   while (!q.isEmpty()) {
     node = q.pop();
-    callback(node[valueProp]);
+    callback(node);
 
     const children = node[childProp].length;
 
