@@ -1,3 +1,6 @@
+const Queue = require('./queue');
+const Stack = require('./stack');
+
 /**
  * Class for Graphs
  */
@@ -161,6 +164,56 @@ class Graph {
     }
 
     return this._edges[String(vertexA)][String(vertexB)];
+  }
+
+  dfs(root, callback) {
+    const s = new Stack();
+    let node;
+    const visited = {};
+
+    s.push(root);
+    visited[root] = true;
+
+    while (!s.isEmpty()) {
+      node = s.pop();
+      callback(node);
+
+      const neighbours = this.getNeighbours(node);
+
+      for (let i = 0; i < neighbours.length; i += 1) {
+        const vertex = neighbours[i];
+
+        if (!visited[vertex]) {
+          visited[vertex] = true;
+          s.push(vertex);
+        }
+      }
+    }
+  }
+
+  bfs(root, callback) {
+    const q = new Queue();
+    let node;
+    const visited = {};
+
+    q.push(root);
+    visited[root] = true;
+
+    while (!q.isEmpty()) {
+      node = q.pop();
+      callback(node);
+
+      const neighbours = this.getNeighbours(node);
+
+      for (let i = 0; i < neighbours.length; i += 1) {
+        const vertex = neighbours[i];
+
+        if (!visited[vertex]) {
+          visited[vertex] = true;
+          q.push(vertex);
+        }
+      }
+    }
   }
 }
 
