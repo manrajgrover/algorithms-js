@@ -10,7 +10,7 @@ const bfs = (root, childProp, callback) => {
     node = q.pop();
     callback(node);
 
-    const children = node[childProp].length;
+    const children = node[childProp];
 
     for (let i = 0; i < children.length; i += 1) {
       q.push(children[i]);

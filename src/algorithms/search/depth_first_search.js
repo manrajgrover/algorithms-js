@@ -10,7 +10,7 @@ const dfs = (root, childProp, callback) => {
     node = s.pop();
     callback(node);
 
-    const children = node[childProp].length;
+    const children = node[childProp];
 
     for (let i = 0; i < children.length; i += 1) {
       s.push(children[i]);
