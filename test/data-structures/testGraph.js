@@ -100,7 +100,7 @@ describe('Graph', () => {
     assert.deepStrictEqual(inst.getNeighbours(3), ['4']);
   });
 
-  it('should check bfs traversal', () => {
+  it('should check bfs traversal for directed graph', () => {
     const inst = new Graph(true);
 
     inst.addVertex(1);
@@ -128,6 +128,36 @@ describe('Graph', () => {
     inst.bfs(2, cbTwo);
 
     assert.deepStrictEqual(traversalTwo, ['2']);
+  });
+
+  it('should check bfs traversal for undirected graph', () => {
+    const inst = new Graph();
+
+    inst.addVertex(1);
+    inst.addVertex(2);
+    inst.addVertex(3);
+    inst.addVertex(4);
+    inst.addVertex(5);
+
+    inst.addEdge(1, 2, 1);
+    inst.addEdge(1, 3, 1);
+    inst.addEdge(1, 5, 1);
+    inst.addEdge(5, 2, 1);
+    inst.addEdge(3, 4, 1);
+
+    const traversalOne = [];
+
+    const cbOne = v => traversalOne.push(v);
+    inst.bfs(1, cbOne);
+
+    assert.deepStrictEqual(traversalOne, ['1', '2', '3', '5', '4']);
+
+    const traversalTwo = [];
+
+    const cbTwo = v => traversalTwo.push(v);
+    inst.bfs(2, cbTwo);
+
+    assert.deepStrictEqual(traversalTwo, ['2', '1', '5', '3', '4']);
   });
 
   it('should check if edge is removed', () => {
