@@ -12,6 +12,6 @@ describe('Divisors', () => {
   });
 
   it('should work for big numbers', () => {
-    assert.equal(divisors(60), [1,2,3,4,5,6,10,12,15,20,30,60]);
+    assert.equal(divisors(60), [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]);
   });
 });
