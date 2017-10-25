@@ -1,5 +1,5 @@
 /* source: https://stackoverflow.com/questions/1916218/find-the-longest-common-starting-substring-in-a-set-of-strings#1917041 */
-const longestcommonsubstring = (array) => {
+const longestcommonleadingsubstring = (array) => {
     var A = array.concat().sort(), 
     	a1 = A[0], 
     	a2 = A[A.length-1], 
@@ -9,4 +9,4 @@ const longestcommonsubstring = (array) => {
     return a1.substring(0, i);
 }
 
-module.exports = longestcommonsubstring;
+module.exports = longestcommonleadingsubstring;

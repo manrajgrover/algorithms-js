@@ -62,7 +62,8 @@ Various Math algorithms:
 Various String algorithms:
 
 - [Levenshtein Distance](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/string/levenshtein_distance.js)
-- [Longest Common Substring](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/string/longest_common_substring.js)
+- [Longest Common Leading Substring](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/string/longest_common_leading_substring.js)
+- [Longest Common Trailing Substring](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/string/longest_common_trailing_substring.js)
 
 #### Geometry
 Various Geometry algorithms:

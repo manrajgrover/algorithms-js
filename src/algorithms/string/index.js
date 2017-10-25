@@ -1,7 +1,9 @@
 const levenshteindistance = require('./levenshtein_distance');
-const longestcommonsubstring = require('./longestcommonsubstring');
+const longestcommonleadingsubstring = require('./longestcommonleadingsubstring');
+const longestcommontrailingsubstring = require('./longestcommontrailingsubstring');
 
 module.exports = {
   levenshteindistance,
-  longestcommonsubstring
+  longestcommonleadingsubstring
+  longestcommontrailingsubstring
 };
