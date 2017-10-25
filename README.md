@@ -12,41 +12,61 @@ $ npm install algorithms-js
 ## Usage
 Library contains both algorithms as well as data structures:
 
+### Data Structures
+Currently, library supports following data structures:
+
+- [Doubly Linked List](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/doubly_linked_list.js)
+- [Fenwick Tree](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/fenwick_tree.js)
+- [Graph](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/graph.js)
+- [Heap](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/heap.js)
+- [Linked List](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/linked_list.js)
+- [Queue](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/queue.js)
+- [Stack](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/stack.js)
+- [Trie](https://github.com/ManrajGrover/algorithms-js/blob/master/src/data-structures/trie.js)
+
 ### Algorithms
 Currently library supports following algorithms:
 
 #### Search
-Searches an array of items
+Various Searching algorithms:
 
-- Binary Search
-- Exponential Search
-- Interpolation Search
-- Jump Search
-- Linear Search
-- Ternary Search
+- [Binary Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/binary_search.js)
+- [Breadth First Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/breadth_first_search.js)
+- [Depth First Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/depth_first_search.js)
+- [Exponential Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/exponential_search.js)
+- [Interpolation Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/interpolation_search.js)
+- [Jump Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/jump_search.js)
+- [Linear Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/linear_search.js)
+- [Ternary Search](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/search/ternary_search.js)
 
 #### Sort
-Sorts an array of items
+Various Sorting algorithms:
 
-- Bubble Sort
-- Count Sort
-- Heap Sort
-- Insertion Sort
-- Merge Sort
-- Quick Sort
-- Selection Sort
+- [Bubble Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/bubble_sort.js)
+- [Count Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/count_sort.js)
+- [Heap Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/heap_sort.js)
+- [Insertion Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/insertion_sort.js)
+- [Merge Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/merge_sort.js)
+- [Quick Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/quick_sort.js)
+- [Selection Sort](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/sort/selection_sort.js)
 
-### Data Structures
-Currently library supports following data structures:
+#### Math
+Various Math algorithms:
 
-- Doubly Linked List
-- Fenwick Tree
-- Graph
-- Heap
-- Linked List
-- Queue
-- Stack
-- Trie
+- [Extended Euclidean](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/math/extended_euclidean.js)
+- [Fast Exponentiation](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/math/fast_exp.js)
+- [GCD](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/math/gcd.js)
+- [LCM](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/math/lcm.js)
+
+#### String
+Various String algorithms:
+
+- [Levenshtein Distance](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/string/levenshtein_distance.js)
+
+#### Geometry
+Various Geometry algorithms:
+
+- [Tangent between circles](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
 
 ## Get in touch
 Say hi on [twitter](https://twitter.com/manrajsgrover)
