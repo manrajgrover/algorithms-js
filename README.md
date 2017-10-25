@@ -68,6 +68,48 @@ Various Geometry algorithms:
 
 - [Tangent between circles](https://github.com/ManrajGrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
 
+## Development
+
+Run:
+
+```sh
+$ git clone https://github.com/ManrajGrover/algorithms-js.git
+$ cd algorithms-js
+$ npm install
+```
+
+This will setup the library dependencies for you.
+
+To run tests, run
+
+```sh
+$ npm run test
+```
+
+To lint your code, run
+
+```sh
+$ npm run lint
+```
+
+To generate test coverage, run
+
+```sh
+$ npm run report
+```
+
+To build docs, run
+
+```sh
+$ npm run docs
+```
+
+To build for browser, run
+
+```sh
+$ npm run build-dev
+```
+
 ## Get in touch
 Say hi on [twitter](https://twitter.com/manrajsgrover)
 
