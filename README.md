@@ -15,32 +15,37 @@ Library contains both algorithms as well as data structures:
 ### Algorithms
 Currently library supports following algorithms:
 
-#### Searching
+#### Search
 Searches an array of items
 
-- Linear Search
 - Binary Search
+- Exponential Search
 - Interpolation Search
 - Jump Search
+- Linear Search
+- Ternary Search
 
-#### Sorting
+#### Sort
 Sorts an array of items
 
 - Bubble Sort
-- Selection Sort
-- Insertion Sort
+- Count Sort
 - Heap Sort
+- Insertion Sort
 - Merge Sort
+- Quick Sort
+- Selection Sort
 
 ### Data Structures
 Currently library supports following data structures:
 
-- Linked List
 - Doubly Linked List
-- Stack
-- Queue
-- Heap
 - Fenwick Tree
+- Graph
+- Heap
+- Linked List
+- Queue
+- Stack
 - Trie
 
 ## Get in touch
