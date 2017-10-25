@@ -7,5 +7,8 @@ module.exports = {
   extendedEuclidean,
   gcd,
   fastexp,
-  lcm
+  lcm,
+  fibonacci,
+  divisors,
+  isprime,
 };
