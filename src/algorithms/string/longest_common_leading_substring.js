@@ -7,6 +7,6 @@ const longestcommonleadingsubstring = (array) => {
     	i = 0;
     while (i < L && a1.charAt(i) === a2.charAt(i)) i++;
     return a1.substring(0, i);
-}
+};
 
 module.exports = longestcommonleadingsubstring;

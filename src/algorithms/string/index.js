@@ -4,6 +4,6 @@ const longestcommontrailingsubstring = require('./longestcommontrailingsubstring
 
 module.exports = {
   levenshteindistance,
-  longestcommonleadingsubstring
+  longestcommonleadingsubstring,
   longestcommontrailingsubstring
 };
