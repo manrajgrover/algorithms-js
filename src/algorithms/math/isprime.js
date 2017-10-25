@@ -16,7 +16,7 @@ const isprime = (n = 1) => {
   // else, try division
   // TODO: use sieve
   const d = divisors(n);
-  if (n.length === 2) return true;
+  if (d.length === 2) return true;
   return false;
 };
 
