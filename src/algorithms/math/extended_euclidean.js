@@ -1,3 +1,5 @@
+const floor = val => (val >= 0 || -1) * Math.floor(Math.abs(val));
+
 /**
  * The extended Euclidean algorithm is an algorithm to
  * compute integers x and y such that given a and b.
@@ -24,45 +26,30 @@ const extendedEuclidean = (a, b) => {
   }
 
   let q;
-  let gcd;
-  let finalX;
-  let finalY;
 
   while (terminate) {
-    q = Math.round(a / b);
+    q = floor(a / b);
     a %= b;
 
     x -= q * y;
     m -= q * n;
 
     if (a === 0) {
-      gcd = b;
-      finalX = y;
-      finalY = n;
-
-      break;
+      return { gcd: b, x: y, y: n };
     }
 
-    q = Math.round(b / a);
+    q = floor(b / a);
     b %= a;
 
     y -= q * x;
     n -= q * m;
 
     if (b === 0) {
-      gcd = a;
-      finalX = x;
-      finalY = m;
-
-      break;
+      return { gcd: a, x, y: m };
     }
   }
 
-  return {
-    gcd,
-    x: finalX,
-    y: finalY
-  };
+  return -1;
 };
 
 module.exports = extendedEuclidean;
