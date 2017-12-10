@@ -26,6 +26,11 @@ const extendedEuclidean = (a, b) => {
   }
 
   let q;
+  let result = {
+    gcd: undefined,
+    x: undefined,
+    y: undefined
+  };
 
   while (terminate) {
     q = floor(a / b);
@@ -35,7 +40,8 @@ const extendedEuclidean = (a, b) => {
     m -= q * n;
 
     if (a === 0) {
-      return { gcd: b, x: y, y: n };
+      result = { gcd: b, x: y, y: n };
+      break;
     }
 
     q = floor(b / a);
@@ -45,11 +51,12 @@ const extendedEuclidean = (a, b) => {
     n -= q * m;
 
     if (b === 0) {
-      return { gcd: a, x, y: m };
+      result = { gcd: a, x, y: m };
+      break;
     }
   }
 
-  return -1;
+  return result;
 };
 
 module.exports = extendedEuclidean;
