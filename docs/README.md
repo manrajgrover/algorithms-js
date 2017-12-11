@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.7*
+# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.8*
 
 > Algorithms Library in JavaScript
 
@@ -250,6 +250,58 @@ Calculates LCM of two numbers
 
 
 - `Number`  LCM of two numbers
+
+
+
+
+### src/algorithms/math/modular_inverse.js
+
+
+#### fermetModularInverse(a, m) 
+
+Calculates modular inverse of a number using Fermet's theorem
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number for which inverse needs to be found | &nbsp; |
+| m | `Number`  | Mod val | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Modular Inverse
+
+
+
+#### modularInverse(a, m) 
+
+Calculates modular inverse of a number
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number for which inverse needs to be found | &nbsp; |
+| m | `Number`  | Mod val | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Modular Inverse
 
 
 
@@ -2407,6 +2459,54 @@ Returns edge weight of edge between two vertices
 
 
 - `Number`  Edge weight
+
+
+
+#### dfs(root, callback) 
+
+Depth First Search
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| root | `Number`  | Root vertex | &nbsp; |
+| callback | `Function`  | Function to be called on each vertex | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### bfs(root, callback) 
+
+Breadth First Search
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| root | `Number`  | Root vertex | &nbsp; |
+| callback | `Function`  | Function to be called on each vertex | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
 
 
 

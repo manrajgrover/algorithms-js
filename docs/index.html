@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>algorithms-js 0.0.7 &#8212; Algorithms Library in JavaScript</title>
+<title>algorithms-js 0.0.8 &#8212; Algorithms Library in JavaScript</title>
 <meta name="description" content="Algorithms Library in JavaScript">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -163,7 +163,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
         <h1>
                 <a href="https://github.com/ManrajGrover/algorithms-js#readme">algorithms-js</a>
-            <small>0.0.7</small>
+            <small>0.0.8</small>
         </h1>
 
         <p>Algorithms Library in JavaScript</p>
@@ -287,6 +287,26 @@ input[type="search"]::-webkit-search-cancel-button {
 
                         <li class="method-link scope-public">
                             <a href="#src-algorithms-math-lcm.js-lcm" title="lcm">lcm</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#src/algorithms/math/modular_inverse.js" class="file"><b>src/algorithms/math/modular_inverse.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-modular_inverse.js-fermetmodularinverse" title="fermetModularInverse">fermetModularInverse</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-modular_inverse.js-modularinverse" title="modularInverse">modularInverse</a>
                         </li>
 
 
@@ -1022,6 +1042,16 @@ input[type="search"]::-webkit-search-cancel-button {
 
                         <li class="method-link scope-public">
                             <a href="#src-data-structures-graph.js-getedgeweight" title="getEdgeWeight">getEdgeWeight</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-graph.js-dfs" title="dfs">dfs</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-graph.js-bfs" title="bfs">bfs</a>
                         </li>
 
 
@@ -1945,6 +1975,174 @@ References: <a href="https://math.stackexchange.com/questions/927050/can-we-find
                                     </p>
 
                                     <p>LCM of two numbers</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
+                <a id="src/algorithms/math/modular_inverse.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-modular_inverse.js-fermetmodularinverse">
+                            <a href="#src-algorithms-math-modular_inverse.js-fermetmodularinverse" class="permalink">#</a>
+                            <span class="method-name" title="fermetModularInverse(a, m)">fermetModularInverse(a, m)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Calculates modular inverse of a number using Fermet's theorem</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Number for which inverse needs to be found</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>m</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Mod val</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>Modular Inverse</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-modular_inverse.js-modularinverse">
+                            <a href="#src-algorithms-math-modular_inverse.js-modularinverse" class="permalink">#</a>
+                            <span class="method-name" title="modularInverse(a, m)">modularInverse(a, m)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Calculates modular inverse of a number</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Number for which inverse needs to be found</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>m</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Mod val</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>Modular Inverse</p>
 
 
 
@@ -7314,6 +7512,156 @@ References: <a href="https://math.stackexchange.com/questions/927050/can-we-find
                                     <p>Edge weight</p>
 
 
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-graph.js-dfs">
+                            <a href="#src-data-structures-graph.js-dfs" class="permalink">#</a>
+                            <span class="method-name" title="dfs(root, callback)">dfs(root, callback)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Depth First Search</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>root</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Root vertex</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>callback</td>
+                                        <td>
+                                            <code>Function</code>
+                                        </td>
+                                        <td><p>Function to be called on each vertex</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-graph.js-bfs">
+                            <a href="#src-data-structures-graph.js-bfs" class="permalink">#</a>
+                            <span class="method-name" title="bfs(root, callback)">bfs(root, callback)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Breadth First Search</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>root</td>
+                                        <td>
+                                            <code>Number</code>
+                                        </td>
+                                        <td><p>Root vertex</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>callback</td>
+                                        <td>
+                                            <code>Function</code>
+                                        </td>
+                                        <td><p>Function to be called on each vertex</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
 
 
                         </section>
