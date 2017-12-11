@@ -1413,18 +1413,24 @@ module.exports = CircleTangents;
 
 var geometry = require('./geometry');
 var math = require('./math');
+var string = require('./string');
 var search = require('./search');
 var sort = require('./sort');
 
 module.exports = {
   geometry: geometry,
   math: math,
+  string: string,
   search: search,
   sort: sort
 };
 
-},{"./geometry":6,"./math":12,"./search":16,"./sort":24}],9:[function(require,module,exports){
+},{"./geometry":6,"./math":12,"./search":19,"./sort":27,"./string":32}],9:[function(require,module,exports){
 "use strict";
+
+var floor = function floor(val) {
+  return (val >= 0 || -1) * Math.floor(Math.abs(val));
+};
 
 /**
  * The extended Euclidean algorithm is an algorithm to
@@ -1452,45 +1458,37 @@ var extendedEuclidean = function extendedEuclidean(a, b) {
   }
 
   var q = void 0;
-  var gcd = void 0;
-  var finalX = void 0;
-  var finalY = void 0;
+  var result = {
+    gcd: undefined,
+    x: undefined,
+    y: undefined
+  };
 
   while (terminate) {
-    q = Math.round(a / b);
+    q = floor(a / b);
     a %= b;
 
     x -= q * y;
     m -= q * n;
 
     if (a === 0) {
-      gcd = b;
-      finalX = y;
-      finalY = n;
-
+      result = { gcd: b, x: y, y: n };
       break;
     }
 
-    q = Math.round(b / a);
+    q = floor(b / a);
     b %= a;
 
     y -= q * x;
     n -= q * m;
 
     if (b === 0) {
-      gcd = a;
-      finalX = x;
-      finalY = m;
-
+      result = { gcd: a, x: x, y: m };
       break;
     }
   }
 
-  return {
-    gcd: gcd,
-    x: finalX,
-    y: finalY
-  };
+  return result;
 };
 
 module.exports = extendedEuclidean;
@@ -1567,15 +1565,17 @@ var extendedEuclidean = require('./extended_euclidean');
 var gcd = require('./gcd');
 var fastexp = require('./fast_exp');
 var lcm = require('./lcm');
+var modularInverse = require('./modular_inverse');
 
 module.exports = {
   extendedEuclidean: extendedEuclidean,
   gcd: gcd,
   fastexp: fastexp,
-  lcm: lcm
+  lcm: lcm,
+  modularInverse: modularInverse
 };
 
-},{"./extended_euclidean":9,"./fast_exp":10,"./gcd":11,"./lcm":13}],13:[function(require,module,exports){
+},{"./extended_euclidean":9,"./fast_exp":10,"./gcd":11,"./lcm":13,"./modular_inverse":14}],13:[function(require,module,exports){
 'use strict';
 
 var gcd = require('./gcd');
@@ -1598,6 +1598,53 @@ var lcm = function lcm(a, b) {
 module.exports = lcm;
 
 },{"./gcd":11}],14:[function(require,module,exports){
+'use strict';
+
+var exEuclidean = require('./extended_euclidean');
+var fastExp = require('./fast_exp');
+
+/**
+ * Calculates modular inverse of a number using Fermet's theorem
+ *
+ * @param  {Number} a Number for which inverse needs to be found
+ * @param  {Number} m Mod val
+ * @return {Number}   Modular Inverse
+ */
+var fermetModularInverse = function fermetModularInverse(a, m) {
+  if (a === 0 || m === 0) {
+    return null;
+  }
+
+  return fastExp(a, m - 2, m);
+};
+
+/**
+ * Calculates modular inverse of a number
+ *
+ * @param  {Number} a Number for which inverse needs to be found
+ * @param  {Number} m Mod val
+ * @return {Number}   Modular Inverse
+ */
+var modularInverse = function modularInverse(a, m) {
+  if (a === 0 || m === 0) {
+    return null;
+  }
+
+  var result = exEuclidean(a, m);
+
+  if (result.gcd !== 1) {
+    return null;
+  }
+
+  return (result.x + m) % m;
+};
+
+module.exports = {
+  fermetModularInverse: fermetModularInverse,
+  modularInverse: modularInverse
+};
+
+},{"./extended_euclidean":9,"./fast_exp":10}],15:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1629,7 +1676,57 @@ var binarysearch = function binarysearch(sortedArray, element, left, right) {
 
 module.exports = binarysearch;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
+'use strict';
+
+var Queue = require('../../data-structures').Queue;
+
+var bfs = function bfs(root, childProp, callback) {
+  var q = new Queue();
+  var node = void 0;
+
+  q.push(root);
+
+  while (!q.isEmpty()) {
+    node = q.pop();
+    callback(node);
+
+    var children = node[childProp];
+
+    for (var i = 0; i < children.length; i += 1) {
+      q.push(children[i]);
+    }
+  }
+};
+
+module.exports = bfs;
+
+},{"../../data-structures":38}],17:[function(require,module,exports){
+'use strict';
+
+var Stack = require('../../data-structures').Stack;
+
+var dfs = function dfs(root, childProp, callback) {
+  var s = new Stack();
+  var node = void 0;
+
+  s.push(root);
+
+  while (!s.isEmpty()) {
+    node = s.pop();
+    callback(node);
+
+    var children = node[childProp];
+
+    for (var i = 0; i < children.length; i += 1) {
+      s.push(children[i]);
+    }
+  }
+};
+
+module.exports = dfs;
+
+},{"../../data-structures":38}],18:[function(require,module,exports){
 'use strict';
 
 var binarysearch = require('./binary_search');
@@ -1658,10 +1755,12 @@ var exponentialsearch = function exponentialsearch(sortedArray, element) {
 
 module.exports = exponentialsearch;
 
-},{"./binary_search":14}],16:[function(require,module,exports){
+},{"./binary_search":15}],19:[function(require,module,exports){
 'use strict';
 
 var binarysearch = require('./binary_search');
+var bfs = require('./breadth_first_search');
+var dfs = require('./depth_first_search');
 var exponentialsearch = require('./exponential_search');
 var interpolationsearch = require('./interpolation_search');
 var jumpsearch = require('./jump_search');
@@ -1670,6 +1769,8 @@ var ternarysearch = require('./ternary_search');
 
 module.exports = {
   binarysearch: binarysearch,
+  bfs: bfs,
+  dfs: dfs,
   exponentialsearch: exponentialsearch,
   interpolationsearch: interpolationsearch,
   jumpsearch: jumpsearch,
@@ -1677,7 +1778,7 @@ module.exports = {
   ternarysearch: ternarysearch
 };
 
-},{"./binary_search":14,"./exponential_search":15,"./interpolation_search":17,"./jump_search":18,"./linear_search":19,"./ternary_search":20}],17:[function(require,module,exports){
+},{"./binary_search":15,"./breadth_first_search":16,"./depth_first_search":17,"./exponential_search":18,"./interpolation_search":20,"./jump_search":21,"./linear_search":22,"./ternary_search":23}],20:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1713,7 +1814,7 @@ var interpolationsearch = function interpolationsearch(sortedArray, element) {
 
 module.exports = interpolationsearch;
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1752,7 +1853,7 @@ var jumpsearch = function jumpsearch(sortedArray, element) {
 
 module.exports = jumpsearch;
 
-},{}],19:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1775,7 +1876,7 @@ var linearsearch = function linearsearch(array, element) {
 
 module.exports = linearsearch;
 
-},{}],20:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1814,7 +1915,7 @@ var ternarysearch = function ternarysearch(sortedArray, element) {
 
 module.exports = ternarysearch;
 
-},{}],21:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1932,7 +2033,7 @@ var BubbleSort = function () {
 
 module.exports = BubbleSort;
 
-},{}],22:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2058,7 +2159,7 @@ var CountSort = function () {
 
 module.exports = CountSort;
 
-},{}],23:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2166,7 +2267,7 @@ var HeapSort = function () {
 
 module.exports = HeapSort;
 
-},{"../../data-structures/heap":32}],24:[function(require,module,exports){
+},{"../../data-structures/heap":37}],27:[function(require,module,exports){
 'use strict';
 
 var BubbleSort = require('./bubble_sort');
@@ -2187,7 +2288,7 @@ module.exports = {
   SelectionSort: SelectionSort
 };
 
-},{"./bubble_sort":21,"./count_sort":22,"./heap_sort":23,"./insertion_sort":25,"./merge_sort":26,"./quick_sort":27,"./selection_sort":28}],25:[function(require,module,exports){
+},{"./bubble_sort":24,"./count_sort":25,"./heap_sort":26,"./insertion_sort":28,"./merge_sort":29,"./quick_sort":30,"./selection_sort":31}],28:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2297,7 +2398,7 @@ var InsertionSort = function () {
 
 module.exports = InsertionSort;
 
-},{}],26:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2446,7 +2547,7 @@ var MergeSort = function () {
 
 module.exports = MergeSort;
 
-},{}],27:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -2604,7 +2705,7 @@ var QuickSort = function () {
 
 module.exports = QuickSort;
 
-},{}],28:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2717,7 +2818,60 @@ var SelectionSort = function () {
 
 module.exports = SelectionSort;
 
-},{}],29:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
+'use strict';
+
+var levenshteindistance = require('./levenshtein_distance');
+
+module.exports = {
+  levenshteindistance: levenshteindistance
+};
+
+},{"./levenshtein_distance":33}],33:[function(require,module,exports){
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var levenshteindistance = function levenshteindistance() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+  if (a.length === 0) {
+    return b.length;
+  }
+
+  if (b.length === 0) {
+    return a.length;
+  }
+
+  var dp = [].concat(_toConsumableArray(Array(b.length + 1))).map(function () {
+    return Array(a.length + 1);
+  });
+
+  for (var i = 0; i <= b.length; i += 1) {
+    dp[i][0] = i;
+  }
+
+  for (var _i = 0; _i <= a.length; _i += 1) {
+    dp[0][_i] = _i;
+  }
+
+  for (var _i2 = 1; _i2 <= b.length; _i2 += 1) {
+    for (var j = 1; j <= a.length; j += 1) {
+      if (b.charAt(_i2 - 1) === a.charAt(j - 1)) {
+        dp[_i2][j] = dp[_i2 - 1][j - 1];
+      } else {
+        dp[_i2][j] = Math.min(dp[_i2 - 1][j - 1] + 1, Math.min(dp[_i2][j - 1] + 1, dp[_i2 - 1][j] + 1));
+      }
+    }
+  }
+
+  return dp[b.length][a.length];
+};
+
+module.exports = levenshteindistance;
+
+},{}],34:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -2999,7 +3153,7 @@ var DoublyLinkedList = function () {
 
 module.exports = DoublyLinkedList;
 
-},{}],30:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3135,8 +3289,8 @@ var FenwickTree = function () {
 
 module.exports = FenwickTree;
 
-},{}],31:[function(require,module,exports){
-"use strict";
+},{}],36:[function(require,module,exports){
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -3144,9 +3298,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Queue = require('./queue');
+var Stack = require('./stack');
+
 /**
  * Class for Graphs
  */
+
 var Graph = function () {
   function Graph() {
     var directed = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
@@ -3169,7 +3327,7 @@ var Graph = function () {
 
 
   _createClass(Graph, [{
-    key: "isEmpty",
+    key: 'isEmpty',
 
 
     /**
@@ -3188,12 +3346,12 @@ var Graph = function () {
      */
 
   }, {
-    key: "addVertex",
+    key: 'addVertex',
     value: function addVertex(vertex) {
       vertex = String(vertex);
 
       if (this._vertices.has(vertex)) {
-        throw new Error("Vertix " + vertex + " already exists");
+        throw new Error('Vertix ' + vertex + ' already exists');
       }
 
       this._vertices.add(vertex);
@@ -3209,7 +3367,7 @@ var Graph = function () {
      */
 
   }, {
-    key: "addEdge",
+    key: 'addEdge',
     value: function addEdge(vertexA, vertexB, weight) {
       vertexA = String(vertexA);
       vertexB = String(vertexB);
@@ -3236,14 +3394,14 @@ var Graph = function () {
      */
 
   }, {
-    key: "removeVertex",
+    key: 'removeVertex',
     value: function removeVertex(vertex) {
       var _this = this;
 
       vertex = String(vertex);
 
       if (!this._vertices.has(vertex)) {
-        throw new Error("Vertix " + vertex + " does not exist");
+        throw new Error('Vertix ' + vertex + ' does not exist');
       }
 
       this._vertices.delete(vertex);
@@ -3261,7 +3419,7 @@ var Graph = function () {
      */
 
   }, {
-    key: "removeEdge",
+    key: 'removeEdge',
     value: function removeEdge(vertexA, vertexB) {
       vertexA = String(vertexA);
       vertexB = String(vertexB);
@@ -3282,7 +3440,7 @@ var Graph = function () {
      */
 
   }, {
-    key: "isNeighbour",
+    key: 'isNeighbour',
     value: function isNeighbour(vertexA, vertexB) {
       vertexA = String(vertexA);
       vertexB = String(vertexB);
@@ -3306,7 +3464,7 @@ var Graph = function () {
      */
 
   }, {
-    key: "getNeighbours",
+    key: 'getNeighbours',
     value: function getNeighbours(vertex) {
       return Object.keys(this._edges[String(vertex)]);
     }
@@ -3320,16 +3478,84 @@ var Graph = function () {
      */
 
   }, {
-    key: "getEdgeWeight",
+    key: 'getEdgeWeight',
     value: function getEdgeWeight(vertexA, vertexB) {
       if (!this.isNeighbour(vertexA, vertexB)) {
-        throw new Error("Vertex " + vertexA + " and " + vertexB + " are not neighbours");
+        throw new Error('Vertex ' + vertexA + ' and ' + vertexB + ' are not neighbours');
       }
 
       return this._edges[String(vertexA)][String(vertexB)];
     }
+
+    /**
+     * Depth First Search
+     * @param  {Number}   root     Root vertex
+     * @param  {Function} callback Function to be called on each vertex
+     * @public
+     */
+
   }, {
-    key: "size",
+    key: 'dfs',
+    value: function dfs(root, callback) {
+      var s = new Stack();
+      var node = void 0;
+      var visited = {};
+
+      s.push(String(root));
+      visited[root] = true;
+
+      while (!s.isEmpty()) {
+        node = s.pop();
+        callback(node);
+
+        var neighbours = this.getNeighbours(node);
+
+        for (var i = 0; i < neighbours.length; i += 1) {
+          var vertex = neighbours[i];
+
+          if (!visited[vertex]) {
+            visited[vertex] = true;
+            s.push(vertex);
+          }
+        }
+      }
+    }
+
+    /**
+     * Breadth First Search
+     * @param  {Number}   root     Root vertex
+     * @param  {Function} callback Function to be called on each vertex
+     * @public
+     */
+
+  }, {
+    key: 'bfs',
+    value: function bfs(root, callback) {
+      var q = new Queue();
+      var node = void 0;
+      var visited = {};
+
+      q.push(String(root));
+      visited[root] = true;
+
+      while (!q.isEmpty()) {
+        node = q.pop();
+        callback(node);
+
+        var neighbours = this.getNeighbours(node);
+
+        for (var i = 0; i < neighbours.length; i += 1) {
+          var vertex = neighbours[i];
+
+          if (!visited[vertex]) {
+            visited[vertex] = true;
+            q.push(vertex);
+          }
+        }
+      }
+    }
+  }, {
+    key: 'size',
     get: function get() {
       return this._vertices.size;
     }
@@ -3341,7 +3567,7 @@ var Graph = function () {
      */
 
   }, {
-    key: "vertices",
+    key: 'vertices',
     get: function get() {
       return [].concat(_toConsumableArray(this._vertices));
     }
@@ -3352,7 +3578,7 @@ var Graph = function () {
 
 module.exports = Graph;
 
-},{}],32:[function(require,module,exports){
+},{"./queue":40,"./stack":41}],37:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3582,7 +3808,7 @@ var Heap = function () {
 
 module.exports = Heap;
 
-},{}],33:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 var DoublyLinkedList = require('./doubly_linked_list');
@@ -3605,7 +3831,7 @@ module.exports = {
   Trie: Trie
 };
 
-},{"./doubly_linked_list":29,"./fenwick_tree":30,"./graph":31,"./heap":32,"./linked_list":34,"./queue":35,"./stack":36,"./trie":37}],34:[function(require,module,exports){
+},{"./doubly_linked_list":34,"./fenwick_tree":35,"./graph":36,"./heap":37,"./linked_list":39,"./queue":40,"./stack":41,"./trie":42}],39:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -3896,7 +4122,7 @@ var LinkedList = function () {
 
 module.exports = LinkedList;
 
-},{"assert":1}],35:[function(require,module,exports){
+},{"assert":1}],40:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -4012,7 +4238,7 @@ var Queue = function () {
 
 module.exports = Queue;
 
-},{"./doubly_linked_list":29}],36:[function(require,module,exports){
+},{"./doubly_linked_list":34}],41:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -4113,7 +4339,7 @@ var Stack = function () {
 
 module.exports = Stack;
 
-},{"./doubly_linked_list":29}],37:[function(require,module,exports){
+},{"./doubly_linked_list":34}],42:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -4314,7 +4540,7 @@ var Trie = function () {
 
 module.exports = Trie;
 
-},{}],38:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 var algorithms = require('./algorithms');
@@ -4325,4 +4551,4 @@ module.exports = {
   datastructures: datastructures
 };
 
-},{"./algorithms":8,"./data-structures":33}]},{},[38]);
+},{"./algorithms":8,"./data-structures":38}]},{},[43]);
