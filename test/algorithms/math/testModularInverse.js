@@ -28,4 +28,9 @@ describe('Modular Inverse', () => {
     assert.equal(fermetModularInverse(65, 11), 10);
     assert.equal(fermetModularInverse(3, 2), 1);
   });
+
+  it('should return null for gcd != 1', () => {
+    assert.equal(modularInverse(3, 6), null);
+    assert.equal(modularInverse(65, 5), null);
+  });
 });
