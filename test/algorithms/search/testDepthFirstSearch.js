@@ -34,7 +34,7 @@ describe('DFS', () => {
 
     const children = [];
     dfs(tree.root, 'children', node => children.push(node.name));
-    console.log(children);
+
     assert.deepStrictEqual(
       children, [
         'root',
