@@ -11,7 +11,6 @@ module.exports = {
     rules: [{
       test: [/\.es6$/, /\.js$/],
       exclude: /(node_modules|bower_components)/,
-      include: /\.min\.js$/,
       use: { loader: 'babel-loader', options: { presets: 'es2015' } }
     }]
   },
