@@ -9,8 +9,8 @@
     "lint": "eslint ./src ./test",
     "all": "npm run test && npm run lint",
     "docs": "doxdox 'src/**/*.js' --layout bootstrap --output docs/index.html && doxdox 'src/**/*.js' --layout markdown --output docs/README.md",
-    "build-dev": "webpack",
-    "build-prod": "webpack -p"
+    "dev": "webpack",
+    "prod": "webpack -p"
   },
   "repository": {
     "type": "git",
