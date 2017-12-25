@@ -1,6 +1,6 @@
 {
   "name": "algorithms-js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Algorithms Library in JavaScript",
   "main": "src/index.js",
   "scripts": {
