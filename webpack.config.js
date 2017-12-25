@@ -6,7 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'alds'
+    library: 'alds',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [{
