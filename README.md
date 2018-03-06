@@ -15,6 +15,12 @@ Or use `unpkg`:
 <script src="https://unpkg.com/algorithms-js/dist/algorithms.min.js"></script>
 ```
 
+Or use `jsdeliver`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/algorithms-js/dist/algorithms.min.js"></script>
+```
+
 ## Usage
 Library contains both algorithms as well as data structures:
 
