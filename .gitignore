@@ -2,3 +2,4 @@
 /debug
 /.nyc_output
 /npm-debug.log
+dist
