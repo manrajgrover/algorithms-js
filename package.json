@@ -1,8 +1,11 @@
 {
   "name": "algorithms-js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Algorithms Library in JavaScript",
-  "main": "dist/algorithms.js",
+  "main": "src/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "mocha --recursive",
     "report": "nyc mocha --recursive",
