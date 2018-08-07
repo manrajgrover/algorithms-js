@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ManrajGrover/algorithms-js.git"
+    "url": "git+https://github.com/manrajgrover/algorithms-js.git"
   },
   "author": "Manraj Singh <manrajsinghgrover@gmail.com> (http://manrajsingh.in)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ManrajGrover/algorithms-js/issues"
+    "url": "https://github.com/manrajgrover/algorithms-js/issues"
   },
-  "homepage": "https://github.com/ManrajGrover/algorithms-js#readme",
+  "homepage": "https://github.com/manrajgrover/algorithms-js#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",

@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/ManrajGrover/algorithms-js#readme) *0.0.8*
+# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.8*
 
 > Algorithms Library in JavaScript
 
