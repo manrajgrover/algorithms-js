@@ -8,4 +8,12 @@ describe('Tangent Between Circles', () => {
     const circles = new CircleTangents(0, 0, 1, 0, 0, 0.5);
     assert.deepEqual(circles.tangents, [[], [], [], []]);
   });
+
+  it('should return 2 external tangents (circles overlap)', () => {
+    const tangents = new CircleTangents(0, 0, 1, 1, 0, 1).tangents;
+    assert.deepEqual(tangents[0], [0, 1, 1, 1]);
+    assert.deepEqual(tangents[1], [0, -1, 1, -1]);
+    assert.deepEqual(tangents[2], []);
+    assert.deepEqual(tangents[3], []);
+  });
 });
