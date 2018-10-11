@@ -16,4 +16,12 @@ describe('Tangent Between Circles', () => {
     assert.deepEqual(tangents[2], []);
     assert.deepEqual(tangents[3], []);
   });
+
+  it('should return 2 external and 2 internal tangents (circles do not overlap)', () => {
+    const tangents = new CircleTangents(0, 0, 1, 2, 0, 1).tangents;
+    assert.deepEqual(tangents[0], [0, 1, 2, 1]);
+    assert.deepEqual(tangents[1], [0, -1, 2, -1]);
+    assert.deepEqual(tangents[2], [1, 0, 1, 0]);
+    assert.deepEqual(tangents[3], [1, 0, 1, 0]);
+  });
 });
