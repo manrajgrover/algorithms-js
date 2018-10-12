@@ -271,4 +271,12 @@ describe('Graph', () => {
     assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3']);
     assert.deepStrictEqual(inst.getNeighbours(3), ['1']);
   });
+
+  it('should throw an error when trying to remove a non-existing vertex', () => {
+    const graph = new Graph();
+
+    graph.addVertex(1);
+
+    assert.throws(() => graph.removeVertex(2), /Vertix 2 does not exist/);
+  });
 });
