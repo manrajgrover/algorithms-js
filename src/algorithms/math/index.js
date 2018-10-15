@@ -6,7 +6,6 @@ const modularInverse = require('./modular_inverse');
 const findDivisors = require('./find_divisors');
 const fisherYates = require('./fisher_yates');
 const isPrime = require('./is_prime');
-const fibonnaci = require('./fibonnaci');
 
 module.exports = {
   extendedEuclidean,
@@ -16,6 +15,5 @@ module.exports = {
   modularInverse,
   findDivisors,
   fisherYates,
-  isPrime,
-  fibonnaci
+  isPrime
 };
