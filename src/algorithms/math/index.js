@@ -4,6 +4,7 @@ const fastexp = require('./fast_exp');
 const lcm = require('./lcm');
 const modularInverse = require('./modular_inverse');
 const fibonacci = require('./fibonacci');
+const squareRoot = require('./square_root');
 
 module.exports = {
   extendedEuclidean,
@@ -11,5 +12,6 @@ module.exports = {
   fastexp,
   lcm,
   modularInverse,
-  fibonacci
+  fibonacci,
+  squareRoot
 };
