@@ -3,11 +3,13 @@ const gcd = require('./gcd');
 const fastexp = require('./fast_exp');
 const lcm = require('./lcm');
 const modularInverse = require('./modular_inverse');
+const fibonacci = require('./fibonacci');
 
 module.exports = {
   extendedEuclidean,
   gcd,
   fastexp,
   lcm,
-  modularInverse
+  modularInverse,
+  fibonacci
 };
