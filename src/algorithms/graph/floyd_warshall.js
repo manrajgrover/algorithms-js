@@ -1,6 +1,6 @@
 /**
  * Calculates GCD of two numbers
- * @param  {Graph} G weighted graph (with positive or negative weights on edges) 
+ * @param  {Graph} G weighted graph (with positive or negative weights on edges)
  * withouth negative cycles
  * @return {Array[Array]} shortest paths between all vertices
  *
