@@ -5,9 +5,10 @@
 */
 
 const divisors= (n) => {
-    if(n>=0){
+    var div=[];
+    if(n>0){
         //divisors will be stored in the array 'div' and it will be returned at the end
-        var div=[];
+        
         i=1;
         
         while(i<=Math.sqrt(n)){
@@ -27,6 +28,10 @@ const divisors= (n) => {
         div=div.sort(function(a, b){return a-b});
         return div;
     }
+    else if(n==0){
+        div.push(0);
+        return div;
+    }
 }
-
+console.log(divisors(0));
 module.exports = divisors;
