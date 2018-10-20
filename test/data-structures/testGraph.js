@@ -245,6 +245,23 @@ describe('Graph', () => {
     assert.deepStrictEqual(inst.getNeighbours(3), ['4']);
   });
 
+  it('should check if edge is removed for directed graphs', () => {
+    const graph = new Graph(true);
+
+    graph.addVertex(1);
+    graph.addVertex(2);
+
+    graph.addEdge(1, 2);
+
+    assert.deepStrictEqual(graph.getNeighbours(1), ['2']);
+    assert.deepStrictEqual(graph.getNeighbours(2), []);
+
+    graph.removeEdge(1, 2);
+
+    assert.deepStrictEqual(graph.getNeighbours(1), []);
+    assert.deepStrictEqual(graph.getNeighbours(2), []);
+  });
+
   it('should check if vertex is removed', () => {
     const inst = new Graph();
 
@@ -270,5 +287,13 @@ describe('Graph', () => {
     inst.removeVertex(4);
     assert.deepStrictEqual(inst.getNeighbours(1), ['2', '3']);
     assert.deepStrictEqual(inst.getNeighbours(3), ['1']);
+  });
+
+  it('should throw an error when trying to remove a non-existing vertex', () => {
+    const graph = new Graph();
+
+    graph.addVertex(1);
+
+    assert.throws(() => graph.removeVertex(2), /Vertix 2 does not exist/);
   });
 });
