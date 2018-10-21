@@ -54,4 +54,12 @@ describe('LRU Cache', () => {
     assert.equal(cache.get('2'), undefined);
     assert.equal(cache.get('3'), 'efghi');
   });
+
+  it('should consider keys as strings to avoid type confusion (to be consistent with JS object key equality)', () => {
+    const cache = new LRUCache(5, i => i.length);
+    cache.insert('1', 'ab');
+    cache.insert(1, 'cd');
+    assert.equal(cache.get('1'), 'ab');
+    assert.equal(cache.get(1), 'ab');
+  });
 });

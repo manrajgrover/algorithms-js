@@ -31,6 +31,7 @@ class LRUCache {
      *   * a duplicate key
      */
   insert(k, v) {
+    k = `${k}`;
     const osize = this._sizef(v);
     if (osize > this._max) {
       return false;
