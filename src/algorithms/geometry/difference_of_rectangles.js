@@ -68,8 +68,10 @@ class RectangleDifference {
 
     if (!intersects || contains) return [];
 
-    const results = [];
-    let top, bottom, left, right;
+    let top;
+    let bottom;
+    let left;
+    let right;
 
     const topHeight = y2 - y1;
     if (topHeight > 0) {
@@ -77,7 +79,7 @@ class RectangleDifference {
     }
 
     const bottomY = y2 + h2;
-    const bottomHeight = h1 - ( bottomY - y1 );
+    const bottomHeight = h1 - (bottomY - y1);
     if (bottomHeight > 0 && bottomY < y1 + h1) {
       bottom = [x1, bottomY, w1, bottomHeight];
     }
@@ -93,7 +95,7 @@ class RectangleDifference {
     }
 
     const rightX = x2 + w2;
-    const rightWidth = w1 - ( rightX - x1 );
+    const rightWidth = w1 - (rightX - x1);
     if (rightWidth > 0) {
       right = [rightX, m1, rightWidth, leftHeight];
     }
