@@ -4,8 +4,6 @@
  * @param  {Array} arr An array of integers
  */
 const fisherYates = (arr) => {
-  console.log(arr === []);
-  console.log(arr);
   const l = arr.length;
   for (let i = l - 1; i >= 1; i -= 1) {
     const j = Math.floor((Math.random() * i));
@@ -13,8 +11,6 @@ const fisherYates = (arr) => {
     arr[i] = arr[j];
     arr[j] = temp;
   }
-  console.log(arr);
-  console.log(arr === []);
 };
 
 module.exports = fisherYates;
