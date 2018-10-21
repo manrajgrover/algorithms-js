@@ -10,6 +10,7 @@ describe('LRU Cache', () => {
 
   it('should increase in size when an item is inserted', () => {
     const cache = new LRUCache(1);
+    assert.equal(cache.size, 0);
     cache.insert('a', 'oboe');
     assert.equal(cache.size, 1);
   });
