@@ -33,11 +33,11 @@ describe('LRU Cache', () => {
     assert.equal(cache.get('a'), undefined);
   });
 
-  it('should not insert key/value pairs whose key is already in the cache (no duplicate keys)', () => {
+  it('should overwrite key/value pairs whose key is already in the cache (no duplicate keys)', () => {
     const cache = new LRUCache(2);
     cache.insert('a', 'oboe');
     cache.insert('a', 'trumpet');
-    assert.equal(cache.get('a'), 'oboe');
+    assert.equal(cache.get('a'), 'trumpet');
   });
 
   it('should return undefined when attempting to access a key which is not within the cache', () => {
@@ -59,7 +59,7 @@ describe('LRU Cache', () => {
     const cache = new LRUCache(5, i => i.length);
     cache.insert('1', 'ab');
     cache.insert(1, 'cd');
-    assert.equal(cache.get('1'), 'ab');
-    assert.equal(cache.get(1), 'ab');
+    assert.equal(cache.get('1'), 'cd');
+    assert.equal(cache.get(1), 'cd');
   });
 });

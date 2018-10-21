@@ -37,10 +37,6 @@ class LRUCache {
       return false;
     }
 
-    if (Object.keys(this._omap).includes(k)) {
-      return false;
-    }
-
     while (this._size + osize > this._max) {
       const dkey = this._oqueue.pop().value;
       this._size -= this._omap[dkey]._size;
