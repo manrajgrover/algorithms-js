@@ -1,4 +1,22 @@
 /**
+ * Creates point object
+ * @param  {Number} x coordinate x
+ * @param  {Number} y coordinate y
+ */
+function Point(x, y) {
+	this.x = x;
+	this.y = y;
+}
+
+/**
+ * Creates changeable object
+ * @param  {Number} value value to store
+ */
+function Changeable(value) {
+	this.v = value;
+}
+
+/**
  * Calculates convex hull of array of points on plane
  * @param  {Array} points array of points
  * @return {Array}   smallest sorted array of points that belong to convex hull of received points
@@ -9,9 +27,14 @@ const convexHull = (points) => {
 	if (points.length < 3) {
 		return points;
 	}
-
-	let left = points[0], right = points[0], up = new Array(), down = new Array();
-	let a = new Changeable(), b = new Changeable(), c = new Changeable();
+	
+	let left = points[0];
+	let right = points[0];
+	let up = [];
+	let down = [];
+	let a = new Changeable();
+	let b = new Changeable();
+	let c = new Changeable();
 	for (let i = 1; i < points.length; i++) {
 		if (points[i].x < left.x) {
 			left = points[i];
@@ -24,7 +47,8 @@ const convexHull = (points) => {
 	}
 
 	if (left == right) {
-		let up = points[0], down = points[0];
+		let up = points[0];
+		let down = points[0];
 		for (let i = 1; i < points.length; i++) {
 			if (points[i].y > left.y) {
 				up = points[i];
@@ -53,24 +77,6 @@ const convexHull = (points) => {
 	result.splice(result.indexOf(left), 1);
 	result.splice(result.indexOf(right), 1);
 	return result;
-}
-
-/**
- * Creates point object
- * @param  {Number} x coordinate x
- * @param  {Number} y coordinate y
- */
-function Point(x, y) {
-	this.x = x;
-	this.y = y;
-}
-
-/**
- * Creates changeable object
- * @param  {Number} value value to store
- */
-function Changeable(value) {
-	this.v = value;
 }
 
 /**
@@ -161,16 +167,23 @@ function convexHullMain(left, right, points, isUpper) {
 			farther = points[i];
 		}
 	}
-	let upLeft = new Array(), upRight = new Array(), downLeft = new Array(), down = new Array();
-	let a1 = new Changeable(), b1 = new Changeable(), c1 = new Changeable();
-	let a2 = new Changeable(), b2 = new Changeable(), c2 = new Changeable();
+	let upLeft = new Array();
+	let upRight = new Array();
+	let downLeft = new Array();
+	let down = new Array();
+	let a1 = new Changeable();
+	let b1 = new Changeable();
+	let c1 = new Changeable();
+	let a2 = new Changeable();
+	let b2 = new Changeable();
+	let c2 = new Changeable();
 	calcLineEquation(left, farther, a1, b1, c1);
 	calcLineEquation(farther, right, a2, b2, c2);
 	dividePoints(points, a1, b1, c1, upLeft, downLeft, isUpper);
 	if (downLeft.length != 0) {
 		dividePoints(downLeft, a2, b2, c2, upRight, down, isUpper);
 	}
-	
+
 	let result = convexHullMain(left, farther, upLeft, isUpper);
 	result = result.concat(convexHullMain(farther, right, upRight, isUpper));
 	result.splice(result.indexOf(farther), 1);
