@@ -17,69 +17,6 @@ function Changeable(value) {
 }
 
 /**
- * Calculates convex hull of array of points on plane
- * @param  {Array} points array of points
- * @return {Array}   smallest sorted array of points that belong to convex hull of received points
- *
- * References: https://en.wikipedia.org/wiki/Quickhull
- */
-const convexHull = (points) => {
-  if (points.length < 3) {
-    return points;
-  }
-
-  let left = points[0];
-  let right = points[0];
-  let up = [];
-  let down = [];
-  let a = new Changeable();
-  let b = new Changeable();
-  let c = new Changeable();
-  for (let i = 1; i < points.length; i++) {
-    if (points[i].x < left.x) {
-      left = points[i];
-    }
-  }
-  for (let i = 1; i < points.length; i++) {
-    if (points[i].x > right.x) {
-      right = points[i];
-    }
-  }
-
-  if (left == right) {
-    let up = points[0];
-    let down = points[0];
-    for (let i = 1; i < points.length; i++) {
-      if (points[i].y > left.y) {
-        up = points[i];
-      }
-    }
-    for (let i = 1; i < points.length; i++) {
-      if (points[i].y < left.y) {
-        down = points[i];
-      }
-    }
-    return new Array(up, down);
-  }
-
-  calcLineEquation(left, right, a, b, c);
-  dividePoints(points, a, b, c, up, down, true);
-
-  let result = convexHullMain(left, right, up, true);
-  result.sort(function (a, b) {
-    return a.x - b.x;
-  });
-  let result2 = convexHullMain(left, right, down, false);
-  result2.sort(function (a, b) {
-    return b.x - a.x;
-  });
-  result = result.concat(result2);
-  result.splice(result.indexOf(left), 1);
-  result.splice(result.indexOf(right), 1);
-  return result;
-}
-
-/**
  * Calculates distance from point to line ax+by+c=0
  * @param  {Number} a coefficient a
  * @param  {Number} b coefficient b
@@ -187,6 +124,69 @@ function convexHullMain(left, right, points, isUpper) {
   let result = convexHullMain(left, farther, upLeft, isUpper);
   result = result.concat(convexHullMain(farther, right, upRight, isUpper));
   result.splice(result.indexOf(farther), 1);
+  return result;
+}
+
+/**
+ * Calculates convex hull of array of points on plane
+ * @param  {Array} points array of points
+ * @return {Array}   smallest sorted array of points that belong to convex hull of received points
+ *
+ * References: https://en.wikipedia.org/wiki/Quickhull
+ */
+const convexHull = (points) => {
+  if (points.length < 3) {
+    return points;
+  }
+
+  let left = points[0];
+  let right = points[0];
+  const up = [];
+  const down = [];
+  const a = new Changeable();
+  const b = new Changeable();
+  const c = new Changeable();
+  for (let i = 1; i < points.length; i += 1) {
+    if (points[i].x < left.x) {
+      left = points[i];
+    }
+  }
+  for (let i = 1; i < points.length; i += 1) {
+    if (points[i].x > right.x) {
+      right = points[i];
+    }
+  }
+
+  if (left === right) {
+    let up1 = points[0];
+    let down1 = points[0];
+    for (let i = 1; i < points.length; i += 1) {
+      if (points[i].y > left.y) {
+        up1 = points[i];
+      }
+    }
+    for (let i = 1; i < points.length; i += 1) {
+      if (points[i].y < left.y) {
+        down1 = points[i];
+      }
+    }
+    return new Array(up1, down1);
+  }
+
+  calcLineEquation(left, right, a, b, c);
+  dividePoints(points, a, b, c, up, down, true);
+
+  let result = convexHullMain(left, right, up, true);
+  result.sort(function (a, b) {
+    return a.x - b.x;
+  });
+  let result2 = convexHullMain(left, right, down, false);
+  result2.sort(function (a, b) {
+    return b.x - a.x;
+  });
+  result = result.concat(result2);
+  result.splice(result.indexOf(left), 1);
+  result.splice(result.indexOf(right), 1);
   return result;
 }
 
