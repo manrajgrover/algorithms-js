@@ -40,8 +40,8 @@ function calcCosine(A, B, C) {
   const y1 = B.y - A.y;
   const x2 = C.x - A.x;
   const y2 = C.y - A.y;
-	return ((x1 * x2) + (y1 * y2)) / (Math.sqrt((x1 * x1) + (y1 * y1))
-	* Math.sqrt((x2 * x2) + (y2 * y2)));
+  return ((x1 * x2) + (y1 * y2)) / (Math.sqrt((x1 * x1) + (y1 * y1))
+  * Math.sqrt((x2 * x2) + (y2 * y2)));
 }
 
 /**
@@ -93,7 +93,7 @@ function convexHullMain(left, right, points, isUpper) {
     return [left, right];
   }
   const a = new Changeable();
-	const b = new Changeable();
+  const b = new Changeable();
   const c = new Changeable();
   calcLineEquation(left, right, a, b, c);
   let farther = new Point(points[0].x, points[0].y);
@@ -179,13 +179,9 @@ const convexHull = (points) => {
   dividePoints(points, a, b, c, up, down, true);
 
   let result = convexHullMain(left, right, up, true);
-  result.sort((q, w) => {
-    return q.x - w.x;
-  });
-  let result2 = convexHullMain(left, right, down, false);
-  result2.sort((q, w) => {
-    return w.x - q.x;
-  });
+  result.sort((q, w) => { return q.x - w.x; });
+  const result2 = convexHullMain(left, right, down, false);
+  result2.sort((q, w) => { return w.x - q.x; });
   result = result.concat(result2);
   result.splice(result.indexOf(left), 1);
   result.splice(result.indexOf(right), 1);
