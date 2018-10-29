@@ -181,13 +181,13 @@ const convexHull = (points) => {
   let result = convexHullMain(left, right, up, true);
   result.sort((q, w) => {
     const v = q.x - w.x;
-		return v;
+    return v;
   });
   const result2 = convexHullMain(left, right, down, false);
   result2.sort((q, w) => {
     const v = w.x - q.x;
-		return v;
-	});
+    return v;
+  });
   result = result.concat(result2);
   result.splice(result.indexOf(left), 1);
   result.splice(result.indexOf(right), 1);

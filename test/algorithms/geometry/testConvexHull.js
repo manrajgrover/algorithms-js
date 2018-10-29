@@ -33,9 +33,9 @@ describe('Convex Hull', () => {
 
   it('should exclude point that is between 2 points belonging to hull when hull is not a line',
     () => {
-      assert.deepEqual(convexHull([{ x: -3, y: 2 }, { x: -1, y: -1 }, { x: 0, y: 3 }, { x: 1, y: 1 },
-        { x: -1, y: -1 }, { x: -2, y: -2 }, { x: -1, y: -3 }, { x: 0, y: -2 }, { x: 1, y: -1 },
-        { x: 2, y: -2 }, { x: 1, y: -3 }, { x: 3, y: -5 }]), [{ x: 0, y: 3 }, { x: 1, y: 1 },
-        { x: 3, y: -5 }, { x: -1, y: -3 }, { x: -2, y: -2 }, { x: -3, y: 2 }]);
+      assert.deepEqual(convexHull([{ x: -3, y: 2 }, { x: -1, y: -1 }, { x: 0, y: 3 },
+        { x: 1, y: 1 }, { x: -1, y: -1 }, { x: -2, y: -2 }, { x: -1, y: -3 }, { x: 0, y: -2 },
+        { x: 1, y: -1 }, { x: 2, y: -2 }, { x: 1, y: -3 }, { x: 3, y: -5 }]), [{ x: 0, y: 3 },
+        { x: 1, y: 1 }, { x: 3, y: -5 }, { x: -1, y: -3 }, { x: -2, y: -2 }, { x: -3, y: 2 }]);
     });
 });
