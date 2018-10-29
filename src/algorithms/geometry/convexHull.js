@@ -40,7 +40,8 @@ function calcCosine(A, B, C) {
   const y1 = B.y - A.y;
   const x2 = C.x - A.x;
   const y2 = C.y - A.y;
-  return ((x1 * x2) + (y1 * y2)) / (Math.sqrt((x1 * x1) + (y1 * y1)) * Math.sqrt((x2 * x2) + (y2 * y2)));
+	return ((x1 * x2) + (y1 * y2)) / (Math.sqrt((x1 * x1) + (y1 * y1))
+	* Math.sqrt((x2 * x2) + (y2 * y2)));
 }
 
 /**
@@ -70,11 +71,10 @@ function calcLineEquation(point1, point2, a, b, c) {
 function dividePoints(points, a, b, c, up, down, isUpper) {
   let temp;
   for (let i = 0; i < points.length; i += 1) {
-    temp = a.v * points[i].x + b.v * points[i].y + c.v;
+    temp = (a.v * points[i].x) + (b.v * points[i].y) + c.v;
     if ((temp > 0 && isUpper) || (temp < 0 && !isUpper)) {
       up.push(points[i]);
-    }
-    else if ((temp < 0 && isUpper) || (temp > 0 && !isUpper)) {
+    } else if ((temp < 0 && isUpper) || (temp > 0 && !isUpper)) {
       down.push(points[i]);
     }
   }
@@ -92,24 +92,24 @@ function convexHullMain(left, right, points, isUpper) {
   if (points.length === 0) {
     return [left, right];
   }
-	const a = new Changeable();
+  const a = new Changeable();
 	const b = new Changeable();
   const c = new Changeable();
   calcLineEquation(left, right, a, b, c);
   let farther = new Point(points[0].x, points[0].y);
-  for (let i = 1; i < points.length; i++) {
+  for (let i = 1; i < points.length; i += 1) {
     const dist1 = calcDistance(a, b, c, farther);
     const dist2 = calcDistance(a, b, c, points[i]);
     const cos1 = calcCosine(left, right, farther);
     const cos2 = calcCosine(left, right, points[i]);
-    if (dist1 < dist2 || (dist1 == dist2 && cos1 > cos2)) {
+    if (dist1 < dist2 || (dist1 === dist2 && cos1 > cos2)) {
       farther = points[i];
     }
   }
-  const upLeft = new Array();
-  const upRight = new Array();
-  const downLeft = new Array();
-  const down = new Array();
+  const upLeft = [];
+  const upRight = [];
+  const downLeft = [];
+  const down = [];
   const a1 = new Changeable();
   const b1 = new Changeable();
   const c1 = new Changeable();
@@ -119,7 +119,7 @@ function convexHullMain(left, right, points, isUpper) {
   calcLineEquation(left, farther, a1, b1, c1);
   calcLineEquation(farther, right, a2, b2, c2);
   dividePoints(points, a1, b1, c1, upLeft, downLeft, isUpper);
-  if (downLeft.length != 0) {
+  if (downLeft.length !== 0) {
     dividePoints(downLeft, a2, b2, c2, upRight, down, isUpper);
   }
 
@@ -179,17 +179,17 @@ const convexHull = (points) => {
   dividePoints(points, a, b, c, up, down, true);
 
   let result = convexHullMain(left, right, up, true);
-  result.sort(function (q, w) {
+  result.sort((q, w) => {
     return q.x - w.x;
   });
   let result2 = convexHullMain(left, right, down, false);
-  result2.sort(function (q, w) {
+  result2.sort((q, w) => {
     return w.x - q.x;
   });
   result = result.concat(result2);
   result.splice(result.indexOf(left), 1);
   result.splice(result.indexOf(right), 1);
   return result;
-}
+};
 
 module.exports = convexHull;
