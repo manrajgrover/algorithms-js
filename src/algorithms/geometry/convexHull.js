@@ -179,9 +179,9 @@ const convexHull = (points) => {
   dividePoints(points, a, b, c, up, down, true);
 
   let result = convexHullMain(left, right, up, true);
-  result.sort((q, w) => { return q.x - w.x; });
+  result.sort((q, w) => return q.x - w.x;);
   const result2 = convexHullMain(left, right, down, false);
-  result2.sort((q, w) => { return w.x - q.x; });
+  result2.sort((q, w) => return w.x - q.x;);
   result = result.concat(result2);
   result.splice(result.indexOf(left), 1);
   result.splice(result.indexOf(right), 1);
