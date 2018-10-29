@@ -25,7 +25,7 @@ function Changeable(value) {
  * @return {Array}   distance from point to line ax+by+c=0
  */
 function calcDistance(a, b, c, point) {
-  return Math.abs(a.v * point.x + b.v * point.y + c.v) / Math.sqrt(a.v * a.v + b.v * b.v);
+  return Math.abs((a.v * point.x) + (b.v * point.y) + c.v) / Math.sqrt((a.v * a.v) + (b.v * b.v));
 }
 
 /**
@@ -36,11 +36,11 @@ function calcDistance(a, b, c, point) {
  * @return {Number}   cosine of angle BAC
  */
 function calcCosine(A, B, C) {
-  let x1 = B.x - A.x;
-  let y1 = B.y - A.y;
-  let x2 = C.x - A.x;
-  let y2 = C.y - A.y;
-  return x1 * x2 + y1 * y2 / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2));
+  const x1 = B.x - A.x;
+  const y1 = B.y - A.y;
+  const x2 = C.x - A.x;
+  const y2 = C.y - A.y;
+  return ((x1 * x2) + (y1 * y2)) / (Math.sqrt((x1 * x1) + (y1 * y1)) * Math.sqrt((x2 * x2) + (y2 * y2)));
 }
 
 /**
@@ -54,7 +54,7 @@ function calcCosine(A, B, C) {
 function calcLineEquation(point1, point2, a, b, c) {
   a.v = point1.y - point2.y;
   b.v = point2.x - point1.x;
-  c.v = point1.x * point2.y - point2.x * point1.y;
+  c.v = (point1.x * point2.y) - (point2.x * point1.y);
 }
 
 /**
@@ -65,16 +65,16 @@ function calcLineEquation(point1, point2, a, b, c) {
  * @param  {Number} c coefficient c
  * @param  {Array} up array of points that are upper (or lower. depends on isUpper) than line
  * @param  {Array} down array of points that are lower (or upper. depends on isUpper) than line
- * @param  {Array} isUpper flag showing if points are in upper or lower half 
+ * @param  {Array} isUpper flag showing if points are in upper or lower half
  */
 function dividePoints(points, a, b, c, up, down, isUpper) {
   let temp;
-  for (let i = 0; i < points.length; i++) {
+  for (let i = 0; i < points.length; i += 1) {
     temp = a.v * points[i].x + b.v * points[i].y + c.v;
-    if (temp > 0 && isUpper || temp < 0 && !isUpper) {
+    if ((temp > 0 && isUpper) || (temp < 0 && !isUpper)) {
       up.push(points[i]);
     }
-    else if (temp < 0 && isUpper || temp > 0 && !isUpper) {
+    else if ((temp < 0 && isUpper) || (temp > 0 && !isUpper)) {
       down.push(points[i]);
     }
   }
@@ -89,31 +89,33 @@ function dividePoints(points, a, b, c, up, down, isUpper) {
  * @return {Array}   smallest array of points that belong to convex hull of received points
  */
 function convexHullMain(left, right, points, isUpper) {
-  if (points.length == 0) {
-    return new Array(left, right);
+  if (points.length === 0) {
+    return [left, right];
   }
-  let a = new Changeable(), b = new Changeable(), c = new Changeable();
+	const a = new Changeable();
+	const b = new Changeable();
+  const c = new Changeable();
   calcLineEquation(left, right, a, b, c);
   let farther = new Point(points[0].x, points[0].y);
   for (let i = 1; i < points.length; i++) {
-    let dist1 = calcDistance(a, b, c, farther);
-    let dist2 = calcDistance(a, b, c, points[i]);
-    let cos1 = calcCosine(left, right, farther);
-    let cos2 = calcCosine(left, right, points[i]);
-    if (dist1 < dist2 || dist1 == dist2 && cos1 > cos2) {
+    const dist1 = calcDistance(a, b, c, farther);
+    const dist2 = calcDistance(a, b, c, points[i]);
+    const cos1 = calcCosine(left, right, farther);
+    const cos2 = calcCosine(left, right, points[i]);
+    if (dist1 < dist2 || (dist1 == dist2 && cos1 > cos2)) {
       farther = points[i];
     }
   }
-  let upLeft = new Array();
-  let upRight = new Array();
-  let downLeft = new Array();
-  let down = new Array();
-  let a1 = new Changeable();
-  let b1 = new Changeable();
-  let c1 = new Changeable();
-  let a2 = new Changeable();
-  let b2 = new Changeable();
-  let c2 = new Changeable();
+  const upLeft = new Array();
+  const upRight = new Array();
+  const downLeft = new Array();
+  const down = new Array();
+  const a1 = new Changeable();
+  const b1 = new Changeable();
+  const c1 = new Changeable();
+  const a2 = new Changeable();
+  const b2 = new Changeable();
+  const c2 = new Changeable();
   calcLineEquation(left, farther, a1, b1, c1);
   calcLineEquation(farther, right, a2, b2, c2);
   dividePoints(points, a1, b1, c1, upLeft, downLeft, isUpper);
@@ -170,19 +172,19 @@ const convexHull = (points) => {
         down1 = points[i];
       }
     }
-    return new Array(up1, down1);
+    return [up1, down1];
   }
 
   calcLineEquation(left, right, a, b, c);
   dividePoints(points, a, b, c, up, down, true);
 
   let result = convexHullMain(left, right, up, true);
-  result.sort(function (a, b) {
-    return a.x - b.x;
+  result.sort(function (q, w) {
+    return q.x - w.x;
   });
   let result2 = convexHullMain(left, right, down, false);
-  result2.sort(function (a, b) {
-    return b.x - a.x;
+  result2.sort(function (q, w) {
+    return w.x - q.x;
   });
   result = result.concat(result2);
   result.splice(result.indexOf(left), 1);
