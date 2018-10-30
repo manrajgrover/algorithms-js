@@ -31,7 +31,7 @@ function Bitset(n) {
  * Raises number to a power
  * @param  {Number} base base
  * @param  {Number} n power
- * @return {Number}   base^n
+ * @return {Number}   base in power of n
  */
 function power(base, n) {
   if (n === 0) {
