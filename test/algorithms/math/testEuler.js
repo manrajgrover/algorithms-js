@@ -17,7 +17,7 @@ describe('Euler\'s Totient Function', () => {
     assert.deepEqual(euler(2), 1);
     assert.deepEqual(euler(3), 2);
     assert.deepEqual(euler(5), 4);
-    assert.deepEqual(euler(7), 6);
+    assert.deepEqual(euler(11), 10);
   });
 
   it('should work for composite numbers', () => {
