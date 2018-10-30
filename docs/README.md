@@ -202,7 +202,7 @@ Raises base to a power keeping mod in check
 
 #### fibonacci(num) 
 
-Sum of two sequantial numbers for the length of num
+Sum of two sequential numbers for the length of num
 
 
 
