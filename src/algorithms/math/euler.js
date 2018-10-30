@@ -41,11 +41,11 @@ function power(base, n) {
   let i = 1;
   let result = base;
   while (i !== b.getSize()) {
-    result += result;
+    result *= result;
     if (b.get(i)) {
       result *= base;
-      i += 1;
     }
+    i += 1;
   }
   return result;
 }
