@@ -84,7 +84,7 @@ function findDivisors(n) {
  *
  * References: https://en.wikipedia.org/wiki/Euler%27s_totient_function
  */
-function euler(n) {
+const euler = (n) => {
   if (n < 1) {
     return 0;
   }
@@ -95,3 +95,5 @@ function euler(n) {
   }
   return result;
 }
+
+module.exports = euler;
