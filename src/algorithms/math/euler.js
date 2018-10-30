@@ -1,11 +1,11 @@
 /**
  * Creates object storing pair divisor-power
  * @param  {Number} divisor divisor
- * @param  {Number} power power of divisor
+ * @param  {Number} n power of divisor
  */
-function Divisor(divisor, power) {
+function Divisor(divisor, n) {
   this.d = divisor;
-  this.p = power;
+  this.p = n;
 }
 
 /**
@@ -15,17 +15,16 @@ function Divisor(divisor, power) {
  */
 function Bitset(n) {
   this.bitset = [];
-  let i = 0;
   while (n !== 0) {
     this.bitset.unshift(n % 2);
     n = Math.floor(n / 2);
   }
   this.get = function (i) {
     return this.bitset[i];
-  }
+  };
   this.getSize = function () {
     return this.bitset.length;
-  }
+  };
 }
 
 /**
@@ -42,9 +41,9 @@ function power(base, n) {
   let i = 1;
   let result = base;
   while (i !== b.getSize()) {
-    result = result * result;
+    result += result;
     if (b.get(i)) {
-      result = result * base;
+      result *= base;
       i += 1;
     }
   }
@@ -57,11 +56,11 @@ function power(base, n) {
  * @return {Array}   array of pairs divisor-power
  */
 function findDivisors(n) {
-  let divisors = [];
+  const divisors = [];
   let i = 0;
   let m = 2;
   while (m <= Math.sqrt(n)) {
-    while (n % m == 0) {
+    while (n % m === 0) {
       n /= m;
       if (divisors.length === i) {
         divisors.push(new Divisor(m, 0));
@@ -94,6 +93,6 @@ const euler = (n) => {
     result *= power(divisors[i].d, divisors[i].p) - power(divisors[i].d, divisors[i].p - 1);
   }
   return result;
-}
+};
 
 module.exports = euler;
