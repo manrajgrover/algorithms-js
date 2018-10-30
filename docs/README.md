@@ -197,6 +197,36 @@ Raises base to a power keeping mod in check
 
 
 
+### src/algorithms/math/fibonacci.js
+
+
+#### fibonacci(num) 
+
+Sum of two sequantial numbers for the length of num
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| num | `Number`  | Max length to iterate | &nbsp; |
+| a | `Number`  | First Number | &nbsp; |
+| b | `Number`  | Second Number | &nbsp; |
+| temp | `Number`  | temporary Fibonacci number for each iteration | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Sum of two sequential numbers until the length of num
+
+
+
+
 ### src/algorithms/math/gcd.js
 
 
