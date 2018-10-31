@@ -11,16 +11,16 @@ const fibonacci = (num) => {
   let a = 0;
   let b = 1;
   const temp = [];
-   if (num < 0) {
+  if (num < 0) {
     throw new Error('Not a positive number');
-  };
-   while (a <= num) {
+  }
+  while (a <= num) {
     temp.push(a);
-     const sum = a + b;
+    const sum = a + b;
     a = b;
     b = sum;
-  };
-   return temp;
+  }
+  return temp;
 };
 
 module.exports = fibonacci;
