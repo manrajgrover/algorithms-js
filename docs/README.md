@@ -202,7 +202,7 @@ Raises base to a power keeping mod in check
 
 #### fibonacci(num) 
 
-Sum of two sequential numbers for the length of num
+Output an array of numbers in fibonacci sequence
 
 
 
@@ -212,9 +212,7 @@ Sum of two sequential numbers for the length of num
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
 | num | `Number`  | Max length to iterate | &nbsp; |
-| a | `Number`  | First Number | &nbsp; |
-| b | `Number`  | Second Number | &nbsp; |
-| temp | `Number`  | temporary Fibonacci number for each iteration | &nbsp; |
+| temp | `Array`  | Array of numbers in fibonacci sequence | &nbsp; |
 
 
 
@@ -222,7 +220,7 @@ Sum of two sequential numbers for the length of num
 ##### Returns
 
 
-- `Number`  Sum of two sequential numbers until the length of num
+- `Array`  Array of numbers in fibonacci sequence up to the length of num
 
 
 

@@ -1,9 +1,7 @@
 /**
- * Calculates sum of two sequential numbers for the length of num
+ * Outputs an array of fibonacci sequences
  * @param  {Number} num max number to decrement from until number hits 0
- * @param  {Number} a initial first number 1
- * @param  {Number} b initial second number 0
- * @return {Number} temp updated sum of two numbers (a and b)
+ * @return {Array} temp array of fibonacci sequences
  * References: https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e
  */
 
