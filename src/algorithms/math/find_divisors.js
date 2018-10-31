@@ -16,9 +16,9 @@ const findDivisors = (n) => {
   while (2 * div <= n) {
     if (n % div === 0) {
       result.push(div);
-      div = div + 1;
+      div += 1;
     } else {
-      div = div + 1;
+      div += 1;
     }
   }
   result.push(n);
