@@ -3,16 +3,16 @@ const fibonacci = require('../../../src/algorithms/math/fibonacci');
 const assert = require('assert');
 
 describe('fibonacci', () => {
-  it('returns 0 if given number is 0', () => {
+  it('should return 0 if given number is 0', () => {
     assert.deepStrictEqual(fibonacci(0), [0]);
   });
-  it('if the number is negative, returns an error', () => {
+  it('should return an error, if the number is negative', () => {
     assert.throws(() => fibonacci(-5));
   });
-  it('returns a fibonacci sequence up to 10', () => {
+  it('should return a fibonacci sequence up to 10', () => {
     assert.deepStrictEqual(fibonacci(10), [0, 1, 1, 2, 3, 5, 8]);
   });
-  it('returns fibonacci sequence up to 100', () => {
+  it('should return fibonacci sequence up to 100', () => {
     assert.deepStrictEqual(fibonacci(100), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]);
   });
 });
