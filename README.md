@@ -69,6 +69,7 @@ Various Math algorithms:
 - [Fast Exponentiation](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/fast_exp.js)
 - [GCD](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/gcd.js)
 - [LCM](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/lcm.js)
+- [Inverse of first 'n' numbers](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/n_inverse.js)
 
 #### String
 Various String algorithms:
