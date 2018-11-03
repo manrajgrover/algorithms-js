@@ -3,7 +3,7 @@ const findDivisors = require('../../../src').algorithms.math.findDivisors;
 
 const assert = require('assert');
 
-describe.only('Find divisors', () => {
+describe('Find divisors', () => {
     it('should return array of  if number is divisors', () => {
         assert.deepEqual(findDivisors(10), [1, 2, 5, 10]);
         assert.deepEqual(findDivisors(100), [1, 2, 4, 5, 10, 20, 25, 50, 100]);

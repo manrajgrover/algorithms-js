@@ -15,6 +15,6 @@ const findDivisors = (number) => {
         i += 1;
     }
     return divisors
-}   
+}
 
 module.exports = findDivisors
