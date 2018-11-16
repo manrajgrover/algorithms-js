@@ -20,9 +20,9 @@ describe('Fast Prime Number checking', () => {
   });
 
   it('should solve for big numbers  ', () => {
-      assert.equal(fastPrime(999917), true);
-      assert.equal(fastPrime(1000000), false);
-      assert.equal(fastPrime(9999973), true);
-      assert.equal(fastPrime(10000000), false);
+    assert.equal(fastPrime(999917), true);
+    assert.equal(fastPrime(1000000), false);
+    assert.equal(fastPrime(9999973), true);
+    assert.equal(fastPrime(10000000), false);
   });
 });
