@@ -4,7 +4,7 @@
 * @return {Number}  true or false
 */
 const isPrime = (a) => {
-  for (let i = 2; i <= Math.sqrt(a); i+=1) {
+  for (let i = 2; i <= Math.sqrt(a); i+= 1) {
     if (a % i === 0) {
       return false;
     }
@@ -13,7 +13,7 @@ const isPrime = (a) => {
   if (a === 1 || a === 0) {
     return false;
   }
-  
+
   return true;
 };
 
