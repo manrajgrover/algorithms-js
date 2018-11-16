@@ -17,10 +17,12 @@ describe('Fast Prime Number checking', () => {
     assert.equal(fastPrime(200), false);
     assert.equal(fastPrime(512), false);
     assert.equal(fastPrime(953), true);
-  });999917
+  });
 
    it('should solve for big numbers  ', () => {
         assert.equal(fastPrime(999917), true);
         assert.equal(fastPrime(1000000), false);
+        assert.equal(fastPrime(9999973), true);
+        assert.equal(fastPrime(10000000), false);
    });
 });
