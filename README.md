@@ -69,6 +69,7 @@ Various Math algorithms:
 - [Fast Exponentiation](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/fast_exp.js)
 - [GCD](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/gcd.js)
 - [LCM](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/lcm.js)
+- [Fisher-Yates](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/fisher-yates.js)
 
 #### String
 Various String algorithms:
@@ -79,7 +80,6 @@ Various String algorithms:
 Various Geometry algorithms:
 
 - [Tangent between circles](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
-- [Convex Hull](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/convexHull.js)
 
 ## Development
 
