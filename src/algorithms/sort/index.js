@@ -6,7 +6,7 @@ const MergeSort = require('./merge_sort');
 const QuickSort = require('./quick_sort');
 const SelectionSort = require('./selection_sort');
 const ShellSort = require('./shell_sort');
-
+const CocktailSort = require('./cocktail_sort');
 
 module.exports = {
   BubbleSort,
@@ -17,4 +17,5 @@ module.exports = {
   QuickSort,
   SelectionSort,
   ShellSort,
+  CocktailSort,
 };
