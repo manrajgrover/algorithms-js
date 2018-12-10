@@ -8,7 +8,8 @@ function Changeable(value) {
 }
 
 /**
- * Calculates GCD of numbers a and b. Also calculates coefficients needed to calculate modular multiplicative inverse
+ * Calculates GCD of numbers a and b. Also calculates coefficients needed to
+ * calculate modular multiplicative inverse
  * @param  {Number} a first number
  * @param  {Number} b second number
  * @param  {Changeable} x first coefficient
@@ -16,31 +17,32 @@ function Changeable(value) {
  * @return {Number} GCD
  */
 function gcd(a, b, x, y) {
-  if (a == 0) {
+  if (a === 0) {
     x.v = 0;
     y.v = 1;
     return b;
   }
-  let d = gcd(b % a, a, x, y);
-  let t = x.v;
+  const d = gcd(b % a, a, x, y);
+  const t = x.v;
   x.v = y.v - (Math.floor(b / a) * x.v);
   y.v = t;
   return d;
 }
 
 /**
- * Calculates modular multiplicative inverse of number a with respect of modulus m using Fermet-Euler theorem
+ * Calculates modular multiplicative inverse of number a with respect of
+ * modulus m using Fermet-Euler theorem
  * @param  {Number} a number to calculate modular multiplicative inverse of
  * @param  {Number} m modulus
  * @return {Number} modular multiplicative inverse
  */
 const modInverseFermet = (a, m) => {
-  let x = new Changeable();
-  let y = new Changeable();
+  const x = new Changeable();
+  const y = new Changeable();
   if (gcd(a, m, x, y) > 1) {
     return 0;
   }
-  return Math.floor(Math.pow(a, euler(m)) / (a * m));
+  return Math.floor(a ** euler(m) / (a * m));
 };
 
 module.exports = modInverseFermet;
