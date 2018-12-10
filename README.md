@@ -80,7 +80,6 @@ Various String algorithms:
 Various Geometry algorithms:
 
 - [Tangent between circles](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
-- [Convex Hull](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/convexHull.js)
 
 ## Development
 
