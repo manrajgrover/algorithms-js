@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 const modInverseFermetEuler = require('../../../src').algorithms.math.modInverseFermetEuler;
 const assert = require('assert');
+
 describe('Modular Inverse', () => {
   it('should return 0 for not co-prime numbers', () => {
     assert.deepEqual(modInverseFermetEuler(3, 6), 0);

@@ -42,7 +42,7 @@ const modInverseFermet = (a, m) => {
   if (gcd(a, m, x, y) > 1) {
     return 0;
   }
-  return Math.floor(a ** euler(m) / (a * m));
+  return Math.floor((a ** euler(m)) / (a * m));
 };
 
 module.exports = modInverseFermet;
