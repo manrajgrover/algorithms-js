@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-const fisherYates = require('../../../src').algorithms.math.fisherYates.fisherYates;
+const fisherYates = require('../../../src').algorithms.math.fisherYates;
 
 const assert = require('assert');
 
