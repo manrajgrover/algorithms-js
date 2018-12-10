@@ -3,11 +3,12 @@
  * @param  {Number} value value to store
  */
 function Changeable(value) {
-    this.v = value;
+  this.v = value;
 }
 
 /**
- * Calculates GCD of numbers a and b. Also calculates coefficients needed to calculate modular multiplicative inverse
+ * Calculates GCD of numbers a and b. Also calculates coefficients needed
+ * to calculate modular multiplicative inverse
  * @param  {Number} a first number
  * @param  {Number} b second number
  * @param  {Changeable} x first coefficient
@@ -15,16 +16,16 @@ function Changeable(value) {
  * @return {Number} GCD
  */
 function gcd(a, b, x, y) {
-	if (a == 0) {
-        x.v = 0;
-        y.v = 1;
-		return b;
-	}
-    let d = gcd (b % a, a, x, y);
-    let t = x.v;
-	x.v = y.v - (Math.floor(b / a) * x.v);
-	y.v = t;
-	return d;
+  if (a === 0) {
+    x.v = 0;
+    y.v = 1;
+    return b;
+  }
+  const d = gcd(b % a, a, x, y);
+  const t = x.v;
+  x.v = y.v - (Math.floor(b / a) * x.v);
+  y.v = t;
+  return d;
 }
 
 /**
@@ -34,15 +35,15 @@ function gcd(a, b, x, y) {
  * @return {Number} modular multiplicative inverse
  */
 const modInverse = (a, m) => {
-    let x = new Changeable();
-    let y = new Changeable();
-    if (gcd(a, m, x, y) > 1) {
-        return 0;
-    }
-    if (x.v < 0) {
-        x.v += m;
-    }
-    return x.v;
+  const x = new Changeable();
+  const y = new Changeable();
+  if (gcd(a, m, x, y) > 1) {
+    return 0;
+  }
+  if (x.v < 0) {
+    x.v += m;
+  }
+  return x.v;
 };
 
 module.exports = modInverse;
