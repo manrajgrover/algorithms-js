@@ -9,9 +9,9 @@ describe('Fisher-Yates', () => {
     const arr2 = arr1;
     fisherYates(arr1);
     arr1.sort();
-    assert.equal(arr1, arr2);
+    assert.deepEqual(arr1, arr2);
     arr1 = [];
     fisherYates(arr1);
-    assert.equal(arr1, []);
+    assert.deepEqual(arr1, []);
   });
 });
