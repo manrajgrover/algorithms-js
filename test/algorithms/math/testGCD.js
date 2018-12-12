@@ -27,4 +27,10 @@ describe('GCD', () => {
     assert.equal(gcd(65, -10), 5);
     assert.equal(gcd(-3, 2), 1);
   });
+
+  it('should return "numbers must be integer! if at least one of the numbers is real', () => {
+    assert.equal(gcd(1.33, 1), 'numbers must be integer!');
+    assert.equal(gcd(13.3453, 0), 'numbers must be integer!');
+    assert.equal(gcd(1.333, 3214.124), 'numbers must be integer!');
+  });
 });
