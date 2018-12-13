@@ -1,8 +1,12 @@
-function valid(a,b,c){
+
+
+function validTraingle(a,b,c)  {
   if(a + b <= c || b + c <= a || a + c <= b){
     return false;
   }
-  else {
+  else
     return true;
-  }
-}
+
+};
+
+ module.exports = validTraingle;
