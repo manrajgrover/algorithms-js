@@ -1,34 +1,33 @@
 function isPrime(num) {
-  var sqrtnum=Math.floor(Math.sqrt(num));
-    var prime = num != 1;
-    for(var i=2; i<sqrtnum+1; i++) { // sqrtnum+1
-        if(num % i == 0) {
-            prime = false;
-            break;
-        }
+  const sqrtnum = Math.floor(Math.sqrt(num));
+  const prime = num !== 1;
+  for (let i = 2; i < sqrtnum + 1; i++) { // sqrtnum+1
+    if (num % i === 0) {
+      prime = false;
+      break;
     }
-    return prime;
-};
+  }
+  return prime;
+}
 
-function primeFactors(num){
+function primeFactors(num) {
 
-  var arr = [];
-  if (isPrime(num)){
+  let arr = [];
+  if (isPrime(num)) {
     arr.push(num);
   }
 
   else {
-    for(var i = 2; i <= num; i++){
-      if(num % i == 0){
-        if(isPrime(i)){
-          num = num/i;
+    for (let i = 2; i <= num; i++) {
+      if (num % i === 0) {
+        if (isPrime(i)) {
+          num = num / i;
           arr.push(i);
         }
       }
     }
   }
   return arr;
-  
-};
+}
 
 module.exports = primeFactors;
