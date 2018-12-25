@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const primeFactors = require('../../../src/algorithms/math/prime-factors');
+let primeFactors = require('../../../src/algorithms/math/prime-factors');
 
 describe('primeFactors', () => {
   it('should return all the prime factors of a given number', () => {
