@@ -2,7 +2,7 @@
 
 function insertionSort(array) {
   const length = array.length;
-  let j;
+
 
   for (let i = 1; i < length; i += 1) {
     const temp = array[i];
@@ -26,12 +26,12 @@ function bucketSort(array, bucketSize) {
   let maxValue = array[0];
 
   // Setting min and max values
-    array.forEach(function (currentVal) {
-      if (currentVal < minValue) {
-        minValue = currentVal;
-  	} else if (currentVal > maxValue) {
-        maxValue = currentVal;
-  	}
+  array.forEach((currentVal) => {
+    if (currentVal < minValue) {
+      minValue = currentVal;
+  } else if (currentVal > maxValue) {
+      maxValue = currentVal;
+  }
   });
 
   // Initializing buckets
@@ -43,16 +43,16 @@ function bucketSort(array, bucketSize) {
   }
 
   // Pushing values to buckets
-  array.forEach(function (currentVal) {
+  array.forEach((currentVal) => {
     allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(currentVal);
   });
 
   // Sorting buckets
   array.length = 0;
 
-  allBuckets.forEach(function (bucket) {
+  allBuckets.forEach((bucket) => {
     insertionSort(bucket);
-    bucket.forEach(function (element) {
+    bucket.forEach((element) => {
       array.push(element);
     });
   });
