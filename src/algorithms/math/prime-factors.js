@@ -11,18 +11,15 @@ function isPrime(num) {
 }
 
 function primeFactors(num) {
-
-  let arr = [];
+  const arr = [];
   if (isPrime(num)) {
     arr.push(num);
-  }
-
-  else {
-    for (let i = 2; i <= num; i++) {
-      if (num % i === 0) {
-        if (isPrime(i)) {
-          num = num / i;
-          arr.push(i);
+  } else {
+         for (let i = 2; i <= num; i++) {
+           if (num % i === 0) {
+           if (isPrime(i)) {
+             num/=i;
+             arr.push(i);
         }
       }
     }
