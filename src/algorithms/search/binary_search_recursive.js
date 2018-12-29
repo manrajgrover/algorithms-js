@@ -5,7 +5,6 @@
  * @return {Number}             Index of the element, if found
  */
 const binarysearchRecursive = (array, low, high, element) => {
-
   if (low > high) {
     return -1;
   }
@@ -18,7 +17,7 @@ const binarysearchRecursive = (array, low, high, element) => {
   } else if (element < array[mid]) {
     return binarysearchRecursive(array, low, mid - 1, element);
   }
-    return binarysearchRecursive(array, mid + 1, high, element);
+  return binarysearchRecursive(array, mid + 1, high, element);
 };
 
 module.exports = binarysearchRecursive;
