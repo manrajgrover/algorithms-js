@@ -1,23 +1,18 @@
 function fib(n) {
-
-
-  if (n == 0){
+  if (n === 0) {
     return 0;
-  }
-
-  else {
-    let i = 0;
-    let fib_1 = 0;
-    let fib_2 = 1;
+  } else {
+      let firstFib = 0;
+      let secondFib = 1;
 
     while (n > 0) {
-      temp = fib_2;
-      fib_2 = fib_1 + fib_2;
-      fib_1 = temp;
+      let temp = secondFib;
+      secondFib = firstFib + secondFib;
+      firstFib = temp;
 
       n--;
     }
-    return fib_2;
+    return secondFib;
   }
 }
 
