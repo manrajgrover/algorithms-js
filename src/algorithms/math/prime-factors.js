@@ -18,7 +18,7 @@ function primeFactors(num) {
     for (let i = 2; i <= num; i += 1) {
       if (num % i === 0) {
         if (isPrime(i)) {
-          num / = i;
+          num /= i;
           arr.push(i);
         }
       }
