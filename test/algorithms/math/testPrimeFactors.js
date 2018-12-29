@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const assert = require('assert');
 
 const primeFactors = require('../../../src/algorithms/math/prime-factors');
