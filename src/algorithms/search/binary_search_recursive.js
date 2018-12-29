@@ -5,21 +5,22 @@
  * @return {Number}             Index of the element, if found
  */
 const binarysearchRecursive = (array, low, high, element) => {
-  let mid;
+  //let mid;
 
   if (low > high) {
     return -1;
-}
-
-    mid = Math.floor(low + (high - low) / 2);
+  }
+  const uncalculatedMid =  low + (high - low);
+  const calculatedMid = uncalculatedMid/2;
+  const mid = Math.floor(calculatedMid);
 
   if (element === array[mid]) {
     return mid;
-} else if (element < array[mid]) {
+  } else if (element < array[mid]) {
     return binarysearchRecursive(array, low, mid - 1, element);
 } else {
     return binarysearchRecursive(array, mid + 1, high, element);
-}
+  }
 };
 
 module.exports = binarysearchRecursive;
