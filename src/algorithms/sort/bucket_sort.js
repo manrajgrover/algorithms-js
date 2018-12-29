@@ -23,7 +23,6 @@ function bucketSort(array, bucketSize) {
   let i;
   let minValue = array[0];
   let maxValue = array[0];
-  let bucketSize = bucketSize || 5;
 
   // Setting min and max values
   array.forEach(function (currentVal) {
