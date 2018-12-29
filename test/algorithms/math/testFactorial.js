@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const assert = require('assert');
 
 const factorial = require('../../../src/algorithms/math/factorial');
