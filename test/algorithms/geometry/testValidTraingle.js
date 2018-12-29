@@ -15,4 +15,4 @@ describe('validTraingle', function() {
     assert.equal(true, validTraingle(3, 2, 4));
   });
 
-)};
+});
