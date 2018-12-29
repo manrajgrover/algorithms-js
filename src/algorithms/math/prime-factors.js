@@ -1,6 +1,6 @@
 function isPrime(num) {
   const sqrtnum = Math.floor(Math.sqrt(num));
-  const prime = num !== 1;
+  let prime = num !== 1;
   for (let i = 2; i < sqrtnum + 1; i++) { // sqrtnum+1
     if (num % i === 0) {
       prime = false;
@@ -11,18 +11,15 @@ function isPrime(num) {
 }
 
 function primeFactors(num) {
-
-  let arr = [];
+  const arr = [];
   if (isPrime(num)) {
     arr.push(num);
-  }
-
-  else {
-    for (let i = 2; i <= num; i++) {
-      if (num % i === 0) {
-        if (isPrime(i)) {
-          num = num / i;
-          arr.push(i);
+  } else {
+         for (let i = 2; i <= num; i++) {
+           if (num % i === 0) {
+           if (isPrime(i)) {
+             num/=i;
+             arr.push(i);
         }
       }
     }
