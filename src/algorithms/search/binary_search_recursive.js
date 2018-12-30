@@ -12,15 +12,14 @@ function binarysearchRecursive(array, low, high, num) {
   }
 
   const midPoint = (high - low) / 2;
-  let mid = Math.floor(low + midPoint);
+  const mid = Math.floor(low + midPoint);
 
   if (num === array[mid]) {
-   return mid;
+    return mid;
   } else if (num < array[mid]) {
-
-      return binarysearchRecursive(array, low, mid - 1, num);
-   }
-      return binarysearchRecursive(array, mid + 1, high, num);
+    return binarysearchRecursive(array, low, mid - 1, num);
+  }
+  return binarysearchRecursive(array, mid + 1, high, num);
 }
 
 module.exports = binarysearchRecursive;
