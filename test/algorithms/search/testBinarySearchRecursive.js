@@ -10,7 +10,7 @@ describe('Binary Search Recursive', () => {
   });
 
   it('should return -1 for no element found in array', () => {
-    const index = binarysearchRecursive([2, 3, 4, 5, 6], 1, 0, 4);
+    const index = binarysearchRecursive([2, 3, 4, 5, 6], 0, 4, 7);
 
     assert.equal(index, -1);
   });

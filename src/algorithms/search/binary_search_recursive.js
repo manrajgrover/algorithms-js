@@ -4,20 +4,33 @@
  * @param  {Number} element     Element to be searched
  * @return {Number}             Index of the element, if found
  */
-const binarysearchRecursive = (array, low, high, element) => {
-  if (low > high) {
-    return -1;
-  }
-  const uncalculatedMid = low + (high - low);
-  const calculatedMid = uncalculatedMid / 2;
-  const mid = Math.floor(calculatedMid);
+ function binarysearchRecursive(array, low, high, num) {
+   //let mid;
+   console.log(low, high);
+   //base condition
+   if(low > high) {
+     return -1;
+   }
 
-  if (element === array[mid]) {
-    return mid;
-  } else if (element < array[mid]) {
-    return binarysearchRecursive(array, low, mid - 1, element);
-  }
-  return binarysearchRecursive(array, mid + 1, high, element);
-};
+   //calculate the midpoint of array
+   const midPoint = (high - low) / 2;
+   let mid = Math.floor(low + midPoint);
+   console.log(mid);
+
+   if (num === array[mid]) {
+   	return mid;
+   }
+
+   else if (num < array[mid]) {
+   	//if the number is less the number at the midpoint of array
+   	return binarysearchRecursive(array, low, mid-1, num);
+   }
+
+   else {
+   	//if the number is more the number at the midpoint of array
+   	return binarysearchRecursive(array, mid+1, high, num);
+   }
+
+ }
 
 module.exports = binarysearchRecursive;
