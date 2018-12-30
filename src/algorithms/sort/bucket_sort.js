@@ -7,7 +7,7 @@ function insertionSort(array) {
   for (let i = 1; i < length; i += 1) {
     const temp = array[i];
     for (let j = i - 1; j >= 0 && array[j] > temp; j -= 1) {
-      array[j + 1] = array[j];
+      return array[j + 1] = array[j];
     }
     array[j + 1] = temp;
   }
@@ -29,9 +29,9 @@ function bucketSort(array, bucketSize) {
   array.forEach((currentVal) => {
     if (currentVal < minValue) {
       minValue = currentVal;
-  } else if (currentVal > maxValue) {
+    } else if (currentVal > maxValue) {
       maxValue = currentVal;
-  }
+    }
   });
 
   // Initializing buckets
