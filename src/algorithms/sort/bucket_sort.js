@@ -5,11 +5,10 @@ function insertionSort(array) {
 
 
   for (let i = 1; i < length; i += 1) {
-   const temp = array[i];
-   let j = i - 1;
-   for (j; j >= 0 && array[j] > temp; j -= 1) {
-       array[j + 1] = array[j];
-
+    const temp = array[i];
+    let j = i - 1;
+    for (j; j >= 0 && array[j] > temp; j -= 1) {
+      array[j + 1] = array[j];
     }
     array[j + 1] = temp;
   }
