@@ -1,3 +1,5 @@
+const gcd = require('./gcd');
+
 /**
  * Euler's totient function counts the positive integers
  * up to a given integer n that are relatively prime to n.
@@ -18,4 +20,6 @@
         }
         return result;
     }
- }
+ };
+
+ module.exports = phi;
