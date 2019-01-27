@@ -80,6 +80,11 @@ Various Geometry algorithms:
 
 - [Tangent between circles](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
 
+### Graph
+Various Graph algorithms:
+
+- [Dijkstra\'s Shortest Path First Algorithm](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/graph/dijkstra.js)
+
 ## Development
 
 Run:
