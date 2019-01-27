@@ -3,3 +3,6 @@
 /.nyc_output
 /npm-debug.log
 dist
+/.vscode
+website/build
+website/node_modules
