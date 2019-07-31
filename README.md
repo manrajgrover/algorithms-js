@@ -1,4 +1,5 @@
 # algorithms-js [![Build Status](https://travis-ci.org/manrajgrover/algorithms-js.svg?branch=master)](https://travis-ci.org/manrajgrover/algorithms-js) [![Build status](https://ci.appveyor.com/api/projects/status/6l0vybrb4y0c7eh8?svg=true)](https://ci.appveyor.com/project/manrajgrover/algorithms-js) [![npm](https://img.shields.io/npm/v/algorithms-js.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/algorithms-js) [![npm](https://img.shields.io/npm/dt/algorithms-js.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/algorithms-js) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
+
 > Consumable Data Structures and Algorithms library in JavaScript
 
 ## Installation
@@ -22,9 +23,11 @@ Or use `jsdeliver`:
 ```
 
 ## Usage
+
 Library contains both algorithms as well as data structures:
 
 ### Data Structures
+
 Currently, library supports following data structures:
 
 - [Doubly Linked List](https://github.com/manrajgrover/algorithms-js/blob/master/src/data-structures/doubly_linked_list.js)
@@ -37,9 +40,11 @@ Currently, library supports following data structures:
 - [Trie](https://github.com/manrajgrover/algorithms-js/blob/master/src/data-structures/trie.js)
 
 ### Algorithms
+
 Currently library supports following algorithms:
 
 #### Search
+
 Various Searching algorithms:
 
 - [Binary Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/binary_search.js)
@@ -52,6 +57,7 @@ Various Searching algorithms:
 - [Ternary Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/ternary_search.js)
 
 #### Sort
+
 Various Sorting algorithms:
 
 - [Bubble Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/bubble_sort.js)
@@ -63,6 +69,7 @@ Various Sorting algorithms:
 - [Selection Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/selection_sort.js)
 
 #### Math
+
 Various Math algorithms:
 
 - [Extended Euclidean](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/extended_euclidean.js)
@@ -71,11 +78,14 @@ Various Math algorithms:
 - [LCM](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/lcm.js)
 
 #### String
+
 Various String algorithms:
 
 - [Levenshtein Distance](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/levenshtein_distance.js)
+- [Aho Corasick](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/aho_corasick.js)
 
 #### Geometry
+
 Various Geometry algorithms:
 
 - [Tangent between circles](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/geometry/tangent_between_circles.js)
@@ -123,8 +133,10 @@ $ npm run build-dev
 ```
 
 ## Get in touch
+
 Say hi on [twitter](https://twitter.com/manrajsgrover)
 
 ## License
 
-[MIT](https://github.com/manrajgrover/algorithms-js/blob/master/LICENSE) © Manraj Singh
+[MIT](https://github.com/manrajgrover/algorithms-js/blob/master/LICENSE) ©
+Manraj Singh
