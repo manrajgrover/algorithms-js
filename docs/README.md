@@ -309,6 +309,30 @@ Calculates modular inverse of a number using Fermet's theorem
 
 
 
+#### eulerModularInverse(a, m) 
+
+Calculates modular inverse of a number using Euler's theorem
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number for which inverse needs to be found | &nbsp; |
+| m | `Number`  | Mod value | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Modular inverse of a
+
+
+
 #### modularInverse(a, m) 
 
 Calculates modular inverse of a number

@@ -1,5 +1,6 @@
 /* eslint-env mocha */
 const modularInverse = require('../../../src').algorithms.math.modularInverse.modularInverse;
+const eulerModularInverse = require('../../../src').algorithms.math.modularInverse.eulerModularInverse;
 const fermetModularInverse = require('../../../src').algorithms.math.modularInverse.fermetModularInverse;
 
 const assert = require('assert');
@@ -27,6 +28,18 @@ describe('Modular Inverse', () => {
     assert.equal(fermetModularInverse(3, 11), 4);
     assert.equal(fermetModularInverse(65, 11), 10);
     assert.equal(fermetModularInverse(3, 2), 1);
+  });
+
+  it('should return `null` for either or both numbers as 0', () => {
+    assert.equal(eulerModularInverse(0, 10), null);
+    assert.equal(eulerModularInverse(10, 0), null);
+    assert.equal(eulerModularInverse(0, 0), null);
+  });
+
+  it('should return modular inverse of two numbers', () => {
+    assert.equal(eulerModularInverse(3, 11), 4);
+    assert.equal(eulerModularInverse(65, 11), 10);
+    assert.equal(eulerModularInverse(3, 2), 1);
   });
 
   it('should return null for gcd != 1', () => {
