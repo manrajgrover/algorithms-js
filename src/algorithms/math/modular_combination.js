@@ -10,17 +10,17 @@ const fermetModularInverse = require('./modular_inverse').fermetModularInverse;
  * @return {Number}   Modular Combination
  */
 const modularCombination = (n, r, p) => {
-  if (r > n || p == 0) return null;
+  if (r > n || p === 0) return null;
 
   let num = 1;
   let den = 1;
 
-  for (let i=0; i<r; i++) {
+  for (let i = 0; i < r; i += 1) {
     num = (num * (n - i)) % p;
     den = (den * (i + 1)) % p;
   }
 
   return (num * fermetModularInverse(den, p)) % p;
-}
+};
 
 module.exports = modularCombination;
