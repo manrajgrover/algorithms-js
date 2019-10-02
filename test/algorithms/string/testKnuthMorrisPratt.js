@@ -16,7 +16,8 @@ describe('Knuth Morris Pratt', () => {
     const pattern = 'AAAAA';
 
     const occurences = knuthMorrisPratt(text, pattern);
-    assert.deepEqual(occurences, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 17, 18, 19, 25, 26, 27, 28, 29]);
+    const results = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 17, 18, 19, 25, 26, 27, 28, 29];
+    assert.deepEqual(occurences, results);
   });
 
   it('should find some occurences of pattern in text', () => {
@@ -33,7 +34,7 @@ describe('Knuth Morris Pratt', () => {
 
     const occurences = knuthMorrisPratt(text, pattern);
     assert.deepEqual(occurences, []);
-  });  
+  });
 
   it('should return an empty list when text = ""', () => {
     const text = '';
