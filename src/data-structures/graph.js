@@ -1,5 +1,5 @@
-const Queue = require('./queue');
-const Stack = require('./stack');
+const Queue = require("./queue");
+const Stack = require("./stack");
 
 /**
  * Class for Graphs
@@ -30,6 +30,29 @@ class Graph {
    */
   get vertices() {
     return [...this._vertices];
+  }
+
+  /**
+   * This returns an array of edges, where each edge has
+   * three properties (from, to , and weight).
+   * @param {Graph} G
+   * @return {Array[]}
+   */
+  get edges() {
+    const edges = [];
+    this._vertices.forEach(vertex => {
+      const neighbours = this.getNeighbours(vertex);
+      if (neighbours && neighbours.length) {
+        neighbours.forEach(n => {
+          edges.push({
+            from: vertex,
+            to: n,
+            weight: this.getEdgeWeight(vertex, n)
+          });
+        });
+      }
+    });
+    return edges;
   }
 
   /**
@@ -76,10 +99,12 @@ class Graph {
       this.addVertex(vertexB);
     }
 
-    this._edges[vertexA][vertexB] = (this._edges[vertexA][vertexB] || 0) + weight;
+    this._edges[vertexA][vertexB] =
+      (this._edges[vertexA][vertexB] || 0) + weight;
 
     if (!this._isDirected) {
-      this._edges[vertexB][vertexA] = (this._edges[vertexB][vertexA] || 0) + weight;
+      this._edges[vertexB][vertexA] =
+        (this._edges[vertexB][vertexA] || 0) + weight;
     }
   }
 
@@ -97,7 +122,7 @@ class Graph {
 
     this._vertices.delete(vertex);
 
-    this._vertices.forEach((v) => {
+    this._vertices.forEach(v => {
       this.removeEdge(v, vertex);
     });
   }
