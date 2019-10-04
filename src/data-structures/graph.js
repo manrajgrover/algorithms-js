@@ -14,6 +14,17 @@ class Graph {
     this._edges = [];
   }
 
+  copy() {
+    let newGraph = new Graph(this._isDirected);
+    this.vertices.forEach(vertex => {
+      newGraph.addVertex(vertex);
+    });
+    this.edges.forEach(edge => {
+      newGraph.addEdge(edge.from, edge.to, edge.weight);
+    });
+    return newGraph;
+  }
+
   /**
    * Get size of graph
    * @return {Number} Size of graph

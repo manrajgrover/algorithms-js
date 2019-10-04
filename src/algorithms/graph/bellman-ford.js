@@ -10,17 +10,17 @@
 const bellmanford = (G, source) => {
   const graphSize = G.size;
 
-  const distance = new Array(graphSize);
-  for (let i = 0; i < graphSize; i += 1) {
-    distance[i] = Infinity;
-  }
-  distance[source] = 0;
+  const distance = new Map();
+  G.vertices.forEach(vertex => {
+    distance.set(Number(vertex), Infinity);
+  });
+  distance.set(source, 0);
 
   const edges = G.edges;
   for (let i = 0; i < graphSize - 1; i += 1) {
     edges.forEach(({ from, to, weight }) => {
-      if (distance[from] + weight < distance[to]) {
-        distance[to] = distance[from] + weight;
+      if (distance.get(Number(from)) + weight < distance.get(Number(to))) {
+        distance.set(Number(to), distance.get(Number(from)) + weight);
       }
     });
   }

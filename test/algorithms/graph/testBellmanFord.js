@@ -24,6 +24,9 @@ describe("Bellman-Ford", () => {
     inst.addEdge(5, 4, 1);
 
     const result = bellmanford(inst, 0);
-    assert.deepStrictEqual(result, [0, 5, 5, 7, 9, 8]);
+    assert.deepStrictEqual(
+      result,
+      new Map([[0, 0], [1, 5], [2, 5], [3, 7], [4, 9], [5, 8]])
+    );
   });
 });

@@ -3,7 +3,7 @@ const dijkstra = require("../../../src").algorithms.graph.dijkstra;
 const Graph = require("../../../src").datastructures.Graph;
 const assert = require("assert");
 
-describe("dijkstra", () => {
+describe("Dijkstra", () => {
   let graph;
 
   beforeEach(() => {
