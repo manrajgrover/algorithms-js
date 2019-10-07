@@ -19,10 +19,6 @@ const jumpsearch = (sortedArray, element) => {
 
   while (sortedArray[prev] < element) {
     prev += 1;
-
-    if (prev === Math.min(step, len)) {
-      return -1;
-    }
   }
 
   if (sortedArray[prev] === element) {
