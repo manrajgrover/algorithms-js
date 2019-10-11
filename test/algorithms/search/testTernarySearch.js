@@ -32,4 +32,10 @@ describe('Ternary Search', () => {
 
     assert.equal(index, 4);
   });
+
+  it('should find element in array with repeated values', () => {
+    const index = ternarysearch([1, 1, 1, 4, 9, 9, 9], 4);
+
+    assert(index, 2);
+  });
 });
