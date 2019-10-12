@@ -27,6 +27,12 @@ describe('Ternary Search', () => {
     assert.equal(index, 0);
   });
 
+  it('should return index of middle element', () => {
+    const index = ternarysearch([2, 3, 4, 5, 6, 7, 8], 5);
+
+    assert.equal(index, 3);
+  });
+
   it('should return index of last element', () => {
     const index = ternarysearch([2, 3, 4, 5, 6], 6);
 
