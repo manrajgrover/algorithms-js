@@ -1,5 +1,8 @@
 const DoublyLinkedList = require("./doubly_linked_list");
 
+/**
+ * Class for LRU Cache
+ */
 class LRUCache {
   constructor(limit) {
     this.limit = limit;
@@ -8,6 +11,10 @@ class LRUCache {
     this.order = new DoublyLinkedList();
   }
 
+  /**
+   * Gets the value from the cache based on key param
+   * @param {*} key
+   */
   get(key) {
     if (key in this.storage && this.size > 0) {
       let getNode = this.storage[key];
@@ -21,6 +28,12 @@ class LRUCache {
     return "No such key in this cache.";
   }
 
+  /**
+   * Sets a [key, value] pair in the cache. Overwrites and sets as most recent node
+   * if it already exists.
+   * @param {*} key
+   * @param {*} value
+   */
   set(key, value) {
     if (key in this.storage) {
       let setNode = this.storage[key];
@@ -47,3 +60,5 @@ class LRUCache {
     this.size++;
   }
 }
+
+module.exports = LRUCache;
