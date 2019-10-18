@@ -1,4 +1,4 @@
-const DoublyLinkedList = require("./doubly_linked_list");
+const DoublyLinkedList = require('./doubly_linked_list');
 
 /**
  * Class for LRU Cache
@@ -17,7 +17,7 @@ class LRUCache {
    */
   get(key) {
     if (key in this.storage && this.size > 0) {
-      let getNode = this.storage[key];
+      const getNode = this.storage[key];
       if (this.order._length > 1) {
         this.order.deleteNode(getNode);
         this.order.insertAfter(this.order._tail, getNode);
@@ -25,7 +25,7 @@ class LRUCache {
 
       return getNode.value[1];
     }
-    return "No such key in this cache.";
+    return 'No such key in this cache.';
   }
 
   /**
@@ -36,7 +36,7 @@ class LRUCache {
    */
   set(key, value) {
     if (key in this.storage) {
-      let setNode = this.storage[key];
+      const setNode = this.storage[key];
       setNode.value = [key, value];
       this.order.deleteNode(setNode);
       this.order.insertAfter(this.order._tail, setNode);
@@ -44,10 +44,10 @@ class LRUCache {
     }
 
     if (this.size >= this.limit) {
-      let oldestNode = this.order._head;
+      const oldestNode = this.order._head;
       delete this.storage[oldestNode.value[0]];
       this.order.deleteNode(this.order._head);
-      this.size--;
+      this.size -= 1;
     }
 
     if (this.order._length > 1) {
@@ -57,7 +57,7 @@ class LRUCache {
       this.order.push([key, value]);
     }
 
-    this.size++;
+    this.size += 1;
   }
 }
 
