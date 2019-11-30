@@ -1,15 +1,3 @@
-// longestCommon :: String -> String -> String
-const longestCommon = (s1, s2) => maximumBy(
-    comparing(length),
-    intersect(...apList(
-        [s => map(
-            concat,
-            concatMap(tails, compose(tail, inits)(s))
-        )],
-        [s1, s2]
-    ))
-);
-
 // GENERIC FUNCTIONS ----------------------------
 
 // Each member of a list of functions applied to each
@@ -96,5 +84,17 @@ const tails = xs => {
             []
         ]);
 };
+
+// longestCommon :: String -> String -> String
+const longestCommon = (s1, s2) => maximumBy(
+    comparing(length),
+    intersect(...apList(
+        [s => map(
+            concat,
+            concatMap(tails, compose(tail, inits)(s))
+        )],
+        [s1, s2]
+    ))
+);
 
 module.exports = longestCommon;
