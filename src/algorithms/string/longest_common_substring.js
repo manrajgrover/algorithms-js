@@ -1,4 +1,3 @@
-
     // longestCommon :: String -> String -> String
     const longestCommon = (s1, s2) => maximumBy(
         comparing(length),
@@ -97,3 +96,5 @@
                 []
             ]);
     };
+
+module.exports = longestCommon;
