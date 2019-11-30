@@ -1,4 +1,4 @@
-const LCS = require('../../../src').algorithms.string.longestCommon;
+const LCS = require('../../../src').algorithms.string.LCS;
 const assert = require('assert');
 
 describe('Longest Common', () => {
@@ -6,7 +6,7 @@ describe('Longest Common', () => {
     const stringA = 'testyyyfoo';
     const stringB = 'bazzyyfoobaazz';
 
-    const distance = longestCommon(stringA, stringB);
+    const distance = LCS(stringA, stringB);
     assert.equal(distance, "foo");
   });
 });
