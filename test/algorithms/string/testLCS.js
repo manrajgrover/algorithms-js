@@ -1,4 +1,4 @@
-const LCS = require('../../../src').algorithms.string.LCS;
+const LCS = require('../../../src').algorithms.string.longestCommon;
 const assert = require('assert');
 
 describe('Longest Common', () => {
