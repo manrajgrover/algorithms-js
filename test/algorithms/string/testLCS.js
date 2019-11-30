@@ -1,4 +1,5 @@
 const LCS = require('../../../src').algorithms.string.longestCommon;
+const assert = require('assert');
 
 describe('Longest Common', () => {
   it('should find longest common substring', () => {
