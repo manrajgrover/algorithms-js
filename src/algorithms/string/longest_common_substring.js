@@ -97,4 +97,4 @@ const longestCommon = (s1, s2) => maximumBy(
     ))
 );
 
-module.exports.longestCommon = longestCommon;
+module.exports.longestCommon = longestCommon();
