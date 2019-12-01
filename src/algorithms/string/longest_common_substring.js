@@ -1,4 +1,4 @@
-function lcs(lcstest, lcstarget) {
+const lcs = (lcstest, lcstarget) => {
  matchfound = 0
  lsclen = lcstest.length
   for(lcsi=0; lcsi<lcstest.length; lcsi++){
