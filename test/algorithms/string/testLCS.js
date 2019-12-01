@@ -30,6 +30,6 @@ describe('Longest Common', () => {
     const stringB = 'bazzyyfoobaazz';
 
     const distance = lcs(stringA, stringB);
-    assert.equal(distance, "foo");
+    assert.equal(distance, "yyfoo");
   });
 });
