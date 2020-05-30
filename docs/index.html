@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>algorithms-js 0.0.8 &#8212; Algorithms Library in JavaScript</title>
+<title>algorithms-js 0.0.13 &#8212; Algorithms Library in JavaScript</title>
 <meta name="description" content="Algorithms Library in JavaScript">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -163,7 +163,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
         <h1>
                 <a href="https://github.com/manrajgrover/algorithms-js#readme">algorithms-js</a>
-            <small>0.0.8</small>
+            <small>0.0.13</small>
         </h1>
 
         <p>Algorithms Library in JavaScript</p>
@@ -837,6 +837,116 @@ input[type="search"]::-webkit-search-cancel-button {
 
                         <li class="method-link scope-public">
                             <a href="#src-algorithms-sort-selection_sort.js-tostring" title="toString">toString</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#src/data-structures/binary_search_tree.js" class="file"><b>src/data-structures/binary_search_tree.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-new-bstnode" title="new BSTNode">new BSTNode</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-bstnode.prototype.constructor" title="BSTNode.constructor">BSTNode.constructor</a>
+                        </li>
+
+
+                        <li class="method-link scope-private">
+                            <a href="#src-data-structures-binary_search_tree.js-this._value" title="this._value">this._value</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-this._left" title="this._left">this._left</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-this._right" title="this._right">this._right</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-insert" title="insert">insert</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-contains" title="contains">contains</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-minvalue" title="minValue">minValue</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-new-bst" title="new BST">new BST</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-bst.prototype.constructor" title="BST.constructor">BST.constructor</a>
+                        </li>
+
+
+                        <li class="method-link scope-private">
+                            <a href="#src-data-structures-binary_search_tree.js-this._root" title="this._root">this._root</a>
+                        </li>
+
+
+                        <li class="method-link scope-private">
+                            <a href="#src-data-structures-binary_search_tree.js-this._size" title="this._size">this._size</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-insert" title="insert">insert</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-contains" title="contains">contains</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-delete" title="delete">delete</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-minvalue" title="minValue">minValue</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-size" title="size">size</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-isempty" title="isEmpty">isEmpty</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-inordertraversal" title="inorderTraversal">inorderTraversal</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-data-structures-binary_search_tree.js-reverseordertraversal" title="reverseOrderTraversal">reverseOrderTraversal</a>
                         </li>
 
 
@@ -5646,6 +5756,885 @@ References: <a href="https://math.stackexchange.com/questions/927050/can-we-find
                                     </p>
 
                                     <p>Comma separated string array</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
+                <a id="src/data-structures/binary_search_tree.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-new-bstnode">
+                            <a href="#src-data-structures-binary_search_tree.js-new-bstnode" class="permalink">#</a>
+                            <span class="method-name" title="new BSTNode()">new BSTNode()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Binary Search Tree (BST) implementation
+data has to be unique</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-bstnode.prototype.constructor">
+                            <a href="#src-data-structures-binary_search_tree.js-bstnode.prototype.constructor" class="permalink">#</a>
+                            <span class="method-name" title="BSTNode.constructor(value)">BSTNode.constructor(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Constructor of BSTNode.
+Constructs node with given value and null left and right child.</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>any value, intended to be stored in a node</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-private">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-this._value">
+                            <a href="#src-data-structures-binary_search_tree.js-this._value" class="permalink">#</a>
+                            <span class="method-name" title="this._value()">this._value()</span>
+                            <small class="scope-private">private property</small>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-this._left">
+                            <a href="#src-data-structures-binary_search_tree.js-this._left" class="permalink">#</a>
+                            <span class="method-name" title="this._left()">this._left()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-this._right">
+                            <a href="#src-data-structures-binary_search_tree.js-this._right" class="permalink">#</a>
+                            <span class="method-name" title="this._right()">this._right()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-insert">
+                            <a href="#src-data-structures-binary_search_tree.js-insert" class="permalink">#</a>
+                            <span class="method-name" title="insert(value)">insert(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Insert inserts value into bst, correct place</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>value to be inserted in bst</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>boolean</code>
+                                    </p>
+
+                                    <p>true if value has been inserted. False if value exists.</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-contains">
+                            <a href="#src-data-structures-binary_search_tree.js-contains" class="permalink">#</a>
+                            <span class="method-name" title="contains(value)">contains(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>contains checks if a given value exists in bst, where root is this node.</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>which needs to be checked</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>boolean</code>
+                                    </p>
+
+                                    <p>true if bst contains value</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-minvalue">
+                            <a href="#src-data-structures-binary_search_tree.js-minvalue" class="permalink">#</a>
+                            <span class="method-name" title="minValue()">minValue()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>minValue finds minimum value in sub-trees</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>minimal value in sub-trees</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-new-bst">
+                            <a href="#src-data-structures-binary_search_tree.js-new-bst" class="permalink">#</a>
+                            <span class="method-name" title="new BST()">new BST()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Implementation of binary search trees, with unique values</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-bst.prototype.constructor">
+                            <a href="#src-data-structures-binary_search_tree.js-bst.prototype.constructor" class="permalink">#</a>
+                            <span class="method-name" title="BST.constructor()">BST.constructor()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Construct an empty BST structure</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-private">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-this._root">
+                            <a href="#src-data-structures-binary_search_tree.js-this._root" class="permalink">#</a>
+                            <span class="method-name" title="this._root()">this._root()</span>
+                            <small class="scope-private">private property</small>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-private">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-this._size">
+                            <a href="#src-data-structures-binary_search_tree.js-this._size" class="permalink">#</a>
+                            <span class="method-name" title="this._size()">this._size()</span>
+                            <small class="scope-private">private property</small>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+                            <p><code>Void</code></p>
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-insert">
+                            <a href="#src-data-structures-binary_search_tree.js-insert" class="permalink">#</a>
+                            <span class="method-name" title="insert(value)">insert(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Insert value in BST in correct place.</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>to insert</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>boolean</code>
+                                    </p>
+
+                                    <p>true if value has been inserted into bst</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-contains">
+                            <a href="#src-data-structures-binary_search_tree.js-contains" class="permalink">#</a>
+                            <span class="method-name" title="contains(value)">contains(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>contains returns true if value exists in BST</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>to check</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>boolean</code>
+                                    </p>
+
+                                    <p>true if value exists in bst</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-delete">
+                            <a href="#src-data-structures-binary_search_tree.js-delete" class="permalink">#</a>
+                            <span class="method-name" title="delete(value)">delete(value)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>delete deletes value from binary search tree</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>value</td>
+                                        <td>
+                                        </td>
+                                        <td><p>to delete</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>boolean</code>
+                                    </p>
+
+                                    <p>true if value has been deleted</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-minvalue">
+                            <a href="#src-data-structures-binary_search_tree.js-minvalue" class="permalink">#</a>
+                            <span class="method-name" title="minValue()">minValue()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>minValue returns minimum value in the tree</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>minimum value in bst</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-size">
+                            <a href="#src-data-structures-binary_search_tree.js-size" class="permalink">#</a>
+                            <span class="method-name" title="size()">size()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>size returns number of elements in bst</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>number</code>
+                                    </p>
+
+                                    <p>size of bst</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-isempty">
+                            <a href="#src-data-structures-binary_search_tree.js-isempty" class="permalink">#</a>
+                            <span class="method-name" title="isEmpty()">isEmpty()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>true if bst consists of 0 elements</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-inordertraversal">
+                            <a href="#src-data-structures-binary_search_tree.js-inordertraversal" class="permalink">#</a>
+                            <span class="method-name" title="inorderTraversal()">inorderTraversal()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>inorderTraversal</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>array of all bst element sorted increasingly</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-data-structures-binary_search_tree.js-reverseordertraversal">
+                            <a href="#src-data-structures-binary_search_tree.js-reverseordertraversal" class="permalink">#</a>
+                            <span class="method-name" title="reverseOrderTraversal()">reverseOrderTraversal()</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>reverseOrderTraversal returns array of all bst element sorted from large to small</p>
+
+
+                        </div>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>array of all bst element sorted decreasingly</p>
 
 
 

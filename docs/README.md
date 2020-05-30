@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.8*
+# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.13*
 
 > Algorithms Library in JavaScript
 
@@ -1766,6 +1766,374 @@ Get string form of array
 
 
 - `String`  Comma separated string array
+
+
+
+
+### src/data-structures/binary_search_tree.js
+
+
+#### new BSTNode() 
+
+Binary Search Tree (BST) implementation
+data has to be unique
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### BSTNode.constructor(value) 
+
+Constructor of BSTNode.
+Constructs node with given value and null left and right child.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | any value, intended to be stored in a node | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._value()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._left() 
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._right() 
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### insert(value) 
+
+Insert inserts value into bst, correct place
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | value to be inserted in bst | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `boolean`  true if value has been inserted. False if value exists.
+
+
+
+#### contains(value) 
+
+contains checks if a given value exists in bst, where root is this node.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | which needs to be checked | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `boolean`  true if bst contains value
+
+
+
+#### minValue() 
+
+minValue finds minimum value in sub-trees
+
+
+
+
+
+
+##### Returns
+
+
+-  minimal value in sub-trees
+
+
+
+#### new BST() 
+
+Implementation of binary search trees, with unique values
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### BST.constructor() 
+
+Construct an empty BST structure
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._root()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._size()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### insert(value) 
+
+Insert value in BST in correct place.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | to insert | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `boolean`  true if value has been inserted into bst
+
+
+
+#### contains(value) 
+
+contains returns true if value exists in BST
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | to check | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `boolean`  true if value exists in bst
+
+
+
+#### delete(value) 
+
+delete deletes value from binary search tree
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| value |  | to delete | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `boolean`  true if value has been deleted
+
+
+
+#### minValue() 
+
+minValue returns minimum value in the tree
+
+
+
+
+
+
+##### Returns
+
+
+-  minimum value in bst
+
+
+
+#### size() 
+
+size returns number of elements in bst
+
+
+
+
+
+
+##### Returns
+
+
+- `number`  size of bst
+
+
+
+#### isEmpty() 
+
+
+
+
+
+
+
+
+##### Returns
+
+
+-  true if bst consists of 0 elements
+
+
+
+#### inorderTraversal() 
+
+inorderTraversal
+
+
+
+
+
+
+##### Returns
+
+
+-  array of all bst element sorted increasingly
+
+
+
+#### reverseOrderTraversal() 
+
+reverseOrderTraversal returns array of all bst element sorted from large to small
+
+
+
+
+
+
+##### Returns
+
+
+-  array of all bst element sorted decreasingly
 
 
 
