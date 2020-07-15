@@ -1,6 +1,11 @@
 # algorithms-js [![Build Status](https://travis-ci.org/manrajgrover/algorithms-js.svg?branch=master)](https://travis-ci.org/manrajgrover/algorithms-js) [![Build status](https://ci.appveyor.com/api/projects/status/6l0vybrb4y0c7eh8?svg=true)](https://ci.appveyor.com/project/manrajgrover/algorithms-js) [![npm](https://img.shields.io/npm/v/algorithms-js.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/algorithms-js) [![npm](https://img.shields.io/npm/dt/algorithms-js.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/algorithms-js) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
 > Consumable Data Structures and Algorithms library in JavaScript
 
+
+## Note
+
+I'm looking for maintainers for this project. Please email me if you are interested in maintaining the project.
+
 ## Installation
 
 **Run**
