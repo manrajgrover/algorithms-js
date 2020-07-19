@@ -13,7 +13,7 @@ const interpolationsearch = (sortedArray, element) => {
     const posDiff = right - left;
     const elementDiff = element - sortedArray[left];
 
-    const pos = left + (posDiff * elementDiff / valDiff || 0);
+    const pos = left + ((posDiff * elementDiff) / valDiff || 0);
 
     if (sortedArray[pos] === element) {
       return pos;
