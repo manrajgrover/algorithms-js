@@ -3,28 +3,28 @@ const logestcommonsubsequence = require('../../../src').algorithms.string.logest
 const assert = require('assert');
 
 describe('LCS', () => {
-  it('should find four letter long lsc for POLITECHNIKA and TOALETA', () => {
+  it('should find OLTA or OLEA for POLITECHNIKA and TOALETA', () => {
     const stringA = 'POLITECHNIKA';
     const stringB = 'TOALETA';
 
-    const distance = logestcommonsubsequence(stringB, stringA);
-    assert.equal(distance.length, 4);
+    const result = logestcommonsubsequence(stringB, stringA);
+    assert.equal(['OLTA', 'OLEA'].indexOf(result) !== -1, true);
   });
 
-  it('should find one letter long lsc for 123 and 543', () => {
+  it('should find 3 for 123 and 543', () => {
     const stringA = '123';
     const stringB = '543';
 
-    const distance = logestcommonsubsequence(stringA, stringB);
-    assert.equal(distance.length, 1);
+    const result = logestcommonsubsequence(stringA, stringB);
+    assert.equal(result, '3');
   });
 
-  it('should find four letter long lsc for abaabbaaa and babab', () => {
+  it('should find baba or abab for abaabbaaa and babab', () => {
     const stringA = 'abaabbaaa';
     const stringB = 'babab';
 
-    const distance = logestcommonsubsequence(stringA, stringB);
-    assert.equal(distance.length, 4);
+    const result = logestcommonsubsequence(stringA, stringB);
+    assert.equal(['baba', 'abab'].indexOf(result) !== -1, true);
   });
 
   it('should return empty string when one of inputs is empty', () => {

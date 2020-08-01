@@ -1,18 +1,29 @@
 function readSolution(dp, firstWord, secondWord, i, j) {
-  if (i === 0 || j === 0) return '';
-
-  if (firstWord.charAt(i - 1) === secondWord.charAt(j - 1)) {
-    return readSolution(dp, secondWord, firstWord, i - 1, j - 1) + firstWord[i - 1];
+  let solution = '';
+  let value;
+  let leftCellValue;
+  let aboveCellValue;
+  while (i !== 0 && j !== 0) {
+    value = dp[i][j];
+    leftCellValue = dp[i][j - 1];
+    aboveCellValue = dp[i - 1][j];
+    if (leftCellValue === value) {
+      j -= 1;
+      continue;
+    } else if (aboveCellValue === value) {
+      i -= 1;
+      continue;
+    } else {
+      solution = firstWord.charAt(i - 1) + solution;
+      i -= 1;
+      j -= 1;
+    }
   }
-
-  if (dp[i][j - 1] > dp[i - 1][j]) {
-    return readSolution(dp, secondWord, firstWord, i, j - 1);
-  }
-  return readSolution(dp, secondWord, firstWord, i - 1, j);
+  return solution;
 }
 
 /**
- * Calculates GCD of two numbers
+ * Calculates Longest Common Subsequence (LCS) of two numbers
  * @param  {String} firstWord First string
  * @param  {String} secondWord Second String
  * @return {String} One of the possbile longest common subsequence for given inputs
