@@ -46,4 +46,10 @@ describe('Interpolation Search', () => {
     assert.equal(interpolationsearch(sortedArray, 68), 34);
     assert.equal(interpolationsearch(sortedArray, 48), 24);
   });
+
+  it('should check for edge case where array contains all duplicate values', () => {
+    const duplicateArray = [42, 42, 42, 42];
+    assert.equal(interpolationsearch(duplicateArray, 6), -1);
+    assert.equal(interpolationsearch(duplicateArray, 42), 0);
+  });
 });
