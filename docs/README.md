@@ -281,6 +281,63 @@ Calculates modular inverse of a number using Fermet's theorem
 
 
 
+
+
+#### newtonSquareRoot(a, accuracy, maxIter) 
+
+Calculates the square root of a number using Newton's iterative method.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number for which the square root needs to be found | &nbsp; |
+| accuracy | `Number`  | Number that indicates when convergence has been reached. | &nbsp; |
+| maxIter | `Number`  | The algorithm will repeat itself either until the required accuracy is reached OR it has performed `maxIter` iterations. | &nbsp; |
+
+
+
+##### Returns
+
+
+- `Number`  The square root of a
+
+
+
+
+### src/algorithms/math/newtons_square_root.js
+
+
+
+
+
+#### fermetModularInverse(a, m) 
+
+Calculates modular inverse of a number using Fermet's theorem
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number for which inverse needs to be found | &nbsp; |
+| m | `Number`  | Mod val | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Modular Inverse
+
+
+
 #### modularInverse(a, m) 
 
 Calculates modular inverse of a number
