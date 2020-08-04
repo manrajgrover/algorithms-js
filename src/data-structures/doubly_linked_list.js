@@ -80,7 +80,7 @@ class DoublyLinkedList {
       this._tail = newNode;
     }
 
-    newNode.next = this._head;
+    newNode._next = this._head;
     newNode.prev = null;
 
     if (this._head !== null) {
