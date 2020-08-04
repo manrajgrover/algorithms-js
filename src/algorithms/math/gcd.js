@@ -7,6 +7,9 @@
  * References: https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number
  */
 const gcd = (a, b) => {
+  if (!Number.isInteger(a) || !Number.isInteger(b)) {
+    return 'numbers must be integer!';
+  }
   a = Math.abs(a);
   b = Math.abs(b);
 
