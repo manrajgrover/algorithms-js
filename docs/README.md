@@ -197,6 +197,34 @@ Raises base to a power keeping mod in check
 
 
 
+### src/algorithms/math/fibonacci.js
+
+
+#### fibonacci(num) 
+
+Output an array of numbers in fibonacci sequence
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| num | `Number`  | Max length to iterate | &nbsp; |
+| temp | `Array`  | Array of numbers in fibonacci sequence | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Array`  Array of numbers in fibonacci sequence up to the length of num
+
+
+
+
 ### src/algorithms/math/gcd.js
 
 
