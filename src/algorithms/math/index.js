@@ -3,11 +3,17 @@ const gcd = require('./gcd');
 const fastexp = require('./fast_exp');
 const lcm = require('./lcm');
 const modularInverse = require('./modular_inverse');
+const findDivisors = require('./find_divisors');
+const fisherYates = require('./fisher_yates');
+const isPrime = require('./is_prime');
 
 module.exports = {
   extendedEuclidean,
   gcd,
   fastexp,
   lcm,
-  modularInverse
+  modularInverse,
+  findDivisors,
+  fisherYates,
+  isPrime
 };
