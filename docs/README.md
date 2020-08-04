@@ -277,6 +277,31 @@ Calculates modular inverse of a number using Fermet's theorem
 ##### Returns
 
 
+- `Number`  Prime or Not Prime
+
+### src/algorithms/math/prime.js
+
+
+#### prime(a) 
+
+Determines whether or not a number is a prime number
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `Number`  | Number to be checked | 
+|  | `Number`  | Returns true if the number is prime and returns false if the number is not prime | 
+
+
+
+
+##### Returns
+
+
 - `Number`  Modular Inverse
 
 
