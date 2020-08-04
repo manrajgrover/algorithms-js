@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.8*
+# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.13*
 
 > Algorithms Library in JavaScript
 
@@ -250,6 +250,36 @@ Calculates LCM of two numbers
 
 
 - `Number`  LCM of two numbers
+
+
+
+
+### src/algorithms/math/modular_combination.js
+
+
+#### modularCombination(n, r, p) 
+
+Calculates modular combination (n, r, p), i.e. Binomial coefficient (n, r) modulo p,
+using Fermat's little theorem
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| n | `Number`  | Number of items in collection | &nbsp; |
+| r | `Number`  | Number of items in selection | &nbsp; |
+| p | `Number`  | Mod val | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Modular Combination
 
 
 
