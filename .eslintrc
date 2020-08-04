@@ -8,6 +8,7 @@
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "no-bitwise": "off",
-    "no-continue": "off"
+    "no-continue": "off",
+    "no-plusplus": "off"
   }
 }
