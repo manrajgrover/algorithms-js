@@ -1,5 +1,6 @@
 const exEuclidean = require('./extended_euclidean');
 const fastExp = require('./fast_exp');
+const phi = require('./euler_totient');
 
 
 /**
@@ -15,6 +16,21 @@ const fermetModularInverse = (a, m) => {
   }
 
   return fastExp(a, m - 2, m);
+};
+
+/**
+ * Calculates modular inverse of a number using Euler's theorem
+ *
+ * @param {Number} a Number for which inverse needs to be found
+ * @param {Number} m Mod value
+ * @return {Number} Modular inverse of a
+ */
+const eulerModularInverse = (a, m) => {
+  if (a === 0 || m === 0) {
+    return null;
+  }
+
+  return fastExp(a, phi(m) - 1, m);
 };
 
 /**
@@ -40,5 +56,6 @@ const modularInverse = (a, m) => {
 
 module.exports = {
   fermetModularInverse,
+  eulerModularInverse,
   modularInverse
 };
