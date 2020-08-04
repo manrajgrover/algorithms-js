@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.8*
+# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.13*
 
 > Algorithms Library in JavaScript
 
@@ -134,6 +134,34 @@ https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Tangents_between
 
 
 - `Void`
+
+
+
+
+### src/algorithms/math/euler_totient.js
+
+
+#### phi(n) 
+
+Euler's totient function (phi) counts the number of integers less than n
+which are relatively prime to n
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| n | `Number`  | the number | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  the number of integers less than n which are relatively prime to n
 
 
 
