@@ -74,6 +74,7 @@ Various Math algorithms:
 - [Fast Exponentiation](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/fast_exp.js)
 - [GCD](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/gcd.js)
 - [LCM](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/lcm.js)
+- [Modular Multiplicative Inverse using Fermet-Euler theorem](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/math/modInverseFermetEuler.js)
 
 #### String
 Various String algorithms:
