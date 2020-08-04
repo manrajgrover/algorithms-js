@@ -163,8 +163,7 @@ ax + by = gcd(a, b)
 ##### Returns
 
 
-- `Object`  Object containing value of x, y and gcd
-
+- `Object`  Object containing value of x, y and greatest common divisor
 
 
 
@@ -220,7 +219,7 @@ Calculates GCD of two numbers
 ##### Returns
 
 
-- `Number`  HCF or GCD of two numbers 
+- `Number`  Highest Common Factor(HCF) or Greatest Common Divisor(GCD) of two numbers 
 References: https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-of-a-positive-and-negative-number
 
 
@@ -231,7 +230,7 @@ References: https://math.stackexchange.com/questions/927050/can-we-find-the-gcd-
 
 #### lcm(a, b) 
 
-Calculates LCM of two numbers
+Calculates Least Common Multiple (LCM) of two numbers
 
 
 
