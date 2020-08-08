@@ -37,7 +37,7 @@ describe('Viterbi Algorithm', () => {
 
   const Y = ['normal', 'cold', 'dizzy'];
   const X = ['healthy', 'healthy', 'fever']; //  expected results
-  it (`should return the expected path: ${X.join(',')}`, () => {
+  it(`should return the expected path: ${X.join(',')}`, () => {
     assert.deepEqual(viterbi(O, S, P, Y, A, B), X);
   });
 });
