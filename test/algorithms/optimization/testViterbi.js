@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const viterbi = require('../../../src').algorithms.optimization.viterbi;
 
 const assert = require('assert');
