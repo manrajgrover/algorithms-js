@@ -38,6 +38,6 @@ let pat = "girl"
 
 let ids = rabinKarp(pat, str) // desired array storing the indices of given string where pattern occurs
 console.log("Pattern found at indexes: ", ids)
-
+module.export = rabinKarp;
 // Output
 // Pattern found at indexes:  [ 0, 26 ]
