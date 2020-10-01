@@ -31,6 +31,7 @@ const Longest_Common_Subsequence = (arr1, arr2) => {
     
 }
 
+  module.exports = Longest_Common_Subsequence;
 
 // I/P and O/P Examples
 
