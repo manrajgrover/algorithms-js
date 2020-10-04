@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const diceCoeff = require('../../../src').algorithms.string.dice_coeff;
 const assert = require('assert');
 
