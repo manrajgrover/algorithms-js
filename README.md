@@ -78,7 +78,11 @@ Various Math algorithms:
 #### String
 Various String algorithms:
 
+
+- [Dice's coefficient](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/dice_coeff.js)
+- [KMP Pattern Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/kmp.js)
 - [Levenshtein Distance](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/levenshtein_distance.js)
+- [Rabin-Karp Pattern Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/rabin_karp.js)
 
 #### Geometry
 Various Geometry algorithms:
