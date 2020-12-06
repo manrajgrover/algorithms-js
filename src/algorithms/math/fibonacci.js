@@ -25,10 +25,9 @@ const fibonacciRecursive = (n) => {
 };
 
 /**
-* @param   {Number} n Index of number to get
-* @return  {Number}   Value of index
+* @return  {Function} Fibonacci closure function
 */
-const fibonacciMemoization = (n) => {
+const fibonacciMemoization = () => {
   const cache = {};
   return function fib(n) {
     if (n in cache) {
