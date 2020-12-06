@@ -38,6 +38,7 @@
     "eslint-plugin-react": "^6.10.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
-    "webpack": "^4.16.2"
+    "webpack": "^4.16.2",
+    "webpack-cli": "^4.2.0"
   }
 }
