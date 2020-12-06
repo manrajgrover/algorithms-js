@@ -24,7 +24,29 @@ const fibonacciRecursive = (n) => {
   return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 };
 
+/**
+* @param   {Number} n Index of number to get
+* @return  {Number}   Value of index
+*/
+const fibonacciMemoization = (n) => {
+  const cache = {};
+  return function fib(n) {
+    if (n in cache) {
+      return cache[n];
+    }
+
+    if (n < 2) {
+      return n;
+    }
+
+    cache[n] = fib(n - 1) + fib(n - 2);
+
+    return cache[n];
+  };
+};
+
 module.exports = {
   fibonacciIterative,
-  fibonacciRecursive
+  fibonacciRecursive,
+  fibonacciMemoization
 };
