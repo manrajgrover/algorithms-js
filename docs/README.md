@@ -1767,7 +1767,8 @@ Get string form of array
 
 - `String`  Comma separated string array
 
-*******************************************
+
+
 ### src/algorithms/sort/radix_sort.js
 
 
@@ -1987,9 +1988,6 @@ Get string form of array
 
 
 - `String`  Comma separated string array
-
-*******************************************
-
 
 
 
