@@ -5,6 +5,7 @@ const InsertionSort = require('./insertion_sort');
 const MergeSort = require('./merge_sort');
 const QuickSort = require('./quick_sort');
 const SelectionSort = require('./selection_sort');
+const RadixSort = require('./radix_sort');
 
 module.exports = {
   BubbleSort,
@@ -13,5 +14,6 @@ module.exports = {
   InsertionSort,
   MergeSort,
   QuickSort,
-  SelectionSort
+  SelectionSort,
+  RadixSort,
 };
