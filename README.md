@@ -66,6 +66,7 @@ Various Sorting algorithms:
 - [Merge Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/merge_sort.js)
 - [Quick Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/quick_sort.js)
 - [Selection Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/selection_sort.js)
+- [Selection Sort](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/sort/radix_sort.js)
 
 #### Math
 Various Math algorithms:

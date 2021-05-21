@@ -1767,6 +1767,229 @@ Get string form of array
 
 - `String`  Comma separated string array
 
+*******************************************
+### src/algorithms/sort/radix_sort.js
+
+
+#### new RadixSort() 
+
+Class for Radix Sort for an array of integers
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._unsortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._sortedList()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### this._length()  *private method*
+
+
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### size() 
+
+Get size of array
+
+
+
+
+
+
+##### Returns
+
+
+- `Number`  Size of array
+
+
+
+#### unsortedList() 
+
+Get unsorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Unsorted/Initial array
+
+
+
+#### sortedList() 
+
+Get sorted array
+
+
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted array
+
+
+#### _getDigit(num, i)  *private method*
+
+Get the digit at index i from an integer number
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| num | `Number`  | Number from which to extract the digit | &nbsp; |
+| i | `Number`  | Index from which to extract the digit | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Extracted digit
+
+
+
+#### _getDigitCount(num)  *private method*
+
+Get the number of digits in an integer number
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| num | `Number`  | Number from which to count digits | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Number of digits
+
+
+
+#### _getMostDigits(nums)  *private method*
+
+Given an array of integers, returns the number of digits in the largest number in the array
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| nums | `Array`  | Array of numbers | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  Largest number of digits in an integer found in the array
+
+
+
+#### _sort(list)  *private method*
+
+Selection Sorts the array
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| list | `Array`  | Array of integers to be sorted | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Array`  Sorted array
+
+
+
+#### toString() 
+
+Get string form of array
+
+
+
+
+
+
+##### Returns
+
+
+- `String`  Comma separated string array
+
+*******************************************
+
 
 
 
