@@ -14,7 +14,6 @@ describe('Divisors', () => {
 
   it('should return [1] for 1', () => {
     assert.deepEqual(getDivisors(1), [1]);
-
   });
 
   it('should return divisors of a number', () => {

@@ -4,7 +4,7 @@
  * @return {Array}   Array of Divisors
  * Time Complexity = O(n ^ 0.5)
  */
- const getDivisors = (n) => {
+const getDivisors = (n) => {
   let divisors = [];
   if (n < 1) return [];
   const tempArray = [];

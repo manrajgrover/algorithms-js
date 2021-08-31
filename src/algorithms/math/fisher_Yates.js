@@ -4,12 +4,11 @@
  * @return {Array}   Shuffled Array
  *
  */
- const Shuffle = (array) => {
+const Shuffle = (array) => {
   let currentIndex = array.length;
   let randomIndex;
 
-  while (currentIndex != 0) {
-
+  while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
