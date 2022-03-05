@@ -8,12 +8,16 @@ const interpolationsearch = (sortedArray, element) => {
   let left = 0;
   let right = sortedArray.length - 1;
 
-  while ((left <= right) && (element >= sortedArray[left]) && (element <= sortedArray[right])) {
+  while (
+    left <= right &&
+    element >= sortedArray[left] &&
+    element <= sortedArray[right]
+  ) {
     const valDiff = sortedArray[right] - sortedArray[left];
     const posDiff = right - left;
     const elementDiff = element - sortedArray[left];
 
-    const pos = left + ((posDiff * elementDiff) / valDiff || 0);
+    const pos = left + (Math.floor((posDiff * elementDiff) / valDiff) || 0);
 
     if (sortedArray[pos] === element) {
       return pos;
