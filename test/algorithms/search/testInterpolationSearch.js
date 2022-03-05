@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-const interpolationsearch = require('../../../src').algorithms.search.interpolationsearch;
+const interpolationsearch =
+  require('../../../src').algorithms.search.interpolationsearch;
 const assert = require('assert');
 
 describe('Interpolation Search', () => {
@@ -47,8 +48,15 @@ describe('Interpolation Search', () => {
     assert.equal(interpolationsearch(sortedArray, 48), 24);
   });
 
+  it('should check for edge case where element at pos > element to search', () => {
+    const sortedArray = [1, 3, 5, 14, 21, 25, 26, 27];
+
+    assert.equal(interpolationsearch(sortedArray, 25), 5);
+  });
+
   it('should check for edge case where array contains all duplicate values', () => {
     const duplicateArray = [42, 42, 42, 42];
+
     assert.equal(interpolationsearch(duplicateArray, 6), -1);
     assert.equal(interpolationsearch(duplicateArray, 42), 0);
   });
