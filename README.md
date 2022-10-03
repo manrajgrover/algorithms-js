@@ -55,6 +55,7 @@ Various Searching algorithms:
 - [Jump Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/jump_search.js)
 - [Linear Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/linear_search.js)
 - [Ternary Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/ternary_search.js)
+- [Fibonacci Search](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/search/fibonacci_search.js)
 
 #### Sort
 Various Sorting algorithms:
