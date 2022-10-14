@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>algorithms-js 0.0.8 &#8212; Algorithms Library in JavaScript</title>
+<title>algorithms-js 0.0.13 &#8212; Algorithms Library in JavaScript</title>
 <meta name="description" content="Algorithms Library in JavaScript">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -163,7 +163,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
         <h1>
                 <a href="https://github.com/manrajgrover/algorithms-js#readme">algorithms-js</a>
-            <small>0.0.8</small>
+            <small>0.0.13</small>
         </h1>
 
         <p>Algorithms Library in JavaScript</p>
@@ -296,6 +296,21 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
                     <li>
+                        <a href="#src/algorithms/math/matrix_determinant.js" class="file"><b>src/algorithms/math/matrix_determinant.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-matrix_determinant.js-matrixdeterminant" title="matrixDeterminant">matrixDeterminant</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
                         <a href="#src/algorithms/math/modular_inverse.js" class="file"><b>src/algorithms/math/modular_inverse.js</b></a>
                         <ul>
 
@@ -307,6 +322,26 @@ input[type="search"]::-webkit-search-cancel-button {
 
                         <li class="method-link scope-public">
                             <a href="#src-algorithms-math-modular_inverse.js-modularinverse" title="modularInverse">modularInverse</a>
+                        </li>
+
+
+                        </ul>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#src/algorithms/math/tridiagonal_algorithm.js" class="file"><b>src/algorithms/math/tridiagonal_algorithm.js</b></a>
+                        <ul>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-tridiagonal_algorithm.js-extracttridiagonalcoefficients" title="extractTridiagonalCoefficients">extractTridiagonalCoefficients</a>
+                        </li>
+
+
+                        <li class="method-link scope-public">
+                            <a href="#src-algorithms-math-tridiagonal_algorithm.js-tridiagonalalgorithm" title="tridiagonalAlgorithm">tridiagonalAlgorithm</a>
                         </li>
 
 
@@ -1985,6 +2020,84 @@ References: <a href="https://math.stackexchange.com/questions/927050/can-we-find
 
 
 
+                <a id="src/algorithms/math/matrix_determinant.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-matrix_determinant.js-matrixdeterminant">
+                            <a href="#src-algorithms-math-matrix_determinant.js-matrixdeterminant" class="permalink">#</a>
+                            <span class="method-name" title="matrixDeterminant(M)">matrixDeterminant(M)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Calculates the determinant of a non-singular matrix
+with real entries using Bareiss's algorithm.</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>M</td>
+                                        <td>
+                                            <code>Array</code>
+                                        </td>
+                                        <td><p>Matrix with real entries.</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Number</code>
+                                    </p>
+
+                                    <p>determinant of the matrix M.
+Reference: <a href="https://en.wikipedia.org/wiki/Bareiss_algorithm">https://en.wikipedia.org/wiki/Bareiss_algorithm</a></p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
                 <a id="src/algorithms/math/modular_inverse.js"></a>
 
 
@@ -2143,6 +2256,182 @@ References: <a href="https://math.stackexchange.com/questions/927050/can-we-find
                                     </p>
 
                                     <p>Modular Inverse</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+
+                <a id="src/algorithms/math/tridiagonal_algorithm.js"></a>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-tridiagonal_algorithm.js-extracttridiagonalcoefficients">
+                            <a href="#src-algorithms-math-tridiagonal_algorithm.js-extracttridiagonalcoefficients" class="permalink">#</a>
+                            <span class="method-name" title="extractTridiagonalCoefficients(A, pad)">extractTridiagonalCoefficients(A, pad)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Extracts the tridiagonal coefficients from
+a square matrix A. Pads the upper and lower
+diagonal arrays to ensure all three diagonals
+are of equal length.</p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>A</td>
+                                        <td>
+                                            <code>Array</code>
+                                        </td>
+                                        <td><p>Square matrix.</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>pad</td>
+                                        <td>
+                                            <code>boolean</code>
+                                        </td>
+                                        <td><p>If true, pads lower and upper diagonal arrays.</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                            <code>Object</code>
+                                    </p>
+
+                                    <p>Returns object with keys <code>lowerDiagonal</code>,                   <code>centralDiagonal</code> and <code>upperDiagonal</code>.</p>
+
+
+
+
+                        </section>
+
+                    </div>
+
+
+                    <div class="method scope-public">
+
+                        <h2 id="src-algorithms-math-tridiagonal_algorithm.js-tridiagonalalgorithm">
+                            <a href="#src-algorithms-math-tridiagonal_algorithm.js-tridiagonalalgorithm" class="permalink">#</a>
+                            <span class="method-name" title="tridiagonalAlgorithm(A, d)">tridiagonalAlgorithm(A, d)</span>
+                        </h2>
+
+                        <div class="description lead">
+
+                            <p>Solves a linear system Ax=b where A is a tridiagonal matrix.</p>
+<p>Note: the method is only stable in some special cases
+such as when the matrix is diagonally dominant or symmetric
+positive definite (See reference).
+For an algorithm stable in the general case, see:
+<a href="http://www2.stat.duke.edu/~sayan/863/lec/linsys.pdf">http://www2.stat.duke.edu/~sayan/863/lec/linsys.pdf</a></p>
+
+
+                        </div>
+
+
+                        <section class="parameters">
+
+                            <h3>Parameters</h3>
+
+                            <div class="table-responsive">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>A</td>
+                                        <td>
+                                            <code>Array</code>
+                                        </td>
+                                        <td><p>Tridiagonal Maxtrix.</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>d</td>
+                                        <td>
+                                            <code>Array</code>
+                                        </td>
+                                        <td><p>Vector of values.</p>
+</td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </section>
+
+
+
+
+                        <section class="returns">
+
+                            <h3>Returns</h3>
+
+
+
+                                    <p>
+                                    </p>
+
+                                    <p>array representing the solution vector x.          Returns null if system is singular.</p>
+<p>Reference: <a href="https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm">https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm</a></p>
 
 
 
