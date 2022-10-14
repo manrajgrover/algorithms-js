@@ -1,4 +1,4 @@
-# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.8*
+# [algorithms-js](https://github.com/manrajgrover/algorithms-js#readme) *0.0.13*
 
 > Algorithms Library in JavaScript
 
@@ -254,6 +254,35 @@ Calculates LCM of two numbers
 
 
 
+### src/algorithms/math/matrix_determinant.js
+
+
+#### matrixDeterminant(M) 
+
+Calculates the determinant of a non-singular matrix
+with real entries using Bareiss's algorithm.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| M | `Array`  | Matrix with real entries. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Number`  determinant of the matrix M. 
+Reference: https://en.wikipedia.org/wiki/Bareiss_algorithm
+
+
+
+
 ### src/algorithms/math/modular_inverse.js
 
 
@@ -302,6 +331,69 @@ Calculates modular inverse of a number
 
 
 - `Number`  Modular Inverse
+
+
+
+
+### src/algorithms/math/tridiagonal_algorithm.js
+
+
+#### extractTridiagonalCoefficients(A, pad) 
+
+Extracts the tridiagonal coefficients from
+a square matrix A. Pads the upper and lower
+diagonal arrays to ensure all three diagonals
+are of equal length.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| A | `Array`  | Square matrix. | &nbsp; |
+| pad | `boolean`  | If true, pads lower and upper diagonal arrays. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Object`  Returns object with keys `lowerDiagonal`,                   `centralDiagonal` and `upperDiagonal`.
+
+
+
+#### tridiagonalAlgorithm(A, d) 
+
+Solves a linear system Ax=b where A is a tridiagonal matrix.
+
+Note: the method is only stable in some special cases
+such as when the matrix is diagonally dominant or symmetric
+positive definite (See reference).
+For an algorithm stable in the general case, see:
+http://www2.stat.duke.edu/~sayan/863/lec/linsys.pdf
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| A | `Array`  | Tridiagonal Maxtrix. | &nbsp; |
+| d | `Array`  | Vector of values. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+-  array representing the solution vector x.          Returns null if system is singular.
+
+Reference: https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm
 
 
 
