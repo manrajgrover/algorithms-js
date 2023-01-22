@@ -5,6 +5,7 @@ const exponentialsearch = require('./exponential_search');
 const interpolationsearch = require('./interpolation_search');
 const jumpsearch = require('./jump_search');
 const linearsearch = require('./linear_search');
+const naivesearch = require('./naive_search');
 const ternarysearch = require('./ternary_search');
 
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
   interpolationsearch,
   jumpsearch,
   linearsearch,
+  naivesearch,
   ternarysearch
 };
