@@ -5,11 +5,11 @@
  */
 const sumall = (arr) => {
   let sum = 0;
-  let min = arr[0];
-  let max = arr[1];
+  const min = arr[0];
+  const max = arr[1];
   let i = 0;
-  for (i = min; i <= max; i+=1) {
-    sum+=i;
+  for (i = min; i <= max; i += 1) {
+    sum += i;
   }
   return sum;
 };
