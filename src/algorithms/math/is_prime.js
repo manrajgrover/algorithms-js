@@ -5,13 +5,13 @@
  *
  * References: https://javascript.plainenglish.io/11-mathematical-algorithms-in-modern-javascript-bce71318e2da
  */
- const isprime = num => {
+const isprime = num => {
     const limit = Math.floor(Math.sqrt(num));
-    for (let i = 2; i <= limit; i++){ 
-        if (n % i === 0) return false;
+    for (let i = 2; i <= limit; i++) {
+        if (num % i === 0) return false;
     }
-     return n >= 2;
-  };
-  
-  module.exports = isprime;
-  
+    return num >= 2;
+};
+
+
+module.exports = isprime;

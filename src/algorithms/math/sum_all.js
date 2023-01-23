@@ -4,7 +4,7 @@
  * @return {Number}  sum sum of the range of numberse
  */
 const sumall = (arr) => {
-    var sum =0;
+    var sum = 0;
     var min = arr[0];
     var max = arr[1];
     for (var i = min; i <= max; i++) {

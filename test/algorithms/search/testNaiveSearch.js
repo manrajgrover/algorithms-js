@@ -4,19 +4,19 @@ const assert = require('assert');
 
 describe('Naive Search', () => {
   it('should return frequency of the pattern', () => {
-    const freq = naivesearch("akgjfjhuyutomatokajkhgsvkjrtomato", "tomato");
+    const freq = naivesearch('akgjfjhuyutomatokajkhgsvkjrtomato', 'tomato');
 
     assert.equal(freq, 1);
   });
 
   it('should return frequency of the pattern', () => {
-    const freq = naivesearch("treeseebeetea", "ee");
+    const freq = naivesearch('treeseebeetea', 'ee');
 
     assert.equal(freq, 3);
   });
 
   it('should return frequency of the pattern', () => {
-    const freq = naivesearch("applebottomjeans", "boots");
+    const freq = naivesearch('applebottomjeans', 'boots');
 
     assert.equal(freq, 0);
   });
