@@ -6,7 +6,7 @@ describe('Naive Search', () => {
   it('should return frequency of the pattern', () => {
     const freq = naivesearch('akgjfjhuyutomatokajkhgsvkjrtomato', 'tomato');
 
-    assert.equal(freq, 1);
+    assert.equal(freq, 2);
   });
 
   it('should return frequency of the pattern', () => {
