@@ -7,14 +7,14 @@
 
 const naivesearch = (st, pattern) => {
   let count = 0;
-  for (let i = 0; i < st.length; i++) {
-    for (let j = 0; j < pattern.length; j++) {
+  for (let i = 0; i < st.length; i = i + 1) {
+    for (let j = 0; j < pattern.length; j = j + 1) {
       if (st[i + j] !== pattern[j]) break;
-      if (j === pattern.length - 1) count = count + 1;
+      if (j === pattern.length - 1) count += 1;
     }
   }
 
   return count;
-}
+};
 
 module.exports = naivesearch;

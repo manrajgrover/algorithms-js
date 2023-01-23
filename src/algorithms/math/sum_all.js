@@ -4,14 +4,14 @@
  * @return {Number}  sum sum of the range of numberse
  */
 const sumall = (arr) => {
-    var sum = 0;
-    var min = arr[0];
-    var max = arr[1];
-    for (var i = min; i <= max; i++) {
-        sum += i;
-    }
-
-    return sum;
+  var sum = 0;
+  var min = arr[0];
+  var max = arr[1];
+  var i =0;
+  for (i = min; i <= max; i = i + 1) {
+    sum = sum + i;
+  }
+  return sum;
 };
 
 module.exports = sumall;
