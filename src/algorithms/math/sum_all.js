@@ -4,12 +4,12 @@
  * @return {Number}  sum sum of the range of numberse
  */
 const sumall = (arr) => {
-  var sum = 0;
-  var min = arr[0];
-  var max = arr[1];
-  var i =0;
-  for (i = min; i <= max; i = i + 1) {
-    sum = sum + i;
+  let sum = 0;
+  let min = arr[0];
+  let max = arr[1];
+  let i = 0;
+  for (i = min; i <= max; i+=1) {
+    sum+=i;
   }
   return sum;
 };
