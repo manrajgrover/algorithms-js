@@ -7,8 +7,8 @@
  */
 const isprime = (num) => {
   const limit = Math.floor(Math.sqrt(num));
-  for (let i = 2; i <= limit; i++) {
-      if (num % i === 0) return false;
+  for (let i = 2; i <= limit; i += 1) {
+    if (num % i === 0) return false;
   }
   return num >= 2;
 };
