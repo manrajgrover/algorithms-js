@@ -32,4 +32,9 @@ describe('Ternary Search', () => {
 
     assert.equal(index, 4);
   });
+
+  it('should return index of element between two midpoints', () => {
+    const index = ternarysearch([1, 3, 5, 7, 9, 11, 13], 7);
+    assert.equal(index, 3);
+  });
 });
