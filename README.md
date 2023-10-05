@@ -79,6 +79,8 @@ Various Math algorithms:
 Various String algorithms:
 
 - [Levenshtein Distance](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/levenshtein_distance.js)
+- [Z-Algorithm](https://github.com/manrajgrover/algorithms-js/blob/master/src/algorithms/string/zalgorithm.js)
+
 
 #### Geometry
 Various Geometry algorithms:
