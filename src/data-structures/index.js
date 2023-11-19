@@ -6,6 +6,7 @@ const LinkedList = require('./linked_list');
 const Queue = require('./queue');
 const Stack = require('./stack');
 const Trie = require('./trie');
+const LRUCache = require('./LRU_cache');
 
 module.exports = {
   DoublyLinkedList,
@@ -15,5 +16,6 @@ module.exports = {
   LinkedList,
   Queue,
   Stack,
-  Trie
+  Trie,
+  LRUCache
 };
