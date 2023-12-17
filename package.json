@@ -14,7 +14,8 @@
     "all": "npm run test && npm run lint",
     "docs": "doxdox 'src/**/*.js' --layout bootstrap --output docs/index.html && doxdox 'src/**/*.js' --layout markdown --output docs/README.md",
     "dev": "webpack",
-    "prod": "webpack -p"
+    "prod": "webpack -p",
+    "start": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,7 @@
   "homepage": "https://github.com/manrajgrover/algorithms-js#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "doxdox": "^2.0.3",
     "eslint": "^5.2.0",
@@ -39,5 +40,8 @@
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "webpack": "^4.16.2"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^4.15.1"
   }
 }

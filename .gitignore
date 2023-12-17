@@ -3,3 +3,4 @@
 /.nyc_output
 /npm-debug.log
 dist
+php_errors.log
